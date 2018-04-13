@@ -1,0 +1,424 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* dark blue #000033 */
+/* red #de0421 */
+/* light blue rgba(216, 237, 252, 0.5); */
+
+
+body {
+  margin: 0;
+  font-family: raleway;
+  color: #000033;
+  font-size: 14px;
+}
+
+#container {
+ width: 348px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+
+/* HEADER SECTION */
+
+header {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+#header-container {
+  width: 80%;
+  max-width: 348px;
+  margin: 0 auto;
+}
+
+header img {
+  width: 90%;
+  margin-top: 50px;
+}
+
+header h2 {
+  font-family: alegreya;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+#new-customer-header {
+  width: 80%;
+  max-width: 348px;
+  margin: 0 auto;
+}
+
+#new-customer-header p {
+  font-size: 10px;
+}
+
+#new-customer-header a {
+  color: #de0421;
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 1px solid #de0421;
+}
+
+
+#header3 p {
+  font-size: 11px;
+}
+
+#header3 a {
+  color: #DE0421;
+}
+
+/* END HEADER SECTION */
+
+.hidden {
+  display: none;
+}
+
+#new-customer-form {
+  margin-top: 40px;
+  text-align: center;
+}
+
+#new-customer-form input, select {
+  box-sizing: border-box;
+  width: 90%;
+  margin-bottom: 25px;
+  background-color: lightgray;
+  border-style: none;
+  height: 40px;
+  border-radius: 4px;
+  padding-left: 10px;
+}
+
+#new-customer-next {
+  height: 50px;
+  width: 100%;
+  color: white;
+  background-color: #000033;
+  border-radius: 7px;
+  text-transform: uppercase;
+  width: 90%;
+  line-height: 50px;
+  margin: 0 auto;
+  font-size: 12px;
+}
+
+input#new-customer-create, input#login-button {
+  height: 50px;
+  width: 100%;
+  color: white;
+  background-color: #000033;
+  border-radius: 7px;
+  text-transform: uppercase;
+  width: 90%;
+  font-size: 12px;
+}
+
+
+
+
+/* All the old shit */
+
+.selected {
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.clear-float {
+  clear: both;
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  height: 60px;
+  background-color: #000033;
+  color: white;
+  width: 135px;
+  font-size: 14px;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+
+
+
+/* GARMENT SELECTION PAGE */
+
+#garment-select, #header-text, #alteration-select, #alteration-buttons, #order-details {
+  width: 348px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+.garment-card, .alteration-card {
+  width: 100px;
+  height: 100px;
+  padding: 25px;
+  border: 2px solid #000033;
+  margin: 20px 10px;
+  float: left;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.alteration-card {
+  font-family: raleway;
+  font-size: 12px;
+  font-weight: bold;
+  }
+
+.alteration-card p {
+  margin-top: 0;
+}
+
+#alteration-buttons {
+  text-align: center;
+  margin-bottom: 50px;
+  min-width: 250px;
+}
+
+#alteration-back-button {
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+#add-alt-to-basket {
+  width: 90%;
+  background-color: rgba(0,0,53,.5);
+}
+
+.garment-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.garment-image {
+  width: 50%;
+}
+
+#necktie img {
+  width: 28px;
+}
+
+.how-to-prep {
+
+}
+
+/*  */
+/* END GARMENT SELECTION PAGE */
+
+
+/* BASKET STYLES */
+/*  */
+
+#basket {
+  clear: both;
+  border: 2px solid #000033;
+  border-radius: 5px;
+  width: 328px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
+
+#basket h2 {
+  text-align: center;
+  font-family: raleway;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+#basket img {
+  width: 40px;
+  padding-right: 20px;
+  vertical-align: -4px;
+}
+
+#basket hr {
+  width: 80%;
+}
+
+#basket-items {
+  margin: 20px;
+  overflow: auto;
+}
+
+.basket-garment, .review-garment {
+  clear: both;
+  text-transform: uppercase;
+  font-size: 12px;
+  overflow: auto;
+  margin-top: 20px;
+}
+
+.basket-alteration, .review-alteration {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  overflow: auto;
+}
+
+#basket-edit, #basket-delete, #review-edit, #review-delete {
+  font-size: 10px;
+}
+
+#basket-edit, #review-edit {
+  margin-right: 4px;
+}
+
+#basket-delete, #review-delete {
+  color: #DE0421;
+  margin-left: 4px;
+}
+
+#basket-total {
+  margin: 20px;
+  overflow: auto;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+#checkout-button {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+/*  */
+/* END BASKET STYLES
+
+
+/* ORDER REVIEW PAGE */
+#review-order {
+  margin: 20px;
+  width: 328px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  overflow: auto;
+}
+
+#review-order hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.review-garment {
+  font-weight: bold;
+}
+
+.review-alteration {
+}
+
+#review-total {
+  overflow: auto;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+#review-notes {
+  font-size: 12px;
+  text-align: center;
+  text-decoration: underline;
+  color: #DE0421;
+  height: 100px;
+  line-height: 100px;
+}
+
+#review-notes img {
+  vertical-align: -10px;
+  width: 25px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#review-notes-textarea {
+  box-sizing: border-box;
+  width: 100%;
+  resize: vertical;
+  border-radius: 5px;
+  min-height: 100px;
+  padding: 8px;
+  line-height: 14px;
+  background-color: rgba(216, 237, 252, 0.5);;
+  margin-top: -20px;
+}
+
+#review-notes-textarea::placeholder {
+  line-height: 14px;
+}
+
+#review-shipping {
+  margin-top: 30px;
+}
+
+#review-contact {
+  margin-top: 30px;
+}
+
+.review-edit-account {
+  text-transform: uppercase;
+  font-size: 10px;
+  margin-left: 10px;
+  text-decoration: underline;
+}
+
+#proceed-to-pay {
+  display: block;
+  margin-top: 30px;
+  width: 100%;
+}
+
+#promo-code-note {
+  font-style: italic;
+  font-size: 12px;
+  text-align: center;
+  color: gray;
+}
+/* END ORDER REVIEW PAGE */
+
+
+
+/* FOOTER */
+
+footer {
+  margin-top: 100px;
+}
+
+footer, footer a {
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+}

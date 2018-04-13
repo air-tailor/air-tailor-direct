@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AirTailorDirect</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta name="viewport" content="width=device-width">
+  </head>
+
+  <body>
+
+    <div id="container">
+
+      <%= yield %>
+
+
+
+      <footer>
+        <p>&copy; 2018 Air Tailor Inc. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a><p>
+      </footer>
+
+    </div>
+
+  </body>
+</html>

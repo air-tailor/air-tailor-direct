@@ -1,0 +1,55 @@
+class CustomersController < ApplicationController
+
+before_action :authorize, :except => [:new, :create]
+
+  def new_order
+    @customer = current_customer
+  end
+
+  def show
+
+  end
+
+  def index
+
+  end
+
+  def new
+    @customer = Customer.new
+  end
+
+  def create
+    @customer = Customer.new(customer_params)
+    if @customer.save
+      session[:user_id] = @customer.id
+      redirect_to "/new_order"
+   else
+      redirect_to new_customer_path
+   end
+  end
+
+  def edit
+    @customer = customer.find_by(id: params[:id])
+  end
+
+  def update
+    @customer = Customer.find_by(id: params[:id])
+
+  end
+
+  def destroy
+
+  end
+
+
+
+
+
+
+private
+
+  def customer_params
+    params.require(:customer).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone, :street, :street_two, :city, :state_province, :zip_code)
+  end
+
+end
