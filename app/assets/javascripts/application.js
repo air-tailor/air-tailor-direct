@@ -17,8 +17,8 @@
 //= require_tree .
 
   $(document).on("click", "#new-customer-next", function(){
-  $("#new-customer-part-1").toggleClass('hidden');
-  $("#new-customer-part-2").toggleClass('hidden');
+    $("#new-customer-part-1").css('display', 'none');
+    $("#new-customer-part-2").css('display', 'block');
   });
 
 
