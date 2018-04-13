@@ -302,15 +302,15 @@
     <hr>
     <div id="review-shipping">
       <p class="review-garment">Shipping <span class="review-edit-account">edit</span></p>
-      <p class="review-alteration">Full Name</p>
-      <p class="review-alteration">Address 1</p>
-      <p class="review-alteration">Address 2</p>
-      <p class="review-alteration">City, State 00000</p>
+      <p class="review-alteration"><%= @customer.first_name %> <%= @customer.last_name %></p>
+      <p class="review-alteration"><%= @customer.street %></p>
+      <p class="review-alteration"><%= @customer.street_two %></p>
+      <p class="review-alteration"><%= @customer.city %>, <%= @customer.state %> <%= @customer.zip_code %></p>
     </div>
     <div id="review-contact">
       <p class="review-garment">Contact <span class="review-edit-account">edit</span></p>
-      <p class="review-alteration">123-456-7890</p>
-      <p class="review-alteration">email@email.com</p>
+      <p class="review-alteration"><%= @customer.phone %></p>
+      <p class="review-alteration"><%= @customer.email %></p>
     </div>
     <button id="proceed-to-pay">Proceed to Pay</button>
     <p id="promo-code-note">Redeem promo code on next screen</p>
