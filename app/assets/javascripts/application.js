@@ -72,7 +72,7 @@
   //
   //
 
-  $(document).on("click", ".alteration-card", function(){
+  $(document).on("click", ".alteration-name-price", function(){
     if ($(this).hasClass("selected")){
       currentAlterations.pop()
       itemPrice = 0
@@ -113,12 +113,12 @@
     }
     $("#alteration-select").toggleClass('hidden');
     $("#garment-select").toggleClass('hidden');
-    $(".alteration-card").css('background-color', 'white');
+    $(".alteration-name-price").css('background-color', 'white');
 
     currentAlterations = [];
     currentGarment = "";
 
-    $(".alteration-card").removeClass("selected")
+    $(".alteration-name-price").removeClass("selected")
 
     $("#header1").toggleClass('hidden');
     $("#header2").toggleClass('hidden');
@@ -175,8 +175,8 @@
       //
 
       // return alterations cards to white
-      $(".alteration-card").css('background-color', 'white');
-      $(".alteration-card").removeClass("selected")
+      $(".alteration-name-price").css('background-color', 'white');
+      $(".alteration-name-price").removeClass("selected")
       //
 
       // return view to garment select

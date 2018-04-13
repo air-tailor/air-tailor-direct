@@ -175,7 +175,7 @@ button {
   overflow: auto;
 }
 
-.garment-card, .alteration-card {
+.garment-card {
   width: 100px;
   height: 100px;
   padding: 25px;
@@ -187,13 +187,46 @@ button {
 }
 
 .alteration-card {
-  font-family: raleway;
+  float: left;
+  overflow: auto;
   font-size: 12px;
-  font-weight: bold;
+  margin: 20px 10px;
+}
+
+.alteration-name-price {
+  font-family: raleway;
+  font-weight: normal;
+  width: 100px;
+  height: 100px;
+  padding: 25px;
+  border-radius: 5px;
+  text-align: center;
+  border: 2px solid #000033;
   }
 
-.alteration-card p {
+.alteration-name-price p {
+  font-weight: bold;
   margin-top: 0;
+}
+
+.how-to-prep-button {
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: bold;
+  height: 50px;
+  box-sizing: border-box;
+}
+
+.how-to-prep-button img {
+  width: 25px;
+  vertical-align: middle;
+  padding-left: 20px;
+  padding-right: 5px;
+}
+
+.how-to-prep-button p {
+  line-height: 50px;
+  margin: 0;
 }
 
 #alteration-buttons {
