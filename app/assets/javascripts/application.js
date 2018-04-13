@@ -94,6 +94,21 @@
     }
   });
 
+  $(document).on("click", ".how-to-prep-button", function(){
+    if ($("#how-to-prep-popup").hasClass('hidden')){
+      var currentPrep = $(this).prev().find("p").html()
+      console.log(currentPrep)
+    $("#overlay, #how-to-prep-popup").fadeToggle();
+
+    } else {
+
+    }
+  })
+
+  $(document).on("click", "#exit-prep", function(){
+    $("#overlay, #how-to-prep-popup").fadeToggle();
+  });
+
 
   //
   //

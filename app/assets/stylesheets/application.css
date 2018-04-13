@@ -33,6 +33,20 @@ body {
   overflow: auto;
 }
 
+#overlay {
+  position:fixed;
+  display:none;
+
+  /* color with alpha channel */
+  background-color: rgba(0, 0, 0, 0.3); /* 0.7 = 70% opacity */
+
+  /* stretch to screen edges */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
 
 /* HEADER SECTION */
 
@@ -190,7 +204,7 @@ button {
   float: left;
   overflow: auto;
   font-size: 12px;
-  margin: 20px 10px;
+  margin: 10px 10px;
 }
 
 .alteration-name-price {
@@ -227,6 +241,23 @@ button {
 .how-to-prep-button p {
   line-height: 50px;
   margin: 0;
+}
+
+#how-to-prep-popup {
+  width: 90%;
+  min-height: 400px;
+  background-color: white;
+  position: fixed;
+  top: 100px;
+  left: 5%;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #000;
+}
+
+#exit-prep {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 #alteration-buttons {
