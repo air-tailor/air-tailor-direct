@@ -371,7 +371,7 @@
   // POST REQUEST TO AIR TAILOR API
   //
   //
-  const data = {
+  var data = {
     order: {
       requester_notes: 'these are notes the customer or revolve can leave',
       items: [
