@@ -24,6 +24,7 @@ body {
   font-family: raleway;
   color: #000033;
   font-size: 14px;
+  cursor:pointer;
 }
 
 #container {
