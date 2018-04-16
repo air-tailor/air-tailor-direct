@@ -47,6 +47,7 @@
   //
   //
 
+
   $(document).on("click", ".garment-card", function(){
     currentGarment = $(this).find("h3").html()
     $("#garment-select").toggleClass('hidden');
@@ -271,10 +272,12 @@
     }
   });
 
+
   // checkout button
     $(document).on('click', "#checkout-button", function(){
       // hide garment and alteration divs, show review page
       $("main").toggleClass('hidden');
+      $("#basket").toggleClass('hidden');
       $("#review-order").toggleClass('hidden');
 
       // show proper header for review page
@@ -311,15 +314,19 @@
   // Not done? Add another garment button
   $(document).on('click', "#add-garment", function(){
     $("#review-order").toggleClass('hidden');
+    $("#basket").toggleClass("hidden");
     $("main").toggleClass('hidden');
+
     // show proper header for garment page
     if(currentGarment == ""){
       $("#header1").toggleClass('hidden');
     } else {
       $("#header2").toggleClass('hidden');
     };
+
     $("#header3").toggleClass('hidden');
   });
+
 
   // review-delete button
   $(document).on('click', '#review-delete', function(){
@@ -354,10 +361,11 @@
     items.splice(currentIndex,1)
 
     // hide review page and basket, return to garments page
-    if (items.length == 0){
+    if (items.length === 0){
+      console.log("fuck")
       $("main").toggleClass('hidden');
       $("#review-order").toggleClass('hidden');
-      $("#basket").toggleClass('hidden');
+      // $("#basket").toggleClass('hidden');
 
       // show proper header for garment page
       if(currentGarment == ""){
@@ -366,7 +374,7 @@
         $("#header2").toggleClass('hidden');
       };
       $("#header3").toggleClass('hidden');
-      }
+    }
   });
 
   // add notes button

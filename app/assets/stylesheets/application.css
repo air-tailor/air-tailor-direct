@@ -95,15 +95,12 @@ header h2 {
   font-size: 11px;
 }
 
-#header3 a {
+#header3 span {
   color: #DE0421;
+  border-bottom: 1px solid #DE0421;
 }
 
 /* END HEADER SECTION */
-
-.hidden {
-  display: none;
-}
 
 #new-customer-form {
   margin-top: 40px;
