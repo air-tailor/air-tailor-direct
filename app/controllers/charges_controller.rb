@@ -8,7 +8,7 @@ require "stripe"
   def create
 
     @amount = params[:amount].to_f
-    @amount = (@amount * 100).round(2)
+    @amount = (@amount * 100).round()
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
