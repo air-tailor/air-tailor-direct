@@ -489,6 +489,7 @@
 
 
 
+
   <!-- review order page -->
   <div id="review-order" class="hidden">
     <!-- displays order items below -->
@@ -523,6 +524,47 @@
       <p class="review-alteration"><%= @customer.phone %></p>
       <p class="review-alteration"><%= @customer.email %></p>
     </div>
-    <button id="proceed-to-pay">Proceed to Pay</button>
+
+
+    <%= form_tag charges_path, :id => "myform" do %>
+        <script src="https://checkout.stripe.com/checkout.js"></script>
+
+        <button id="proceed-to-pay">Proceed to Payment</button>
+
+        <script>
+          var handler = StripeCheckout.configure({
+          key: 'pk_test_SAfpkFB2WVKLbQVukGCTVq5Z',
+          locale: 'auto',
+          token: function (token) {
+              // Use the token to create the charge with a server-side script.
+              // You can access the token ID with `token.id`
+              var tokenInput = $("<input type=hidden name=stripeToken />").val(token.id);
+              var emailInput = $("<input type=hidden name=stripeEmail />").val(token.email);
+              $("#myform").append(tokenInput).append(emailInput).submit();
+            }
+          });
+
+          $('#proceed-to-pay').on('click', function (e) {
+              var price = $("#review-total-price").html().substring(1);
+              // Open Checkout with further options
+              handler.open({
+                  name: 'Air Tailor',
+                  description: 'alterations',
+                  amount: price * 100
+              });
+              e.preventDefault();
+          });
+
+          // Close Checkout on page navigation
+          $(window).on('popstate', function () {
+              handler.close();
+          });
+        </script>
+    <% end %>
+
+
+
+
+
     <p id="promo-code-note">Redeem promo code on next screen</p>
   </div>

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
 
   resources :customers
+  resources :charges
 
   get '/new_order', to: 'customers#new_order'
 

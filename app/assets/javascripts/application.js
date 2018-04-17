@@ -299,6 +299,12 @@
 
       // add total price
       $("#review-total-price").html("$" + (totalPrice + 6).toFixed(2))
+
+
+
+      // $($(".stripe-button")[0]).attr("data-amount", totalPrice)
+      // console.log($($(".stripe-button")[0]).attr("data-amount"))
+
     });
   // end of checkout button
 
@@ -382,9 +388,12 @@
     $("#review-notes-textarea").toggleClass('hidden');
   });
 
+
+// payment
   $(document).on('click', "#proceed-to-pay", function(){
-    console.log(click)
+    console.log("click")
   })
+
 
   //
   //
