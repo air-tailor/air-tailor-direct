@@ -47,6 +47,17 @@ body {
   right: 0;
 }
 
+#top-nav {
+  width: 100%;
+  text-align: right;
+  height: 30px;
+}
+
+#logout-button {
+  display: inline-block;
+  padding: 15px;
+  font-weight: bold;
+}
 
 /* HEADER SECTION */
 
@@ -77,6 +88,10 @@ header h2 {
   width: 80%;
   max-width: 348px;
   margin: 0 auto;
+}
+
+#new-customer-header h3 {
+  font-family: alegreya;
 }
 
 #new-customer-header p {

@@ -21,8 +21,13 @@ require "stripe"
       :currency    => 'usd'
     )
 
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to new_charge_path
+    if charge["paid"] == true
+      redirect_to "/"
+    end
+
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to new_charge_path
+
   end
 end

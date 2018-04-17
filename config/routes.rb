@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :charges
 
   get '/new_order', to: 'customers#new_order'
+  get '/thank_you', to: 'customers#thank_you'
 
 
 end

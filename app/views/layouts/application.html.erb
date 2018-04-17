@@ -13,8 +13,18 @@
 
   <body>
     <div id="overlay"></div>
-
     <div id="container">
+
+
+        <div id="top-nav">
+          <% if current_customer %>
+          <a id="logout-button" href="/logout">Log Out</a>
+           <% end %>
+        </div>
+
+
+
+
 
       <%= yield %>
 

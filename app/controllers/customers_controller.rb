@@ -6,6 +6,10 @@ before_action :authorize, :except => [:new, :create]
     @customer = current_customer
   end
 
+  def thank_you
+    @customer = current_customer
+  end
+
   def show
 
   end
