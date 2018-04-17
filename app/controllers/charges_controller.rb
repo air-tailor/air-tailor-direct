@@ -7,7 +7,8 @@ require "stripe"
 
   def create
 
-    @amount = params[:amount]
+    @amount = params[:amount].to_f
+    @amount = @amount * 100
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
@@ -22,7 +23,7 @@ require "stripe"
     )
 
     if charge["paid"] == true
-      redirect_to "/"
+      redirect_to "/thank_you"
     end
 
     rescue Stripe::CardError => e

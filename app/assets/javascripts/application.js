@@ -299,6 +299,7 @@
 
       // add total price
       $("#review-total-price").html("$" + (totalPrice + 6).toFixed(2))
+      $("#form-amount").val(totalPrice + 6)
 
 
 

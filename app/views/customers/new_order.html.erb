@@ -529,6 +529,7 @@
     <%= form_tag charges_path, :id => "myform" do %>
         <script src="https://checkout.stripe.com/checkout.js"></script>
 
+        <%= text_field_tag :amount, params[:amount], :id => "form-amount", :class => "hidden" %>
         <button id="proceed-to-pay">Proceed to Payment</button>
 
         <script>
