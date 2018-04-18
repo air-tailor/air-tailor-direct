@@ -16,10 +16,25 @@
 //= require turbolinks
 //= require_tree .
 
+  $(function() {
+    setTimeout(function(){
+      $('.flash-notice').slideUp(500);
+    }, 4000);
+  });
+
   $(document).on("click", "#new-customer-next", function(){
     $("#new-customer-part-1").css('display', 'none');
+    $("#new-customer-header h2").html("Create Account &mdash; Part 2")
+    $("#new-customer-header").append("<p id='new-customer-back'>&lt;&mdash; Back</p>")
     $("#new-customer-part-2").css('display', 'block');
   });
+
+  $(document).on("click", "#new-customer-back", function(){
+    $("#new-customer-part-2").css('display', 'none');
+    $("#new-customer-header h2").html("Create Account &mdash; Part 1")
+    $("#new-customer-back").remove()
+    $("#new-customer-part-1").css('display', 'block');
+  })
 
 
   // GLOBAL VARIABLES

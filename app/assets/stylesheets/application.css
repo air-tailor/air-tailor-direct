@@ -27,6 +27,21 @@ body {
   cursor:pointer;
 }
 
+.flash-notice {
+  position: fixed;
+  top: 10px;
+  padding: 15px;
+  font-weight: bold;
+}
+
+#flash-success {
+  background-color: green;
+}
+
+#flash-fail {
+  background-color: red;
+}
+
 #container {
  width: 348px;
   margin: 0 auto;
@@ -103,6 +118,11 @@ header h2 {
   text-decoration: none;
   padding-bottom: 1px;
   border-bottom: 1px solid #de0421;
+}
+
+#new-customer-back {
+  font-weight: bold;
+  margin-top: 15px;
 }
 
 

@@ -1,7 +1,7 @@
 <header>
   <div id="new-customer-header">
     <img src="/assets/logo.png" alt="">
-    <h2>Create Account</h2>
+    <h2>Create Account &mdash; Part 1</h2>
     <p>Already using Air Tailor? <a href="/login">Sign in.</a></p>
   </div>
 </header><!-- /header -->
@@ -9,33 +9,33 @@
 
 
 <div id="new-customer-form">
-  <%= form_for @customer, url: {action: "create"} do |f| %>
+  <%= form_for @customer, url: {action: "create"}, :autocomplete => "on" do |f| %>
 
     <div id="new-customer-part-1">
-      <%= f.text_field :first_name, :placeholder => "First Name" %>
+      <%= f.text_field :first_name, :placeholder => "First Name", :autocomplete => "given-name" %>
 
-      <%= f.text_field :last_name, :placeholder => "Last Name" %>
+      <%= f.text_field :last_name, :placeholder => "Last Name", :autocomplete => "family-name" %>
 
-      <%= f.text_field :email, :placeholder => "Email" %>
+      <%= f.text_field :email, :placeholder => "Email", :autocomplete => "email-name" %>
 
-      <%= f.telephone_field :phone, :placeholder => "Phone" %>
+      <%= f.telephone_field :phone, :placeholder => "Phone", :autocomplete => "tel" %>
 
-      <%= f.text_field :street, :placeholder => "Street Address" %>
+      <%= f.text_field :street, :placeholder => "Street Address", :autocomplete => "address-line1" %>
 
-      <%= f.text_field :street_two, :placeholder => "Unit / Apt. / Floor" %>
+      <%= f.text_field :street_two, :placeholder => "Unit / Apt. / Floor", :autocomplete => "address-line2" %>
 
-      <%= f.text_field :city, :placeholder => "City" %>
+      <%= f.text_field :city, :placeholder => "City", :autocomplete => "address-level2" %>
 
-      <%= f.select :state_province, options_for_select(us_states), :prompt => "State" %>
+      <%= f.select :state_province, options_for_select(us_states), :prompt => "State", :autocomplete => "address-level1" %>
 
-      <%= f.text_field :zip_code, :placeholder => "Zip" %>
+      <%= f.text_field :zip_code, :placeholder => "Zip", :autocomplete => "postal-code" %>
       <div id="new-customer-next">Next</div>
     </div>
 
     <div id="new-customer-part-2" class="hidden">
-      <%= f.password_field :password, :placeholder => "Password" %>
+      <%= f.password_field :password, :placeholder => "Password (must be 5 characters)", :autocomplete => "new-password" %>
 
-      <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+      <%= f.password_field :password_confirmation, :placeholder => "Confirm Password", :autocomplete => "new-password" %>
 
       <%= f.submit "Create", :id => "new-customer-create", :class => "button" %>
     </div>

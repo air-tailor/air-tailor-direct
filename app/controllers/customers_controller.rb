@@ -24,10 +24,19 @@ before_action :authorize, :except => [:new, :create]
 
   def create
     @customer = Customer.new(customer_params)
+
+     # store all emails in lowercase to avoid duplicates and case-sensitive login errors:
+    @customer.email.downcase!
+
     if @customer.save
+      # If user saves in the db successfully:
+      flash[:success] = "Account created successfully!"
       session[:user_id] = @customer.id
       redirect_to "/new_order"
    else
+    # If user fails model validation - probably a bad password or duplicate email:
+      flash[:fail] = "Oops! Couldn't create account. Please make sure you are using a valid email and password and try again."
+
       redirect_to new_customer_path
    end
   end

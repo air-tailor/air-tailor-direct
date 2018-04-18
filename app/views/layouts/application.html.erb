@@ -13,8 +13,14 @@
 
   <body>
     <div id="overlay"></div>
-    <div id="container">
 
+    <% if flash[:success] %>
+      <div id="flash-success" class="flash-notice"><%= flash[:success] %></div>
+    <% elsif flash[:fail] %>
+      <div id="flash-fail" class="flash-notice"><%= flash[:fail] %></div>
+    <% end %>
+
+    <div id="container">
 
         <div id="top-nav">
           <% if current_customer %>
