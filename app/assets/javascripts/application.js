@@ -104,8 +104,14 @@
       popup();
       $("#prep-alt-name").html(currentPrep.name);
       $("#prep-instructions").html(currentPrep.instructions);
-      $("#prep-jpg").attr('src', currentPrep.jpg);
-      $("#prep-gif").attr('src', currentPrep.gif);
+      $("#prep-gif").attr({
+        src: currentPrep.gif,
+        alt: currentPrep.name
+      });
+      $("#prep-jpg").attr({
+        src: currentPrep.jpg,
+        alt: currentPrep.name
+      });
     $("#overlay, #prep-popup").fadeToggle();
 
     } else {
