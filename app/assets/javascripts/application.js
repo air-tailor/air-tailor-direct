@@ -621,7 +621,7 @@
         break;
         case 'Shorten Dress Sleeves — Without Cuff':currentPrep = {name:currentPrep.name, instructions:instructions2, gif:gif13, jpg:jpg42};
         break;
-        case 'Shorten Dress Straps':currentPrep = {name:currentPrep.name, instructions:instructions4, gif:gif16, jpg:jpg43};
+        case 'Shorten Dress Straps':currentPrep = {name:currentPrep.name, instructions:instructions3, gif:gif16, jpg:jpg43};
         break;
         case 'Shorten Dress (Hem) — Single Layer':currentPrep = {name:currentPrep.name, instructions:instructions1, gif:gif3, jpg:jpg19};
         break;
