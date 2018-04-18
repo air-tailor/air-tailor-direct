@@ -120,6 +120,7 @@
   })
 
   $(document).on("click", "#prep-exit", function(){
+    currentPrep = {name: "", instructions: "", gif: "", jpg: ""}
     $("#overlay, #prep-popup").fadeToggle();
   });
 
