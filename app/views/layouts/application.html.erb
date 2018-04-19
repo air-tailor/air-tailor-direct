@@ -14,17 +14,19 @@
   <body>
     <div id="overlay"></div>
 
-    <div id="customer-data" class="hidden">
-      <p id="customer-first-name"><%= current_customer.first_name %></p>
-      <p id="customer-last-name"><%= current_customer.last_name %></p>
-      <p id="customer-email"><%= current_customer.email %></p>
-      <p id="customer-phone"><%= current_customer.phone %></p>
-      <p id="customer-street"><%= current_customer.street %></p>
-      <p id="customer-street-two"><%= current_customer.street_two %></p>
-      <p id="customer-city"><%= current_customer.city %></p>
-      <p id="customer-state"><%= current_customer.state_province %></p>
-      <p id="customer-zip"><%= current_customer.zip_code %></p>
-    </div>
+    <% if current_customer %>
+      <div id="customer-data" class="hidden">
+        <p id="customer-first-name"><%= current_customer.first_name %></p>
+        <p id="customer-last-name"><%= current_customer.last_name %></p>
+        <p id="customer-email"><%= current_customer.email %></p>
+        <p id="customer-phone"><%= current_customer.phone %></p>
+        <p id="customer-street"><%= current_customer.street %></p>
+        <p id="customer-street-two"><%= current_customer.street_two %></p>
+        <p id="customer-city"><%= current_customer.city %></p>
+        <p id="customer-state"><%= current_customer.state_province %></p>
+        <p id="customer-zip"><%= current_customer.zip_code %></p>
+      </div>
+    <% end %>
 
     <% if flash[:success] %>
       <div id="flash-success" class="flash-notice"><%= flash[:success] %></div>
@@ -55,6 +57,32 @@
         <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
       </footer>
 
+
+
     </div>
+
+    <% if current_customer %>
+      <script>
+        window.intercomSettings = {
+          app_id: "j5szofcq",
+          name: "<%= current_customer.first_name %> <%= current_customer.last_name %>",
+          email: "<%=  current_customer.email.first %>", // Email address
+          created_at: Date.now() // Signup date as a Unix timestamp
+        };
+      </script>
+      <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/j5szofcq';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+      </script>
+
+    <% else %>
+
+      <script>
+        window.intercomSettings = {
+          app_id: "j5szofcq"
+        };
+      </script>
+      <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/j5szofcq';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+      </script>
+    <% end %>
+
   </body>
 </html>
