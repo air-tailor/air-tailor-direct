@@ -40,7 +40,7 @@
   // GLOBAL VARIABLES
   //
   //
-
+  var topNavCounter = 0;
   var currentGarment;
   var currentAlterations = [];
   var currentAlteration;
@@ -58,6 +58,8 @@
   //
   //
   // END OF GLOBAL VARIABLES
+
+
 
 
   // GARMENT SELECTION PAGE

@@ -38,8 +38,12 @@
 
         <div id="top-nav">
           <% if current_customer %>
-            <a id="new-order-button" href="/new_order" onclick="return confirm('Create new order? Continuing will erase any existing order.')">New Order</a>
-            <a id="account-button" href="/customers/<%= current_customer.id %>/edit" onclick="return confirm('Are you sure? Continuing will erase any existing order.')">Account</a>
+            <% if action_name == "edit" %>
+                <a id="account-button" href="/new_order">Order</a>
+              <% else %>
+                <a id="account-button" href="/customers/<%= current_customer.id %>/edit" onclick="return confirm('Are you sure? Continuing will erase any existing order.')">Account</a>
+              <% end %>
+
             <a id="logout-button" href="/logout" onclick="return confirm('Are you sure? Continuing will erase any existing order.')">Log Out</a>
            <% end %>
         </div>
