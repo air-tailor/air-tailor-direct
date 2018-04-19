@@ -48,6 +48,14 @@ before_action :authorize, :except => [:new, :create]
   def update
     @customer = Customer.find_by(id: params[:id])
 
+    @customer.assign_attributes(customer_params)
+
+   if @customer.valid?
+     @customer.update_attributes(customer_params)
+     redirect_to "/new_order"
+   else
+     redirect_to edit_customer_path
+   end
   end
 
   def destroy
