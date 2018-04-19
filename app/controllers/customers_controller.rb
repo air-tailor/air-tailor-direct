@@ -50,8 +50,7 @@ before_action :authorize, :except => [:new, :create]
 
     @customer.assign_attributes(customer_params)
 
-   if @customer.update
-     @customer.update_attributes(customer_params)
+   if @customer.update_attributes(customer_params)
      redirect_to "/new_order"
    else
      redirect_to edit_customer_path

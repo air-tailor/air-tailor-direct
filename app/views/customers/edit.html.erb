@@ -26,7 +26,11 @@
 
       <%= f.text_field :zip_code, :placeholder => "Zip", :autocomplete => "postal-code" %>
 
-      <%= f.submit "Update Account", :id => "edit-customer-button", :class => "button", data: { confirm: "Are you sure? Please confirm update." } %>
+       <%= f.password_field :password, :placeholder => "Password (must be 5 characters)" %>
+
+      <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+
+      <%= f.submit "Update Account", :id => "edit-customer-button", :class => "button" %>
 
   <% end %>
 </div>
