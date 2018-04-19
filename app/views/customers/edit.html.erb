@@ -1,0 +1,32 @@
+<header>
+  <div id="edit-customer-header">
+    <a href="/"><img src="/assets/logo.png" alt="Air Tailor Logo"></a>
+    <h2>Update Account</h2>
+  </div>
+</header><!-- /header -->
+
+<div id="edit-customer-form">
+  <%= form_for @customer, url: {action: "update"}, :autocomplete => "on" do |f| %>
+
+      <%= f.text_field :first_name, :autocomplete => "given-name" %>
+
+      <%= f.text_field :last_name, :autocomplete => "family-name" %>
+
+      <%= f.text_field :email, :autocomplete => "email-name" %>
+
+      <%= f.telephone_field :phone, :autocomplete => "tel" %>
+
+      <%= f.text_field :street, :autocomplete => "address-line1" %>
+
+      <%= f.text_field :street_two, :autocomplete => "address-line2" %>
+
+      <%= f.text_field :city, :autocomplete => "address-level2" %>
+
+      <%= f.select :state_province, options_for_select(us_states, @customer.state_province), :autocomplete => "address-level1" %>
+
+      <%= f.text_field :zip_code, :placeholder => "Zip", :autocomplete => "postal-code" %>
+
+      <%= f.submit "Update Account", :id => "edit-customer-button", :class => "button", data: { confirm: "Are you sure? Please confirm update." } %>
+
+  <% end %>
+</div>

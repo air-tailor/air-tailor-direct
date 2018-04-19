@@ -42,7 +42,7 @@ before_action :authorize, :except => [:new, :create]
   end
 
   def edit
-    @customer = customer.find_by(id: params[:id])
+    @customer = Customer.find_by(id: params[:id])
   end
 
   def update

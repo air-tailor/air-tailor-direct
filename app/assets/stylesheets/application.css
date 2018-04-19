@@ -99,7 +99,7 @@ header h2 {
   margin-bottom: 10px;
 }
 
-#new-customer-header {
+#new-customer-header, #edit-customer-header {
   width: 80%;
   max-width: 348px;
   margin: 0 auto;
@@ -137,12 +137,12 @@ header h2 {
 
 /* END HEADER SECTION */
 
-#new-customer-form {
+#new-customer-form, #edit-customer-form {
   margin-top: 40px;
   text-align: center;
 }
 
-#new-customer-form input, select {
+#new-customer-form input, #edit-customer-form input, select {
   box-sizing: border-box;
   width: 90%;
   margin-bottom: 25px;
@@ -166,7 +166,7 @@ header h2 {
   font-size: 12px;
 }
 
-input#new-customer-create, input#login-button {
+input#new-customer-create, input#login-button, input#edit-customer-button {
   height: 50px;
   width: 100%;
   color: white;
@@ -281,7 +281,7 @@ button {
   background-color: white;
   position: fixed;
   top: 100px;
-  bottom: 10px;
+  bottom: 100px;
   left: 5%;
   border-radius: 5px;
   box-shadow: 0 0 10px #000;
