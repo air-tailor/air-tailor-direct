@@ -108,7 +108,7 @@
       $(this).css('background-color', 'lightgray');
       currentAlteration = {name:currentAltName, price:currentAltPrice}
       currentAlterations.push(currentAlteration)
-      $("#add-alt-to-basket").css('background-color', 'rgba(0,0,53)');
+      $("#add-alt-to-basket").css('background-color', 'rgb(0,0,53)');
       var integerPrice = parseInt(currentAltPrice)
       itemPrice = itemPrice + integerPrice
     }
