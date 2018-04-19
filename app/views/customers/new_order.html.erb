@@ -485,14 +485,14 @@
     <div id="review-shipping">
       <p class="review-garment">Shipping <span class="review-edit-account">edit</span></p>
       <p class="review-alteration"><%= @customer.first_name %> <%= @customer.last_name %></p>
-      <p class="review-alteration"><%= @customer.street %></p>
-      <p class="review-alteration"><%= @customer.street_two %></p>
-      <p class="review-alteration"><%= @customer.city %>, <%= @customer.state_province %> <%= @customer.zip_code %></p>
+      <p id="customer-last-name" class="review-alteration"><%= @customer.street %></p>
+      <p id="" class="review-alteration"><%= @customer.street_two %></p>
+      <p id="" class="review-alteration"><%= @customer.city %>, <%= @customer.state_province %> <%= @customer.zip_code %></p>
     </div>
     <div id="review-contact">
-      <p class="review-garment">Contact <span class="review-edit-account">edit</span></p>
-      <p class="review-alteration"><%= @customer.phone %></p>
-      <p class="review-alteration"><%= @customer.email %></p>
+      <p id="" class="review-garment">Contact <span class="review-edit-account">edit</span></p>
+      <p id="" class="review-alteration"><%= @customer.phone %></p>
+      <p id="" class="review-alteration"><%= @customer.email %></p>
     </div>
 
 

@@ -14,6 +14,18 @@
   <body>
     <div id="overlay"></div>
 
+    <div id="customer-data" class="hidden">
+      <p id="customer-first-name"><%= current_customer.first_name %></p>
+      <p id="customer-last-name"><%= current_customer.last_name %></p>
+      <p id="customer-email"><%= current_customer.email %></p>
+      <p id="customer-phone"><%= current_customer.phone %></p>
+      <p id="customer-street"><%= current_customer.street %></p>
+      <p id="customer-street-two"><%= current_customer.street_two %></p>
+      <p id="customer-city"><%= current_customer.city %></p>
+      <p id="customer-state"><%= current_customer.state_province %></p>
+      <p id="customer-zip"><%= current_customer.zip_code %></p>
+    </div>
+
     <% if flash[:success] %>
       <div id="flash-success" class="flash-notice"><%= flash[:success] %></div>
     <% elsif flash[:fail] %>
@@ -24,7 +36,9 @@
 
         <div id="top-nav">
           <% if current_customer %>
-          <a id="logout-button" href="/logout">Log Out</a>
+            <a id="new-order-button" href="/new_order" onclick="return confirm('Create new order? Continuing will erase any existing order.')">New Order</a>
+            <a id="account-button" href="/customers/<%= current_customer.id %>/edit" onclick="return confirm('Are you sure? Continuing will erase any existing order.')">Account</a>
+            <a id="logout-button" href="/logout" onclick="return confirm('Are you sure? Continuing will erase any existing order.')">Log Out</a>
            <% end %>
         </div>
 

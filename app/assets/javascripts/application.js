@@ -53,6 +53,7 @@
   var totalPrice = 0;
   var counter = 0;
   var orderNotes;
+  var data;
 
   //
   //
@@ -426,7 +427,43 @@
 
 // payment
   $(document).on('click', "#proceed-to-pay", function(){
-    console.log("click")
+    var customerFirstName = $("#customer-first-name").html();
+    var customerLastName = $("#customer-last-name").html();
+    var customerPhone = $("#customer-phone").html();
+    var customerEmail = $("#customer-email").html();
+    var customerStreet = $("#customer-street").html();
+    var customerStreetTwo = $("#customer-street_two").html();
+    var customerCity = $("#customer-city").html();
+    var customerState = $("#customer-state").html();
+    var customerZip = $("#customer-zip").html();
+
+    var data = {
+      order: {
+        requester_notes: orderNotes,
+        items: [
+          {
+            item_type_id: 7,
+            alterations: [{ alteration_id: 208 }, { alteration_id: 219 }],
+          },
+          {
+            item_type_id: 6,
+            alterations: [{ alteration_id: 36 }],
+          },
+        ],
+        customer: {
+          first_name: customerFirstName,
+          last_name: customerLastName,
+          phone: customerPhone,
+          email: customerEmail,
+          street: customerStreet,
+          street_two: customerStreetTwo,
+          city: customerCity,
+          state_province: customerState,
+          zip_code: customerZip,
+        },
+      },
+    };
+    console.log(data)
   })
 
 
@@ -438,32 +475,7 @@
   // POST REQUEST TO AIR TAILOR API
   //
   //
-  var data = {
-    order: {
-      requester_notes: 'these are notes the customer or revolve can leave',
-      items: [
-        {
-          item_type_id: 7,
-          alterations: [{ alteration_id: 208 }, { alteration_id: 219 }],
-        },
-        {
-          item_type_id: 6,
-          alterations: [{ alteration_id: 36 }],
-        },
-      ],
-      customer: {
-        first_name: 'Jared',
-        last_name: 'Murphy',
-        phone: '9045668701',
-        email: 'jared@airtailor.com',
-        street: '1 Saint Nicholas Terrace',
-        street_two: 'Apt 53',
-        city: 'New York',
-        state_province: 'NY',
-        zip_code: '10027',
-      },
-    },
-  };
+
 
 
 
