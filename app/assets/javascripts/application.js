@@ -664,9 +664,9 @@
     } else if (currentGarment.name === "dress"){
 
       switch (currentPrep.name) {
-        case 'Shorten Dress Sleeves — With Cuff':currentPrep = {name:currentPrep.name, instructions:instructions2, gif:gif11, jpg:jpg42};
+        case 'Shorten Dress Sleeves — With Cuff':currentPrep = {name:currentPrep.name, instructions:instructions2, gif:gif13, jpg:jpg42};
         break;
-        case 'Shorten Dress Sleeves — Without Cuff':currentPrep = {name:currentPrep.name, instructions:instructions2, gif:gif13, jpg:jpg42};
+        case 'Shorten Dress Sleeves — Without Cuff':currentPrep = {name:currentPrep.name, instructions:instructions2, gif:gif11, jpg:jpg42};
         break;
         case 'Shorten Dress Straps':currentPrep = {name:currentPrep.name, instructions:instructions3, gif:gif16, jpg:jpg43};
         break;
