@@ -41,7 +41,7 @@
   //
   //
   var topNavCounter = 0;
-  var currentGarment;
+  var currentGarment = {name:"", itemTypeId:""};
   var currentAlterations = [];
   var currentAlteration;
   var currentAltName = [];
@@ -68,13 +68,14 @@
 
 
   $(document).on("click", ".garment-card", function(){
-    currentGarment = $(this).find("h3").html()
+    currentGarment.name = $(this).find("h3").html()
+    currentGarment.itemTypeId = $(this).attr('data');
     $("#garment-select").toggleClass('hidden');
     $("#alteration-select").toggleClass('hidden');
-    if(currentGarment == "suit jacket"){
+    if(currentGarment.name == "suit jacket"){
       $(".suit-jacket-alteration").toggleClass('hidden');
     } else {
-    $("." + currentGarment +
+    $("." + currentGarment.name +
       "-alteration").toggleClass('hidden');
     }
     $("#header1").toggleClass('hidden');
@@ -109,7 +110,7 @@
       currentAlteration = {name:currentAltName, price:currentAltPrice}
       currentAlterations.push(currentAlteration)
       $("#add-alt-to-basket").css('background-color', 'rgb(0,0,53)');
-      var integerPrice = parseInt(currentAltPrice)
+      var integerPrice = parseFloat(currentAltPrice)
       itemPrice = itemPrice + integerPrice
     }
   });
@@ -165,17 +166,17 @@
   //
   //
   $(document).on("click", "#alteration-back-button", function(){
-    if(currentGarment == "suit jacket"){
+    if(currentGarment.name == "suit jacket"){
       $(".suit-jacket-alteration").toggleClass('hidden');
     } else {
-      $("." + currentGarment + "-alteration").toggleClass('hidden');
+      $("." + currentGarment.name + "-alteration").toggleClass('hidden');
     }
     $("#alteration-select").toggleClass('hidden');
     $("#garment-select").toggleClass('hidden');
     $(".alteration-name-price").css('background-color', 'white');
 
     currentAlterations = [];
-    currentGarment = "";
+    currentGarment.name = "";
 
     $(".alteration-name-price").removeClass("selected")
 
@@ -203,7 +204,7 @@
       //
 
       // establish item details
-      currentItem = {id: counter, garment: currentGarment, alterations: currentAlterations, total: itemPrice, notes: ""}
+      currentItem = {id: counter, item_type_id:currentGarment.itemTypeId, garment: currentGarment.name, alterations: currentAlterations, total: itemPrice, notes: ""}
 
       items.push(currentItem)
       //
@@ -216,7 +217,7 @@
       // add alterations to basket
       $.each(currentAlterations, function(i, alteration){
         $("#" + currentItem.id).append("<p class='basket-alteration clear-float'><span class='float-left'>" + alteration.name + "</span><span class='float-right'>$" + alteration.price + "</span></p>")
-        var integerPrice = parseInt(alteration.price)
+        var integerPrice = parseFloat(alteration.price)
         totalPrice = totalPrice + integerPrice
       });
       //
@@ -226,10 +227,10 @@
       //
 
       // hide alteration cards
-      if(currentGarment == "suit jacket"){
+      if(currentGarment.name == "suit jacket"){
         $(".suit-jacket-alteration").toggleClass('hidden');
       } else {
-        $("." + currentGarment + "-alteration").toggleClass('hidden');
+        $("." + currentGarment.name + "-alteration").toggleClass('hidden');
       };
       //
 
@@ -245,7 +246,8 @@
 
       // empty current alterations array
       currentAlterations = [];
-      currentGarment = "";
+      currentGarment.name = "";
+      currentGarment.name.itemTypeId = "";
       itemPrice = 0;
       //
 
@@ -324,7 +326,7 @@
       $("#review-order").toggleClass('hidden');
 
       // show proper header for review page
-      if(currentGarment == ""){
+      if(currentGarment.name.name == ""){
         $("#header1").toggleClass('hidden');
       } else {
         $("#header2").toggleClass('hidden');
@@ -363,7 +365,7 @@
     $("main").toggleClass('hidden');
 
     // show proper header for garment page
-    if(currentGarment == ""){
+    if(currentGarment.name.name == ""){
       $("#header1").toggleClass('hidden');
     } else {
       $("#header2").toggleClass('hidden');
@@ -412,7 +414,7 @@
       // $("#basket").toggleClass('hidden');
 
       // show proper header for garment page
-      if(currentGarment == ""){
+      if(currentGarment.name == ""){
         $("#header1").toggleClass('hidden');
       } else {
         $("#header2").toggleClass('hidden');
@@ -610,9 +612,7 @@
   var instructions14 = "Place safety pin at desired jacket length. Use multiple pins to outline a new shape, or one pin to maintain the current shape."
 
   var popup = function() {
-    console.log(currentGarment)
-    if (currentGarment === "pants"){
-      console.log("well fuck")
+    if (currentGarment.name === "pants"){
       switch (currentPrep.name) {
         case 'Shorten Pant Length - Regular Hem':currentPrep = {name:currentPrep.name, instructions:instructions8, gif:gif8, jpg:jpg1};
         break;
@@ -625,7 +625,7 @@
         case 'Slim Pants Legs (Taper) - Half Leg':currentPrep = {name:currentPrep.name, instructions:instructions9, gif:gif10, jpg:jpg4};
         break;
       }
-    } else if (currentGarment === "shirt"){
+    } else if (currentGarment.name === "shirt"){
 
       switch (currentPrep.name) {
         case 'Shorten Shirt Sleeves — With Cuff':currentPrep = {name:currentPrep.name, instructions:instructions2, gif:gif13, jpg:jpg7};
@@ -641,7 +641,7 @@
         case 'Take In Shirt Shoulders':currentPrep = {name:currentPrep.name, instructions:instructions11, gif:gif15, jpg:jpg13};
         break;
       }
-    } else if (currentGarment === "skirt"){
+    } else if (currentGarment.name === "skirt"){
 
        switch (currentPrep.name) {
         case 'Shorten Skirt (Hem) — Single Layer':currentPrep = {name:currentPrep.name, instructions:instructions12, gif:gif3, jpg:jpg14};
@@ -651,7 +651,7 @@
         case 'Shorten Skirt (Hem) — 3 Layers':currentPrep = {name:currentPrep.name, instructions:instructions13, gif:gif3, jpg:jpg14};
         break;
       }
-    } else if (currentGarment === "suit jacket"){
+    } else if (currentGarment.name === "suit jacket"){
 
        switch (currentPrep.name) {
         case 'Shorten Jacket Length':currentPrep = {name:currentPrep.name, instructions:instructions14, gif:gif4, jpg:jpg26};
@@ -661,7 +661,7 @@
         case 'Take In Jacket Shoulders':currentPrep = {name:currentPrep.name, instructions:instructions11, gif:gif6, jpg:jpg31};
         break;
       }
-    } else if (currentGarment === "dress"){
+    } else if (currentGarment.name === "dress"){
 
       switch (currentPrep.name) {
         case 'Shorten Dress Sleeves — With Cuff':currentPrep = {name:currentPrep.name, instructions:instructions2, gif:gif11, jpg:jpg42};
@@ -677,7 +677,7 @@
         case 'Shorten Dress (Hem) — 3 Layers':currentPrep = {name:currentPrep.name, instructions:instructions1, gif:gif3, jpg:jpg19};
         break;
       }
-    } else if (currentGarment === "necktie"){
+    } else if (currentGarment.name === "necktie"){
 
       switch (currentPrep.name) {
         case 'Shorten Necktie':currentPrep = {name:currentPrep.name, instructions:instructions4, gif:gif7, jpg:jpg39};
