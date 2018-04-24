@@ -477,7 +477,7 @@
       url: 'https://prod-airtailor-portal-api.herokuapp.com/api/v1/orders',
       method: 'POST',
       headers: {
-        'X-Api-Key': 'QwZL2CvAUf8V1vYHZIc2Zgtt',
+        'X-Api-Key': 'O7iq7W0Kcg8MynMp3aaHzgtt',
         'Content-Type': 'application/json',
       },
       dataType: 'json',
