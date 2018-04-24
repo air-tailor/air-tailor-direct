@@ -443,7 +443,7 @@
 
     var data = {
       "order": {
-        "requester_notes": "these are notes the customer or revolve can leave",
+        "requester_notes": orderNotes,
         "items": [
           {
             "item_type_id": 7,
@@ -460,15 +460,15 @@
           }
         ],
         "customer": {
-          "first_name": "Brian",
-          "last_name": "Flynn",
+          "first_name": customerFirstName,
+          "last_name": customerLastName,
           "phone": "6167804457",
-          "email": "bdflynny@gmail.com",
-          "street": "123 B St",
-          "street_two": "Apt 2R",
-          "city": "New York",
-          "state_province": "NY",
-          "zip_code": "10031"
+          "email": "Brian@airtailor.com",
+          "street": customerStreet,
+          "street_two": customerStreetTwo,
+          "city": customerCity,
+          "state_province": customerState,
+          "zip_code": customerZip
         }
       }
     };
