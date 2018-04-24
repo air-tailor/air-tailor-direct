@@ -69,7 +69,7 @@
 
   $(document).on("click", ".garment-card", function(){
     currentGarment.name = $(this).find("h3").html()
-    currentGarment.itemTypeId = $(this).attr('data');
+    currentGarment.itemTypeId = parseInt($(this).attr('data'));
     $("#garment-select").toggleClass('hidden');
     $("#alteration-select").toggleClass('hidden');
     if(currentGarment.name == "suit jacket"){
@@ -103,11 +103,12 @@
         $("#add-alt-to-basket").css('background-color', 'rgba(0,0,53,.5)');
       }
     } else {
-      currentAltName = (($(this).find("p").html()))
-      currentAltPrice = (($(this).find("span").html()))
+      currentAltName = $(this).find("p").html();
+      currentAltPrice = $(this).find("span").html();
+      currentAltId = parseInt($(this).attr('data'));
       $(this).toggleClass('selected');
       $(this).css('background-color', 'lightgray');
-      currentAlteration = {name:currentAltName, price:currentAltPrice}
+      currentAlteration = {alteration_id:currentAltId, name:currentAltName, price:currentAltPrice}
       currentAlterations.push(currentAlteration)
       $("#add-alt-to-basket").css('background-color', 'rgb(0,0,53)');
       var integerPrice = parseFloat(currentAltPrice)
@@ -332,6 +333,7 @@
         $("#header2").toggleClass('hidden');
       };
       $("#header3").toggleClass('hidden');
+      console.log(items[0])
 
       // display items in basket
       $.each(items, function(i, item){
@@ -436,34 +438,21 @@
     var customerPhone = $("#customer-phone").html();
     var customerEmail = $("#customer-email").html();
     var customerStreet = $("#customer-street").html();
-    var customerStreetTwo = $("#customer-street_two").html();
+    var customerStreetTwo = $("#customer-street-two").html();
     var customerCity = $("#customer-city").html();
     var customerState = $("#customer-state").html();
     var customerZip = $("#customer-zip").html();
 
+
     var data = {
       "order": {
         "requester_notes": orderNotes,
-        "items": [
-          {
-            "item_type_id": 7,
-            "alterations": [
-              { "alteration_id": 208 },
-              { "alteration_id": 219 }
-            ]
-          },
-          {
-            "item_type_id": 6,
-            "alterations": [
-              { "alteration_id": 36 }
-            ]
-          }
-        ],
+        "items": items,
         "customer": {
           "first_name": customerFirstName,
           "last_name": customerLastName,
-          "phone": "6167804457",
-          "email": "Brian@airtailor.com",
+          "phone": customerPhone,
+          "email": customerEmail,
           "street": customerStreet,
           "street_two": customerStreetTwo,
           "city": customerCity,
@@ -507,6 +496,7 @@
   $("#submit").click(function() {
     /* Act on the event */
     console.log(data)
+
 
   });
 

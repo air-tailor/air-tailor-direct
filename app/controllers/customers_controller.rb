@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
 
-before_action :authorize, :except => [:new, :create]
+before_action :authorize, :except => [:new, :create, :terms]
 
   def new_order
     @customer = current_customer
@@ -59,6 +59,10 @@ before_action :authorize, :except => [:new, :create]
 
   def destroy
 
+  end
+
+
+  def terms
   end
 
 
