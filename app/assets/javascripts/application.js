@@ -43,16 +43,16 @@
   var topNavCounter = 0;
   var currentGarment = {name:"", itemTypeId:""};
   var currentAlterations = [];
-  var currentAlteration;
+  var currentAlteration = "";
   var currentAltName = [];
   var currentAltPrice = [];
   var currentPrep = {name: "", instructions: "", gif: "", jpg: ""}
-  var currentItem;
+  var currentItem = "";
   var itemPrice = 0;
   var items = [];
   var totalPrice = 0;
   var counter = 0;
-  var orderNotes;
+  var orderNotes = "";
   var data;
 
   //
@@ -326,7 +326,7 @@
       $("#review-order").toggleClass('hidden');
 
       // show proper header for review page
-      if(currentGarment.name.name == ""){
+      if(currentGarment.name == ""){
         $("#header1").toggleClass('hidden');
       } else {
         $("#header2").toggleClass('hidden');
