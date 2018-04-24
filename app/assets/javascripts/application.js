@@ -442,32 +442,53 @@
     var customerZip = $("#customer-zip").html();
 
     var data = {
-      order: {
-        requester_notes: orderNotes,
-        items: [
+      "order": {
+        "requester_notes": "these are notes the customer or revolve can leave",
+        "items": [
           {
-            item_type_id: 7,
-            alterations: [{ alteration_id: 208 }, { alteration_id: 219 }],
+            "item_type_id": 7,
+            "alterations": [
+              { "alteration_id": 208 },
+              { "alteration_id": 219 }
+            ]
           },
           {
-            item_type_id: 6,
-            alterations: [{ alteration_id: 36 }],
-          },
+            "item_type_id": 6,
+            "alterations": [
+              { "alteration_id": 36 }
+            ]
+          }
         ],
-        customer: {
-          first_name: customerFirstName,
-          last_name: customerLastName,
-          phone: customerPhone,
-          email: customerEmail,
-          street: customerStreet,
-          street_two: customerStreetTwo,
-          city: customerCity,
-          state_province: customerState,
-          zip_code: customerZip,
-        },
-      },
+        "customer": {
+          "first_name": "Brian",
+          "last_name": "Flynn",
+          "phone": "6167804457",
+          "email": "bdflynny@gmail.com",
+          "street": "123 B St",
+          "street_two": "Apt 2R",
+          "city": "New York",
+          "state_province": "NY",
+          "zip_code": "10031"
+        }
+      }
     };
     console.log(data)
+    $.ajax({
+      url: 'https://prod-airtailor-portal-api.herokuapp.com/api/v1/orders',
+      method: 'POST',
+      headers: {
+        'X-Api-Key': 'QwZL2CvAUf8V1vYHZIc2Zgtt',
+        'Content-Type': 'application/json',
+      },
+      dataType: 'json',
+      data: JSON.stringify(data),
+      success: function(res) {
+        console.log('success', res);
+      },
+      error: function(res) {
+        console.log('error', res);
+      },
+    });
   })
 
 
@@ -486,22 +507,7 @@
   $("#submit").click(function() {
     /* Act on the event */
     console.log(data)
-    $.ajax({
-      url: 'https://prod-airtailor-portal-api.herokuapp.com/api/v1/orders',
-      method: 'POST',
-      headers: {
-        'X-Api-Key': 'O7iq7W0Kcg8MynMp3aaHzgtt',
-        'Content-Type': 'application/json',
-      },
-      dataType: 'json',
-      data: JSON.stringify(data),
-      success: function(res) {
-        console.log('success', res);
-      },
-      error: function(res) {
-        console.log('error', res);
-      },
-    });
+
   });
 
 
