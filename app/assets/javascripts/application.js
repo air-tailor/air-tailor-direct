@@ -462,6 +462,23 @@
       }
     };
 
+    $.ajax({
+      url: 'https://prod-airtailor-portal-api.herokuapp.com/api/v1/orders',
+      method: 'POST',
+      headers: {
+        'X-Api-Key': 'O7iq7W0Kcg8MynMp3aaHzgtt',
+        'Content-Type': 'application/json',
+      },
+      dataType: 'json',
+      data: JSON.stringify(data),
+      success: function(res) {
+        console.log('success', res);
+      },
+      error: function(res) {
+        console.log('error', res);
+      },
+    });
+
   })
 
 
@@ -480,22 +497,8 @@
   $("#submit").click(function() {
     /* Act on the event */
     console.log(data)
-$.ajax({
-      url: 'https://prod-airtailor-portal-api.herokuapp.com/api/v1/orders',
-      method: 'POST',
-      headers: {
-        'X-Api-Key': 'O7iq7W0Kcg8MynMp3aaHzgtt',
-        'Content-Type': 'application/json',
-      },
-      dataType: 'json',
-      data: JSON.stringify(data),
-      success: function(res) {
-        console.log('success', res);
-      },
-      error: function(res) {
-        console.log('error', res);
-      },
-    });
+
+
 
   });
 
