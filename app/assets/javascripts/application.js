@@ -96,6 +96,7 @@
 
   $(document).on("click", ".alteration-name-price", function(){
     if ($(this).hasClass("selected")){
+      currentAltType = $(this).attr('data-alt-type');
       $("[data-alt-type*=" + currentAltType + "]").not($(this)).parent().css({
         pointerEvents: 'auto',
         opacity: '1'
