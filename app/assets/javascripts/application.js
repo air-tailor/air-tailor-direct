@@ -42,6 +42,7 @@
   //
   var topNavCounter = 0;
   var currentGarment = {name:"", itemTypeId:""};
+  var currentAltType = "";
   var currentAlterations = [];
   var currentAlteration = "";
   var currentAltName = [];
@@ -69,7 +70,7 @@
 
   $(document).on("click", ".garment-card", function(){
     currentGarment.name = $(this).find("h3").html()
-    currentGarment.itemTypeId = parseInt($(this).attr('data'));
+    currentGarment.itemTypeId = parseInt($(this).attr('data-id'));
     $("#garment-select").toggleClass('hidden');
     $("#alteration-select").toggleClass('hidden');
     if(currentGarment.name == "suit jacket"){
@@ -95,6 +96,10 @@
 
   $(document).on("click", ".alteration-name-price", function(){
     if ($(this).hasClass("selected")){
+      $("[data-alt-type*=" + currentAltType + "]").not($(this)).parent().css({
+        pointerEvents: 'auto',
+        opacity: '1'
+      });
       currentAlterations.pop()
       itemPrice = 0
       $(this).css('background-color', 'white');
@@ -103,9 +108,14 @@
         $("#add-alt-to-basket").css('background-color', 'rgba(0,0,53,.5)');
       }
     } else {
+      currentAltType = $(this).attr('data-alt-type');
+      $("[data-alt-type*=" + currentAltType + "]").not($(this)).parent().css({
+        pointerEvents: 'none',
+        opacity: '.5'
+      });
       currentAltName = $(this).find("p").html();
       currentAltPrice = $(this).find("span").html();
-      currentAltId = parseInt($(this).attr('data'));
+      currentAltId = parseInt($(this).attr('data-id'));
       $(this).toggleClass('selected');
       $(this).css('background-color', 'lightgray');
       currentAlteration = {alteration_id:currentAltId, name:currentAltName, price:currentAltPrice}
@@ -176,6 +186,12 @@
     $("#garment-select").toggleClass('hidden');
     $(".alteration-name-price").css('background-color', 'white');
 
+     $("[data-alt-type*=" + currentAltType + "]").not($(this)).parent().css({
+        pointerEvents: 'auto',
+        opacity: '1'
+      });
+
+    currentAltType = "";
     currentAlterations = [];
     currentGarment.name = "";
 
@@ -236,6 +252,10 @@
       //
 
       // return alterations cards to white
+      $("[data-alt-type*=" + currentAltType + "]").not($(this)).parent().css({
+        pointerEvents: 'auto',
+        opacity: '1'
+      });
       $(".alteration-name-price").css('background-color', 'white');
       $(".alteration-name-price").removeClass("selected")
       //
@@ -250,6 +270,7 @@
       currentGarment.name = "";
       currentGarment.name.itemTypeId = "";
       itemPrice = 0;
+      currentAltType = "";
       //
 
       // update counter
