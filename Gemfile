@@ -7,6 +7,8 @@ end
 
 gem 'stripe'
 
+gem 'awesome_print'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
