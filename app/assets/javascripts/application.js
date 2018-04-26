@@ -355,7 +355,6 @@
         $("#header2").toggleClass('hidden');
       };
       $("#header3").toggleClass('hidden');
-      console.log(items[0])
 
       // display items in basket
       $.each(items, function(i, item){
@@ -466,7 +465,7 @@
     var customerZip = $("#customer-zip").html();
 
 
-    var data = {
+    data = {
       "order": {
         "requester_notes": orderNotes,
         "items": items,
@@ -484,22 +483,8 @@
       }
     };
 
-    $.ajax({
-      url: 'https://prod-airtailor-portal-api.herokuapp.com/api/v1/orders',
-      method: 'POST',
-      headers: {
-        'X-Api-Key': 'O7iq7W0Kcg8MynMp3aaHzgtt',
-        'Content-Type': 'application/json',
-      },
-      dataType: 'json',
-      data: JSON.stringify(data),
-      success: function(res) {
-        console.log('success', res);
-      },
-      error: function(res) {
-        console.log('error', res);
-      },
-    });
+    localStorage.setItem("data", JSON.stringify(data));
+
 
   })
 
@@ -520,7 +505,22 @@
     /* Act on the event */
     console.log(data)
 
-
+    $.ajax({
+      url: 'https://prod-airtailor-portal-api.herokuapp.com/api/v1/orders',
+      method: 'POST',
+      headers: {
+        'X-Api-Key': 'O7iq7W0Kcg8MynMp3aaHzgtt',
+        'Content-Type': 'application/json',
+      },
+      dataType: 'json',
+      data: JSON.stringify(data),
+      success: function(res) {
+        console.log('success', res);
+      },
+      error: function(res) {
+        console.log('error', res);
+      },
+    });
 
   });
 

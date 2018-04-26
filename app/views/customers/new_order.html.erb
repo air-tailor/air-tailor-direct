@@ -507,6 +507,7 @@
         <script src="https://checkout.stripe.com/checkout.js"></script>
 
         <%= text_field_tag :amount, params[:amount], :id => "form-amount", :class => "hidden" %>
+
         <button id="proceed-to-pay">Proceed to Payment</button>
 
         <script>
@@ -523,19 +524,23 @@
           });
 
           $('#proceed-to-pay').on('click', function (e) {
+
+
               var price = $("#review-total-price").html().substring(1);
               // Open Checkout with further options
               handler.open({
                   name: 'Air Tailor',
                   image: '/assets/balloon.png',
                   description: 'Clothing Alterations',
-                  amount: price * 100
+                  email: '<%= @customer.email %>',
+                  amount: price * 100,
               });
               e.preventDefault();
           });
 
           // Close Checkout on page navigation
           $(window).on('popstate', function () {
+
               handler.close();
           });
         </script>
