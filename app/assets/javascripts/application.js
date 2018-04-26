@@ -96,6 +96,7 @@
 
   $(document).on("click", ".alteration-name-price", function(){
     if ($(this).hasClass("selected")){
+      $(this).parent().find('.prep-button').find('p').css('color', '#000033');
       currentAltType = $(this).attr('data-alt-type');
       $("[data-alt-type*=" + currentAltType + "]").not($(this)).parent().css({
         pointerEvents: 'auto',
@@ -108,7 +109,9 @@
       if (currentAlterations.length < 1){
         $("#add-alt-to-basket").css('background-color', 'rgba(0,0,53,.5)');
       }
+
     } else {
+      $(this).parent().find('.prep-button').find('p').css('color', '#de0421');
       currentAltType = $(this).attr('data-alt-type');
       $("[data-alt-type*=" + currentAltType + "]").not($(this)).parent().css({
         pointerEvents: 'none',
@@ -192,6 +195,8 @@
         opacity: '1'
       });
 
+    $(this).parent().find('.prep-button').find('p').css('color', '#000033');
+
     currentAltType = "";
     currentAlterations = [];
     currentGarment.name = "";
@@ -259,6 +264,7 @@
       });
       $(".alteration-name-price").css('background-color', 'white');
       $(".alteration-name-price").removeClass("selected")
+      $(this).parent().find('.prep-button').find('p').css('color', '#000033');
       //
 
       // return view to garment select
@@ -498,31 +504,6 @@
   //
   //
 
-
-
-
-  $("#submit").click(function() {
-    /* Act on the event */
-    console.log(data)
-
-    $.ajax({
-      url: 'https://prod-airtailor-portal-api.herokuapp.com/api/v1/orders',
-      method: 'POST',
-      headers: {
-        'X-Api-Key': 'O7iq7W0Kcg8MynMp3aaHzgtt',
-        'Content-Type': 'application/json',
-      },
-      dataType: 'json',
-      data: JSON.stringify(data),
-      success: function(res) {
-        console.log('success', res);
-      },
-      error: function(res) {
-        console.log('error', res);
-      },
-    });
-
-  });
 
 
 

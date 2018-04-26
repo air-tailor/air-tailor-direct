@@ -27,6 +27,30 @@ body {
   cursor:pointer;
 }
 
+/* #pants {
+  background-color: lightpink;
+}
+
+#shirt {
+  background-color: orange;
+}
+
+#skirt {
+  background-color: lightyellow;
+}
+
+#dress {
+  background-color: lightgreen;
+}
+
+#suit {
+  background-color: lightblue;
+}
+
+#necktie {
+  background-color: mediumpurple;
+} */
+
 .flash-notice {
   position: fixed;
   top: 10px;
@@ -298,6 +322,7 @@ button {
   border-radius: 5px;
   box-shadow: 0 0 10px #000;
   overflow-y: scroll;
+  z-index: 1;
 }
 
 #prep-exit {
