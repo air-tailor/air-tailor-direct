@@ -16,6 +16,8 @@
 //= require turbolinks
 //= require_tree .
 
+
+// LOGIN AND CREATE ACCOUNT STUFF
   $(function() {
     setTimeout(function(){
       $('.flash-notice').slideUp(500);
@@ -35,6 +37,7 @@
     $("#new-customer-back").remove()
     $("#new-customer-part-1").css('display', 'block');
   })
+// END OF LOGIN STUFF
 
 
   // GLOBAL VARIABLES
@@ -394,7 +397,7 @@
     $("main").toggleClass('hidden');
 
     // show proper header for garment page
-    if(currentGarment.name.name == ""){
+    if(currentGarment.name == ""){
       $("#header1").toggleClass('hidden');
     } else {
       $("#header2").toggleClass('hidden');
