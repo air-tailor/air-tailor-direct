@@ -195,7 +195,7 @@
         opacity: '1'
       });
 
-    $(this).parent().find('.prep-button').find('p').css('color', '#000033');
+    $('.prep-button').find('p').css('color', '#000033');
 
     currentAltType = "";
     currentAlterations = [];
@@ -257,14 +257,14 @@
       };
       //
 
-      // return alterations cards to white
+      // return alterations cards to original styles
       $("[data-alt-type*=" + currentAltType + "]").not($(this)).parent().css({
         pointerEvents: 'auto',
         opacity: '1'
       });
       $(".alteration-name-price").css('background-color', 'white');
       $(".alteration-name-price").removeClass("selected")
-      $(this).parent().find('.prep-button').find('p').css('color', '#000033');
+      $('.prep-button').find('p').css('color', '#000033');
       //
 
       // return view to garment select
