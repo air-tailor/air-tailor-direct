@@ -63,6 +63,20 @@
   //
   // END OF GLOBAL VARIABLES
 
+  // EDIT ACCOUNT WHEN YOU HAVE A BASKET
+  //
+  //
+  $(document).on("click", ".order-link", function(event){
+    if (items.length > 0){
+
+    } else {
+
+    }
+  })
+  //
+  //
+  // END EDIT ACCOUNT WHEN YOU HAVE A BASKET
+
 
 
 

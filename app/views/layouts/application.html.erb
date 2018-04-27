@@ -41,11 +41,11 @@
         <div id="top-nav">
           <% if current_customer %>
             <% if action_name == "edit" %>
-                <a id="account-button" href="/new_order">Order</a>
+                <a id="account-button" class="order-link" href="/new_order">Order</a>
               <% elsif action_name == "terms" %>
-                <a id="account-button" href="/new_order">Order</a>
+                <a id="account-button" class="order-link" href="/new_order">Order</a>
               <% else %>
-                <a id="account-button" href="/customers/<%= current_customer.id %>/edit" onclick="return confirm('Are you sure? Continuing will erase any existing order.')">Account</a>
+                <a id="account-button"  href="/customers/<%= current_customer.id %>/edit">Account</a>
               <% end %>
 
             <a id="logout-button" href="/logout" onclick="return confirm('Are you sure? Continuing will erase any existing order.')">Log Out</a>
@@ -62,7 +62,7 @@
 
       <footer>
         <p>&copy; 2018 Air Tailor Inc. All rights reserved.</p>
-        <p><a href="#">Privacy Policy</a> | <a href="/terms" onclick="return confirm('Are you sure? Continuing will erase any existing order.')">Terms of Service</a></p>
+        <p><a href="#">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
       </footer>
 
 

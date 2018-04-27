@@ -1,3 +1,19 @@
+  <script>
+    $( document ).ready(function() {
+      if(location.pathname == '/new_order' && items.length > 0){
+        $("#basket").toggleClass('hidden');
+        $.each(items, function(i, item){
+          $("#basket-items").append("<div id=" + item.id + " class='basket-item'><p class='basket-garment'><span class='float-left'>" + item.garment + "</span><span class='float-right'><span id='basket-edit'>edit</span> | <span id='basket-delete'>delete</span></span></p></div>")
+
+          $.each(item.alterations, function(i, alteration){
+            $(".basket-item:last").append("<p class='basket-alteration clear-float'><span class='float-left'>" + alteration.name + "</span><span class='float-right'>$" + alteration.price + "</span></p>")
+          });
+        });
+        $("#total-price").html(totalPrice.toFixed(2))
+      }
+    });
+  </script>
+
 
   <header>
       <div id="header-container">
@@ -491,14 +507,14 @@
     <textarea id="review-notes-textarea" class="hidden" placeholder="Special garments or alterations? Enter any important notes about the overall order here to help us serve you best!"></textarea>
     <hr>
     <div id="review-shipping">
-      <p class="review-garment">Shipping <a href="customers/<%= @customer.id %>/edit" class="review-edit-account">edit</a></p>
+      <p class="review-garment">Shipping <a href="customers/<%= @customer.id %>/edit" class="review-edit-account edit-account-link">edit</a></p>
       <p class="review-alteration"><%= @customer.first_name %> <%= @customer.last_name %></p>
       <p id="customer-last-name" class="review-alteration"><%= @customer.street %></p>
       <p id="" class="review-alteration"><%= @customer.street_two %></p>
       <p id="" class="review-alteration"><%= @customer.city %>, <%= @customer.state_province %> <%= @customer.zip_code %></p>
     </div>
     <div id="review-contact">
-      <p id="" class="review-garment">Contact <a href="customers/<%= @customer.id %>/edit" class="review-edit-account">edit</a></p>
+      <p id="" class="review-garment">Contact <a href="customers/<%= @customer.id %>/edit" class="review-edit-account edit-account-link">edit</a></p>
       <p id="" class="review-alteration"><%= @customer.phone %></p>
       <p id="" class="review-alteration"><%= @customer.email %></p>
     </div>
