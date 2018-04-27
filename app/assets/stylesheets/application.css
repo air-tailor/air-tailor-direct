@@ -135,7 +135,7 @@ header h2 {
   margin-bottom: 10px;
 }
 
-#new-customer-header, #edit-customer-header {
+#new-customer-header, #edit-customer-header, #thank-you-header {
   width: 80%;
   max-width: 348px;
   margin: 0 auto;

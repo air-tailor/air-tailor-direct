@@ -1,5 +1,5 @@
 <header>
-  <div id="new-customer-header">
+  <div id="thank-you-header">
     <img src="/assets/logo.png" alt="">
     <h2>Thanks for your order, <%= @customer.first_name %>!</h2>
     <h3>Your shipping label has been emailed to you at <%= @customer.email %></h3>
@@ -10,14 +10,15 @@
 
 <script>
 
-  $( document ).ready(function() {
+  $("#thank-you-header").ready(function() {
     var request = localStorage.getItem("request");
     console.log(request)
 
-    if (request == null){
+    if (request == "false"){
+
+      console.log("placing order")
       var data = localStorage.getItem("data");
       data = JSON.parse(data)
-
       $.ajax({
         url: 'https://prod-airtailor-portal-api.herokuapp.com/api/v1/orders',
         method: 'POST',
@@ -35,8 +36,8 @@
         },
       });
 
-      var request = true;
-      localStorage.setItem("request", JSON.stringify(request));
+      localStorage.setItem("request", JSON.stringify(true));
+      items = [];
 
     }
   });

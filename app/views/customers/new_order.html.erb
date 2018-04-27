@@ -1,15 +1,18 @@
   <script>
     $( document ).ready(function() {
-      if(location.pathname == '/new_order' && items.length > 0){
-        $("#basket").toggleClass('hidden');
-        $.each(items, function(i, item){
-          $("#basket-items").append("<div id=" + item.id + " class='basket-item'><p class='basket-garment'><span class='float-left'>" + item.garment + "</span><span class='float-right'><span id='basket-edit'>edit</span> | <span id='basket-delete'>delete</span></span></p></div>")
+      if(location.pathname == '/new_order'){
+        localStorage.setItem("request", JSON.stringify(false));
+        if(items.length > 0){
+          $("#basket").toggleClass('hidden');
+          $.each(items, function(i, item){
+            $("#basket-items").append("<div id=" + item.id + " class='basket-item'><p class='basket-garment'><span class='float-left'>" + item.garment + "</span><span class='float-right'><span id='basket-edit'>edit</span> | <span id='basket-delete'>delete</span></span></p></div>")
 
-          $.each(item.alterations, function(i, alteration){
-            $(".basket-item:last").append("<p class='basket-alteration clear-float'><span class='float-left'>" + alteration.name + "</span><span class='float-right'>$" + alteration.price + "</span></p>")
+            $.each(item.alterations, function(i, alteration){
+              $(".basket-item:last").append("<p class='basket-alteration clear-float'><span class='float-left'>" + alteration.name + "</span><span class='float-right'>$" + alteration.price + "</span></p>")
+            });
           });
-        });
-        $("#total-price").html(totalPrice.toFixed(2))
+          $("#total-price").html(totalPrice.toFixed(2))
+        }
       }
     });
   </script>
@@ -521,7 +524,6 @@
 
 
     <%= form_tag charges_path, :id => "myform" do %>
-        <script src="https://checkout.stripe.com/checkout.js"></script>
 
         <%= text_field_tag :amount, params[:amount], :id => "form-amount", :class => "hidden" %>
 
