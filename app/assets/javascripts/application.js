@@ -396,6 +396,8 @@
     $("#basket").toggleClass("hidden");
     $("main").toggleClass('hidden');
 
+    $("#review-order-items").html("");
+
     // show proper header for garment page
     if(currentGarment.name == ""){
       $("#header1").toggleClass('hidden');
