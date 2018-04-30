@@ -268,6 +268,10 @@ button {
   text-align: center;
 }
 
+#alteration-cards-section {
+  overflow: auto;
+}
+
 .alteration-card {
   float: left;
   overflow: auto;
@@ -625,5 +629,104 @@ float: right;
 border-radius: 5px;
 }
 /* END PROMO CODE SECTION */
+
+/* SAMPLE ITEM SECTION */
+#prep-details-div{
+  clear: both;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 45px;
+  width: 328px;
+}
+
+#prep-details-div h2 {
+  text-align: center;
+  font-family: alegreya;
+}
+
+.prep-option {
+  overflow: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#prep-options input {
+  width: 10%;
+  float: left;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#prep-options span {
+  display: inline-block;
+  vertical-align: middle;
+  width: 85%;
+  float: right;
+}
+
+/* END SAMPLE ITEM SECTION */
+
+/* QUANTITY SECTION */
+#quantity-section {
+  width: 328px;
+  margin: 0 auto;
+  margin-bottom: 45px;
+  overflow: auto;
+}
+
+#quantity-input {
+  width: 100px;
+  float: left;
+}
+
+#quantity-input p {
+  font-size: 10px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#quantity-input input {
+  border: 1px solid lightgray;
+  height: 30px;
+  width: 60px;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 3px;
+}
+
+#quantity-button {
+  float: right;
+  margin-top: 26px;
+}
+
+#quantity-button span {
+  display: inline-block;
+  font-size: 20px;
+  text-align: center;
+  border-top: 1px solid #000033;
+  border-bottom: 1px solid #000033;
+  box-sizing: border-box;
+  height: 30px;
+  width: 50px;
+  line-height: 27px;
+}
+
+#quantity-button span:active {
+  background-color: #000033;
+}
+
+#minus {
+  border-left: 1px solid #000033;
+  border-right: 1px solid #000033;
+  border-radius: 3px 0 0 3px;
+}
+
+#plus {
+  border-right: 1px solid #000033;
+  border-radius: 0 3px 3px  0;
+}
+
+
+/* END QUANTITY SECTION */
 
 

@@ -50,8 +50,10 @@
   var currentAlteration = "";
   var currentAltName = [];
   var currentAltPrice = [];
+  var quantity = 1;
   var currentPrep = {name: "", instructions: "", gif: "", jpg: ""}
   var currentItem = "";
+  var currentItems = [];
   var itemPrice = 0;
   var items = [];
   var totalPrice = 0;
@@ -98,6 +100,10 @@
     }
     $("#header1").toggleClass('hidden');
     $("#header2").toggleClass('hidden');
+    if (currentAlterations.length < 1){
+        $("#add-alt-to-basket").css('background-color', 'rgba(0,0,53,.5)');
+      }
+    $(window).scrollTop(0);
   })
 
   //
@@ -125,6 +131,7 @@
       $(this).toggleClass('selected');
       if (currentAlterations.length < 1){
         $("#add-alt-to-basket").css('background-color', 'rgba(0,0,53,.5)');
+        $("#prep-and-quantity").slideUp('slow');
       }
 
     } else {
@@ -144,6 +151,7 @@
       $("#add-alt-to-basket").css('background-color', 'rgb(0,0,53)');
       var integerPrice = parseFloat(currentAltPrice)
       itemPrice = itemPrice + integerPrice
+      $("#prep-and-quantity").slideDown('slow');
     }
   });
 
@@ -206,6 +214,7 @@
     $("#alteration-select").toggleClass('hidden');
     $("#garment-select").toggleClass('hidden');
     $(".alteration-name-price").css('background-color', 'white');
+    $("#prep-and-quantity").hide();
 
     if(currentAlteration != ""){
       $("[data-alt-type*=" + currentAltType + "]").not($(this)).parent().css({
@@ -232,6 +241,26 @@
 
 
 
+  // QUANTITY BUTTONS
+  //
+  //
+    $(document).on("click", "#plus", function(){
+      quantity = quantity + 1
+      $("#quantity-input input").val(quantity)
+    })
+
+    $(document).on("click", "#minus", function(){
+      if(quantity > 1){
+        quantity = quantity - 1
+      $("#quantity-input input").val(quantity)
+      }
+    })
+  //
+  //
+  // END QUANTITY BUTTONS
+
+
+
   // ADD ALTERATIONS BUTTON
   //
   //
@@ -247,22 +276,25 @@
       }
       //
 
+      for(var i = 0; i < quantity; i++) {
+        currentItem = {id: counter, item_type_id:currentGarment.itemTypeId, garment: currentGarment.name, alterations: currentAlterations, total: itemPrice, notes: ""}
+        currentItems.push(currentItem)
+        items.push(currentItem)
+        counter = counter + 1
+
+      };
+
+
+
       // establish item details
-      currentItem = {id: counter, item_type_id:currentGarment.itemTypeId, garment: currentGarment.name, alterations: currentAlterations, total: itemPrice, notes: ""}
+      $.each(currentItems, function(i, item){
+        $("#basket-items").append("<div id=" + item.id + " class='basket-item'><p class='basket-garment'><span class='float-left'>" + item.garment + "</span><span class='float-right'><span id='basket-edit'>edit</span> | <span id='basket-delete'>delete</span></span></p></div>")
 
-      items.push(currentItem)
-      //
-
-      $("#basket-items").append("<div id=" + currentItem.id + "></div>")
-
-      // add item to basket
-      $("#" + currentItem.id).append("<p class='basket-garment'><span class='float-left'>" + currentItem.garment + "</span><span class='float-right'><span id='basket-edit'>edit</span> | <span id='basket-delete'>delete</span></span></p>")
-
-      // add alterations to basket
-      $.each(currentAlterations, function(i, alteration){
-        $("#" + currentItem.id).append("<p class='basket-alteration clear-float'><span class='float-left'>" + alteration.name + "</span><span class='float-right'>$" + alteration.price + "</span></p>")
+        $.each(item.alterations, function(i, alteration){
+          $(".basket-item:last").append("<p class='basket-alteration clear-float'><span class='float-left'>" + alteration.name + "</span><span class='float-right'>$" + alteration.price + "</span></p>")
         var integerPrice = parseFloat(alteration.price)
         totalPrice = totalPrice + integerPrice
+        });
       });
       //
 
@@ -278,7 +310,7 @@
       };
       //
 
-      // return alterations cards to original styles
+      // return alterations cards section to original styles
       $("[data-alt-type*=" + currentAltType + "]").not($(this)).parent().css({
         pointerEvents: 'auto',
         opacity: '1'
@@ -286,6 +318,8 @@
       $(".alteration-name-price").css('background-color', 'white');
       $(".alteration-name-price").removeClass("selected")
       $('.prep-button').find('p').css('color', '#000033');
+      $("#quantity-input input").val(1);
+      $("#prep-and-quantity").hide();
       //
 
       // return view to garment select
@@ -300,10 +334,8 @@
       itemPrice = 0;
       currentAltType = "";
       currentAlteration = "";
-      //
-
-      // update counter
-      counter = counter + 1
+      currentItems = [];
+      quantity = 1;
       //
 
       // switch headers
