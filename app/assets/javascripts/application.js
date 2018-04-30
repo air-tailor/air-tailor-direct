@@ -476,9 +476,38 @@
     $("#review-notes-textarea").toggleClass('hidden');
   });
 
+  // promo code section
 
-// payment
+   $(document).on('click', "#promo-button", function(){
+    // form promo code
+    var customerFirstName = $("#customer-first-name").html().toUpperCase();
+    var promocode = customerFirstName + "PROMO"
+
+    // promo button actions
+
+    if($("#promo-input").val() == promocode){
+      // adjust price
+      totalPrice = totalPrice *.9
+      $("#review-total-price").html("$" + (totalPrice + 6).toFixed(2))
+      $("#form-amount").val(totalPrice + 6)
+
+      // style
+      // alert("Success! 10% promo applied to your order")
+      $("#promo-button").toggleClass('hidden');
+      $("#promo-input").val("SUCCESS! 10% PROMO APPLIED :)")
+      $("#promo-input").animate({width: 328}, {duration: 1000});
+    }
+    else {
+      alert("Promo code not recognized. Please check and try again.")
+    }
+   })
+
+  // end promo code section
+
+
+  // payment
   $(document).on('click', "#proceed-to-pay", function(){
+
     var customerFirstName = $("#customer-first-name").html();
     var customerLastName = $("#customer-last-name").html();
     var customerPhone = $("#customer-phone").html();
@@ -488,7 +517,6 @@
     var customerCity = $("#customer-city").html();
     var customerState = $("#customer-state").html();
     var customerZip = $("#customer-zip").html();
-
 
     data = {
       "order": {
@@ -509,7 +537,6 @@
     };
 
     localStorage.setItem("data", JSON.stringify(data));
-
 
   })
 

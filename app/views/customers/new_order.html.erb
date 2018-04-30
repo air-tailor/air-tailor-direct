@@ -509,6 +509,11 @@
     <p id="review-notes"><img src="/assets/notes.png" alt="notes">Any notes for your order? (optional)</p>
     <textarea id="review-notes-textarea" class="hidden" placeholder="Special garments or alterations? Enter any important notes about the overall order here to help us serve you best!"></textarea>
     <hr>
+    <div id="promo-div">
+      <input id="promo-input" type="text" placeholder="Enter Promo Code" name="promo-code">
+      <button id="promo-button">Apply</button>
+    </div>
+    <hr>
     <div id="review-shipping">
       <p class="review-garment">Shipping <a href="customers/<%= @customer.id %>/edit" class="review-edit-account edit-account-link">edit</a></p>
       <p class="review-alteration"><%= @customer.first_name %> <%= @customer.last_name %></p>

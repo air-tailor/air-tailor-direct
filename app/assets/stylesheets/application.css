@@ -601,3 +601,29 @@ footer, footer a {
   font-size: 12px;
   color: gray;
 }
+
+/* PROMO CODE SECTION */
+#promo-div {
+  overflow: auto;
+}
+
+#promo-input {
+  background-color: lightgray;
+  border-style: none;
+  border-radius: 5px;
+  width: 62%;
+  box-sizing: border-box;
+  height: 40px;
+  padding-left: 10px;
+  float: left;
+}
+
+#promo-button {
+height: 40px;
+width: 32%;
+float: right;
+border-radius: 5px;
+}
+/* END PROMO CODE SECTION */
+
+
