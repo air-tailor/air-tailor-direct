@@ -207,10 +207,13 @@
     $("#garment-select").toggleClass('hidden');
     $(".alteration-name-price").css('background-color', 'white');
 
-     $("[data-alt-type*=" + currentAltType + "]").not($(this)).parent().css({
+    if(currentAlteration != ""){
+      $("[data-alt-type*=" + currentAltType + "]").not($(this)).parent().css({
         pointerEvents: 'auto',
         opacity: '1'
       });
+    }
+
 
     $('.prep-button').find('p').css('color', '#000033');
 
@@ -233,6 +236,7 @@
   //
   //
   $(document).on("click", "#add-alt-to-basket", function(){
+    $(window).scrollTop(0);
     // make basket appear
     if (currentAlterations.length < 1){
 
@@ -295,6 +299,7 @@
       currentGarment.name.itemTypeId = "";
       itemPrice = 0;
       currentAltType = "";
+      currentAlteration = "";
       //
 
       // update counter
@@ -366,6 +371,7 @@
 
   // checkout button
     $(document).on('click', "#checkout-button", function(){
+      $(window).scrollTop(0);
       // hide garment and alteration divs, show review page
       $("main").toggleClass('hidden');
       $("#basket").toggleClass('hidden');
