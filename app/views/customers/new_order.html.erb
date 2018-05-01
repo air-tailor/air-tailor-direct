@@ -2,11 +2,9 @@
     $( document ).ready(function() {
 
       if(location.pathname == '/new_order'){
-        var previousPage = document.referrer.split('://')[1].split('/')[3]
-        if (previousPage == 'edit'){
-            items = localStorage.getItem("items");
-            items = JSON.parse(items)
-          }
+
+        items = localStorage.getItem("items");
+        items = JSON.parse(items)
 
         totalPrice = 0
 
@@ -624,5 +622,4 @@
           });
         </script>
     <% end %>
-
   </div>
