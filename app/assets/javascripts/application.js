@@ -403,6 +403,9 @@
 
   // delete garment button
   $(document).on('click', '#basket-delete', function(){
+    items = localStorage.getItem("items");
+    items = JSON.parse(items)
+
     // save current div to local variable
     var currentDiv = $(this).parent().parent().parent()
 
@@ -493,6 +496,9 @@
 
   // review-delete button
   $(document).on('click', '#review-delete', function(){
+    items = localStorage.getItem("items");
+    items = JSON.parse(items)
+
     // save current div to local variable
     var currentDiv = $(this).parent().parent().parent()
 
