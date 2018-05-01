@@ -520,7 +520,7 @@
    $(document).on('click', "#promo-button", function(){
     // form promo code
     var customerFirstName = $("#customer-first-name").html().toUpperCase();
-    var promocode = customerFirstName + "PROMO"
+    var promocode = "PROMO"
 
     // promo button actions
 
