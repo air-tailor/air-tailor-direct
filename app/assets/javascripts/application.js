@@ -151,6 +151,7 @@
       $("#add-alt-to-basket").css('background-color', 'rgb(0,0,53)');
       var integerPrice = parseFloat(currentAltPrice)
       itemPrice = itemPrice + integerPrice
+
       $("#prep-and-quantity").slideDown('slow');
     }
   });
@@ -525,14 +526,14 @@
 
     if($("#promo-input").val() == promocode){
       // adjust price
-      totalPrice = totalPrice *.9
-      $("#review-total-price").html("$" + (totalPrice + 6).toFixed(2))
-      $("#form-amount").val(totalPrice + 6)
+      totalPrice = totalPrice *0
+      $("#review-total-price").html("$" + (totalPrice).toFixed(2))
+      $("#form-amount").val(totalPrice)
 
       // style
       // alert("Success! 10% promo applied to your order")
       $("#promo-button").toggleClass('hidden');
-      $("#promo-input").val("SUCCESS! 10% PROMO APPLIED :)")
+      $("#promo-input").val("SUCCESS! 100% PROMO APPLIED :)")
       $("#promo-input").animate({width: 328}, {duration: 1000});
     }
     else {
