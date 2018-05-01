@@ -14,7 +14,7 @@
         if(items.length > 0){
           $("#basket").toggleClass('hidden');
           $.each(items, function(i, item){
-            $("#basket-items").append("<div id=" + item.id + " class='basket-item'><p class='basket-garment'><span class='float-left'>" + item.garment + "</span><span class='float-right'><span id='basket-edit'>edit</span> | <span id='basket-delete'>delete</span></span></p></div>")
+            $("#basket-items").append("<div id=" + item.id + " class='basket-item'><p class='basket-garment'><span class='float-left'>" + item.garment + "</span><span class='float-right'><span id='basket-delete'>delete</span></span></p></div>")
 
             $.each(item.alterations, function(i, alteration){
               $(".basket-item:last").append("<p class='basket-alteration clear-float'><span class='float-left'>" + alteration.name + "</span><span class='float-right'>$" + alteration.price + "</span></p>")
@@ -494,7 +494,7 @@
 
         <div id="prep-details-div">
           <h2>How would you like to prep?<span class="red">*</span></h2>
-          <small>Choose one (required)</small>
+          <small>Choose one <span class="red">(required)</span></small>
           <hr>
             <div id="prep-options">
               <div id="prep-option-one" class="prep-option">
