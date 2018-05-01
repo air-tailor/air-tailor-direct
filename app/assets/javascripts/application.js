@@ -520,20 +520,21 @@
    $(document).on('click', "#promo-button", function(){
     // form promo code
     var customerFirstName = $("#customer-first-name").html().toUpperCase();
-    var promocode = "PROMO"
+    var promocode = customerFirstName + "PROMO"
 
     // promo button actions
 
     if($("#promo-input").val() == promocode){
       // adjust price
-      totalPrice = totalPrice *0
+      totalPrice = 1.00
+      console.log(totalPrice)
       $("#review-total-price").html("$" + (totalPrice).toFixed(2))
       $("#form-amount").val(totalPrice)
 
       // style
       // alert("Success! 10% promo applied to your order")
       $("#promo-button").toggleClass('hidden');
-      $("#promo-input").val("SUCCESS! 100% PROMO APPLIED :)")
+      $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
       $("#promo-input").animate({width: 328}, {duration: 1000});
     }
     else {
