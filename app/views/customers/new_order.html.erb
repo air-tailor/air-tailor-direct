@@ -1,6 +1,15 @@
   <script>
     $( document ).ready(function() {
+
       if(location.pathname == '/new_order'){
+        var previousPage = document.referrer.split('://')[1].split('/')[3]
+        if (previousPage == 'edit'){
+            items = localStorage.getItem("items");
+            items = JSON.parse(items)
+          }
+
+          totalPrice = 0
+
         localStorage.setItem("request", JSON.stringify(false));
         if(items.length > 0){
           $("#basket").toggleClass('hidden');
@@ -9,9 +18,13 @@
 
             $.each(item.alterations, function(i, alteration){
               $(".basket-item:last").append("<p class='basket-alteration clear-float'><span class='float-left'>" + alteration.name + "</span><span class='float-right'>$" + alteration.price + "</span></p>")
+              var integerPrice = parseFloat(alteration.price)
+              totalPrice = totalPrice + integerPrice
             });
           });
           $("#total-price").html(totalPrice.toFixed(2))
+          $("#review-total-price").html("$" + (totalPrice + 6).toFixed(2))
+          $("#form-amount").val(totalPrice + 6)
         }
       }
     });
@@ -464,7 +477,8 @@
 
       <!-- alteration details -->
       <div id="prep-and-quantity" class="hidden">
-        <h2>Alteration Details</h2>
+        <h2>How many <span class="quantity-name"></span>?</h2>
+        <hr>
         <!-- quantity section -->
         <div id="quantity-section">
           <div id="quantity-input">
@@ -478,20 +492,21 @@
         <!-- end quantity section -->
 
 
-<!--         <div id="prep-details-div">
+        <div id="prep-details-div">
+          <h2>How would you like to prep?<span class="red">*</span></h2>
+          <small>Choose one (required)</small>
           <hr>
             <div id="prep-options">
               <div id="prep-option-one" class="prep-option">
                 <input type="checkbox" name="sample item checkbox" checked>
-                <span>I will mark my desired fit with safety pins</span>
+                <span class="prep-text">I will mark my desired fit with <b>safety pins</b> for the <span class="garment-name"></span> being altered. (see above)</span>
               </div>
               <div id="prep-option-two" class="prep-option">
                 <input type="checkbox" name="sample item checkbox">
-                <span>I will send a sample garment. Please use sample to help get correct fit.</span>
+                <span class="prep-text">I will send a <b>sample <span id="sample-name"></span></b>. Please use sample to get correct fit for the <span class="garment-name"></span> being altered.</span>
               </div>
             </div>
-          <hr>
-        </div> -->
+        </div>
         <!-- end alteration details -->
 
 
@@ -610,12 +625,4 @@
         </script>
     <% end %>
 
-
-
-
-
-
-
-
-    <p id="promo-code-note">Redeem promo code on next screen</p>
   </div>

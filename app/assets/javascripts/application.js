@@ -68,11 +68,9 @@
   // EDIT ACCOUNT WHEN YOU HAVE A BASKET
   //
   //
-  $(document).on("click", ".order-link", function(event){
+  $(document).on("click", ".edit-account-link", function(event){
     if (items.length > 0){
-
-    } else {
-
+      localStorage.setItem("items", JSON.stringify(items));
     }
   })
   //
@@ -132,6 +130,8 @@
       if (currentAlterations.length < 1){
         $("#add-alt-to-basket").css('background-color', 'rgba(0,0,53,.5)');
         $("#prep-and-quantity").slideUp('slow');
+        quantity = 1;
+        $("#quantity-input input").val(1);
       }
 
     } else {
@@ -151,6 +151,20 @@
       $("#add-alt-to-basket").css('background-color', 'rgb(0,0,53)');
       var integerPrice = parseFloat(currentAltPrice)
       itemPrice = itemPrice + integerPrice
+
+      if (currentGarment.name == "pants"){
+        $("#sample-name").html("pair of " + currentGarment.name)
+      } else {
+      $("#sample-name").html(currentGarment.name)
+      }
+
+      if (currentGarment.name != "pants"){
+        $(".quantity-name").html(currentGarment.name + "s")
+      } else {
+        $(".quantity-name").html(currentGarment.name)
+      }
+
+      $(".garment-name").html(currentGarment.name)
 
       $("#prep-and-quantity").slideDown('slow');
     }
@@ -230,6 +244,10 @@
     currentAltType = "";
     currentAlterations = [];
     currentGarment.name = "";
+    quantity = 1;
+    $("#quantity-input input").val(1);
+    $("#prep-and-quantity").hide();
+
 
     $(".alteration-name-price").removeClass("selected")
 
@@ -248,12 +266,21 @@
     $(document).on("click", "#plus", function(){
       quantity = quantity + 1
       $("#quantity-input input").val(quantity)
+      if(quantity > 1 && currentGarment.name != "pants"){
+        $(".garment-name").html(currentGarment.name + "s")
+        $(".quantity-name").html(currentGarment.name + "s")
+      }
     })
 
     $(document).on("click", "#minus", function(){
-      if(quantity > 1){
+      if(quantity > 2){
         quantity = quantity - 1
-      $("#quantity-input input").val(quantity)
+        $("#quantity-input input").val(quantity)
+      } else if (quantity == 2 && currentGarment.name != "pants"){
+        $(".garment-name").html(currentGarment.name)
+        $(".quantity-name").html(currentGarment.name + "s")
+        quantity = quantity - 1
+        $("#quantity-input input").val(quantity)
       }
     })
   //
@@ -281,6 +308,7 @@
         currentItem = {id: counter, item_type_id:currentGarment.itemTypeId, garment: currentGarment.name, alterations: currentAlterations, total: itemPrice, notes: ""}
         currentItems.push(currentItem)
         items.push(currentItem)
+        localStorage.setItem("items", JSON.stringify(items));
         counter = counter + 1
 
       };
@@ -396,6 +424,7 @@
     totalPrice = totalPrice - currentItem.total
     $("#total-price").html(totalPrice.toFixed(2))
     items.splice(currentIndex,1)
+    localStorage.setItem("items", JSON.stringify(items));
     if (items.length == 0){
       $("#basket").toggleClass('hidden');
     }
@@ -493,6 +522,7 @@
     // remove current item from items array
     $("#review-total-price").html(totalPrice.toFixed(2))
     items.splice(currentIndex,1)
+    localStorage.setItem("items", JSON.stringify(items));
 
     // hide review page and basket, return to garments page
     if (items.length === 0){

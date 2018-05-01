@@ -46,7 +46,7 @@
               <% elsif action_name == "terms" %>
                 <a id="account-button" class="order-link" href="/new_order">Order</a>
               <% else %>
-                <a id="account-button"  href="/customers/<%= current_customer.id %>/edit">Account</a>
+                <a id="account-button" class="edit-account-link"  href="/customers/<%= current_customer.id %>/edit">Account</a>
               <% end %>
 
             <a id="logout-button" href="/logout" onclick="return confirm('Are you sure? Continuing will erase any existing order.')">Log Out</a>
