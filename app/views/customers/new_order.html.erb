@@ -5,11 +5,12 @@
 
         items = localStorage.getItem("items");
         items = JSON.parse(items)
+        console.log(items)
         totalPrice = 0
         localStorage.setItem("request", JSON.stringify(false));
 
 
-        if(items){
+        if(items.length > 1){
           $("#basket").toggleClass('hidden');
           $.each(items, function(i, item){
             $("#basket-items").append("<div id=" + item.id + " class='basket-item'><p class='basket-garment'><span class='float-left'>" + item.garment + "</span><span class='float-right'><span id='basket-delete'>delete</span></span></p></div>")
