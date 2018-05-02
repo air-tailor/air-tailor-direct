@@ -623,17 +623,17 @@
 
    $(document).on('click', "#promo-button", function(){
     // form promo code
-    var customerFirstName = $("#customer-first-name").html().toUpperCase();
-    var promocode = customerFirstName + "PROMO"
+
+    var promocode = "EARLYACCESS"
 
     // promo button actions
 
     if($("#promo-input").val() == promocode){
       // adjust price
-      totalPrice = 1.00
+      totalPrice = totalPrice - 30
       console.log(totalPrice)
-      $("#review-total-price").html("$" + (totalPrice).toFixed(2))
-      $("#form-amount").val(totalPrice)
+      $("#review-total-price").html("$" + (totalPrice+6).toFixed(2))
+      $("#form-amount").val(totalPrice+6)
 
       // style
       // alert("Success! 10% promo applied to your order")
