@@ -631,7 +631,10 @@
     if($("#promo-input").val() == promocode){
       // adjust price
       totalPrice = totalPrice - 30
-      console.log(totalPrice)
+      if(totalPrice > 1){
+        totalPrice = 0;
+      }
+
       $("#review-total-price").html("$" + (totalPrice+6).toFixed(2))
       $("#form-amount").val(totalPrice+6)
 
