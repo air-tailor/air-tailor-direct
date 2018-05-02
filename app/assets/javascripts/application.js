@@ -195,14 +195,20 @@
       popup();
       $("#prep-alt-name").html(currentPrep.name);
       $("#prep-instructions").html(currentPrep.instructions);
-      $("#prep-gif").attr({
-        src: currentPrep.gif,
-        alt: currentPrep.name
-      });
-      $("#prep-jpg").attr({
-        src: currentPrep.jpg,
-        alt: currentPrep.name
-      });
+      if(currentGarment.name == "necktie" && currentPrep.name != "Shorten Necktie"){
+          $("#prep-gif").html("");
+          $("#prep-jpg").html("");
+        } else {
+          $("#prep-gif").attr({
+            src: currentPrep.gif,
+            alt: currentPrep.name
+          });
+          $("#prep-jpg").attr({
+            src: currentPrep.jpg,
+            alt: currentPrep.name
+          });
+        }
+
     $("#overlay, #prep-popup").fadeToggle();
 
     } else {
