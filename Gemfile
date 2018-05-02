@@ -9,6 +9,8 @@ gem 'stripe'
 
 gem 'awesome_print'
 
+gem "figaro"
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 

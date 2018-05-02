@@ -48,6 +48,7 @@
   var currentAltType = "";
   var currentAlterations = [];
   var currentAlteration = "";
+  var sampleId = ""
   var currentAltName = [];
   var currentAltPrice = [];
   var quantity = 1;
@@ -58,6 +59,7 @@
   var items = [];
   var totalPrice = 0;
   var counter = 0;
+  var sampleCounter = 1;
   var orderNotes = "";
   var data;
 
@@ -76,7 +78,6 @@
   //
   //
   // END EDIT ACCOUNT WHEN YOU HAVE A BASKET
-
 
 
 
@@ -101,6 +102,22 @@
     if (currentAlterations.length < 1){
         $("#add-alt-to-basket").css('background-color', 'rgba(0,0,53,.5)');
       }
+
+     switch (currentGarment.name) {
+        case 'pants': sampleId = 52;
+        break;
+        case 'shirt': sampleId = 67;
+        break;
+        case 'skirt': sampleId = 154;
+        break;
+        case 'dress': sampleId = 170;
+        break;
+        case 'suit jacket': sampleId = 185;
+        break;
+        case 'necktie': sampleId = 190;
+        break;
+      }
+
     $(window).scrollTop(0);
   })
 
@@ -289,6 +306,21 @@
 
 
 
+  // PREP CHECKBOXES
+  //
+  //
+    $(document).on("click", ".prep-option input", function(e){
+      if($(this).prop("checked", true)){
+        e.preventDefault
+      }
+      $(".prep-option input").not(this).prop('checked', false);
+    })
+  //
+  //
+  // END PREP CHECKBOXES
+
+
+
   // ADD ALTERATIONS BUTTON
   //
   //
@@ -304,8 +336,36 @@
       }
       //
 
+      // add sample items
+      if($("#prep-sample").is(":checked")){
+        var sample = {
+          id: counter,
+          item_type_id:currentGarment.itemTypeId,
+          garment: currentGarment.name,
+          alterations: [{
+            alteration_id: sampleId,
+            name: "Sample " + currentGarment.name + " #" + sampleCounter,
+            price: "0"
+          }],
+          total: 0,
+          notes: ""
+        }
+        currentItems.push(sample)
+        items.push(sample)
+        counter = counter + 1
+        sampleCounter = sampleCounter + 1
+      }
+
+      // add regular items
       for(var i = 0; i < quantity; i++) {
-        currentItem = {id: counter, item_type_id:currentGarment.itemTypeId, garment: currentGarment.name, alterations: currentAlterations, total: itemPrice, notes: ""}
+        currentItem = {
+          id: counter,
+          item_type_id:currentGarment.itemTypeId,
+          garment: currentGarment.name,
+          alterations: currentAlterations,
+          total: itemPrice,
+          notes: ""
+        }
         currentItems.push(currentItem)
         items.push(currentItem)
         localStorage.setItem("items", JSON.stringify(items));
@@ -349,6 +409,8 @@
       $('.prep-button').find('p').css('color', '#000033');
       $("#quantity-input input").val(1);
       $("#prep-and-quantity").hide();
+      $("#prep-sample").prop("checked",false)
+      $("#prep-pins").prop("checked",true)
       //
 
       // return view to garment select
@@ -736,6 +798,7 @@
 
   var popup = function() {
     if (currentGarment.name === "pants"){
+
       switch (currentPrep.name) {
         case 'Shorten Pant Length - Regular Hem':currentPrep = {name:currentPrep.name, instructions:instructions8, gif:gif8, jpg:jpg1};
         break;
@@ -822,6 +885,10 @@
       }
     }
   }
+
+
+
+
 
 
 

@@ -10,4 +10,5 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_customer
   end
 
+
 end

@@ -47,6 +47,7 @@
 
   <main>
 
+
     <!-- garment cards -->
     <div id="garment-select" class="">
       <div class="garment-card" id="pants" data-id="6">
@@ -489,28 +490,25 @@
         </div>
         <!-- end quantity section -->
 
-
+        <!-- prep checkbox section -->
         <div id="prep-details-div">
           <h2>How would you like to prep?<span class="red">*</span></h2>
           <small>Choose one <span class="red">(required)</span></small>
           <hr>
             <div id="prep-options">
               <div id="prep-option-one" class="prep-option">
-                <input type="checkbox" name="sample item checkbox" checked>
+                <input id="prep-pins" type="checkbox" name="sample item checkbox" checked>
                 <span class="prep-text">I will mark my desired fit with <b>safety pins</b> for the <span class="garment-name"></span> being altered. (see above)</span>
               </div>
               <div id="prep-option-two" class="prep-option">
-                <input type="checkbox" name="sample item checkbox">
+                <input id="prep-sample" type="checkbox" name="sample item checkbox">
                 <span class="prep-text">I will send a <b>sample <span id="sample-name"></span></b>. Please use sample to get correct fit for the <span class="garment-name"></span> being altered.</span>
               </div>
             </div>
         </div>
-        <!-- end alteration details -->
-
-
-
-
+        <!-- end prep checkbox section -->
       </div>
+      <!-- end alteration details -->
 
 
       <!-- alteration buttons -->
