@@ -16,6 +16,12 @@
       gtag('js', new Date());
       gtag('config', 'UA-66293380-1');
     </script>
+    <script>
+      var host = "www.YOURDOMAIN.com";
+      if ((host == window.location.host) && (window.location.protocol != "https:")){
+        window.location.protocol = "https";
+      }
+    </script>
 
 
   </head>
