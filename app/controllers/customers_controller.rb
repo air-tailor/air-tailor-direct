@@ -65,7 +65,9 @@ before_action :authorize, :except => [:new, :create, :terms]
   def terms
   end
 
-
+  def letsencrypt
+    render text: "#{params[:id]}.-qmcvblrvkMCeDA2rvDMc888MmA_InPSkGcWBveqPhio"
+  end
 
 
 

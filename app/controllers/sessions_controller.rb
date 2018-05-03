@@ -6,6 +6,8 @@ class SessionsController < ApplicationController
     end
   end
 
+
+
     def create
     customer = Customer.find_by_email(params[:email])
     # If the user exists AND the password entered is correct.

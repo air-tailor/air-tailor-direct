@@ -18,4 +18,8 @@ Rails.application.routes.draw do
   get '/terms', to: 'customers#terms'
 
 
+  # Let’s encrypt
+  get '/.well-known/acme-challenge/:id' => 'customers#letsencrypt'
+
+
 end
