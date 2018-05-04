@@ -7,3 +7,12 @@
 2018-04-12 14:10:14.449 EDT [6473] LOG:  invalid record length at 0/2B7CC78: wanted 24, got 0
 2018-04-12 14:10:14.449 EDT [6473] LOG:  redo done at 0/2B7CC40
 2018-04-12 14:10:14.457 EDT [6472] LOG:  database system is ready to accept connections
+2018-05-04 15:18:18.221 EDT [3989] LOG:  listening on IPv6 address "::1", port 5432
+2018-05-04 15:18:18.222 EDT [3989] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-05-04 15:18:18.222 EDT [3989] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-05-04 15:18:18.253 EDT [3990] LOG:  database system was interrupted; last known up at 2018-05-01 19:11:16 EDT
+2018-05-04 15:18:18.898 EDT [3990] LOG:  database system was not properly shut down; automatic recovery in progress
+2018-05-04 15:18:18.903 EDT [3990] LOG:  redo starts at 0/2BBB238
+2018-05-04 15:18:18.904 EDT [3990] LOG:  invalid record length at 0/2BBB318: wanted 24, got 0
+2018-05-04 15:18:18.904 EDT [3990] LOG:  redo done at 0/2BBB2E0
+2018-05-04 15:18:18.914 EDT [3989] LOG:  database system is ready to accept connections

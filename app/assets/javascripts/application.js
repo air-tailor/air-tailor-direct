@@ -631,7 +631,7 @@
     if($("#promo-input").val() == promocode){
       // adjust price
       totalPrice = totalPrice - 30
-      if(totalPrice > 1){
+      if(totalPrice < 1){
         totalPrice = 0;
       }
 
