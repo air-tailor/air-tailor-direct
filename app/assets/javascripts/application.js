@@ -497,7 +497,6 @@
 
     // delete current div, subtract price from total, and remove current item from items array
     currentDiv.remove()
-    console.log(currentItem)
     totalPrice = totalPrice - currentItem.total
     $("#total-price").html(totalPrice.toFixed(2))
     items.splice(currentIndex,1)
