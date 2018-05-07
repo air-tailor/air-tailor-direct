@@ -49,8 +49,8 @@
   var currentAlterations = [];
   var currentAlteration = "";
   var sampleId = ""
-  var currentAltName = [];
-  var currentAltPrice = [];
+  var currentAltName;
+  var currentAltPrice;
   var quantity = 1;
   var currentPrep = {name: "", instructions: "", gif: "", jpg: ""}
   var currentItem = "";
@@ -265,7 +265,8 @@
     $('.prep-button').find('p').css('color', '#000033');
 
     currentAltType = "";
-    currentAlterations = [];
+    currentAlterations.pop();
+    currentAltPrice = "";
     currentGarment.name = "";
     quantity = 1;
     $("#quantity-input input").val(1);
@@ -497,6 +498,7 @@
 
     // delete current div, subtract price from total, and remove current item from items array
     currentDiv.remove()
+    console.log(currentItem)
     totalPrice = totalPrice - currentItem.total
     $("#total-price").html(totalPrice.toFixed(2))
     items.splice(currentIndex,1)
