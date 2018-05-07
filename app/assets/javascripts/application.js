@@ -362,6 +362,8 @@
         sampleCounter = sampleCounter + 1
       }
 
+      quantity = $("#quantity-input input").val()
+
       // add regular items
       for(var i = 0; i < quantity; i++) {
         currentItem = {
