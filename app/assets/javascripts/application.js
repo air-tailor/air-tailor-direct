@@ -146,14 +146,7 @@
       $(this).toggleClass('selected');
       if (currentAlterations.length < 1){
         $("#add-alt-to-basket").css('background-color', 'rgba(0,0,53,.5)');
-        if(currentGarment.name == "necktie"){
-          $("#prep-and-quantity").slideUp('slow');
-          $("#prep-details-div").show();
-        } else {
-          $("#prep-and-quantity").slideUp('slow');
-        }
-
-
+        $("#prep-and-quantity").slideUp('slow');
         quantity = 1;
         $("#quantity-input input").val(1);
       }
@@ -190,15 +183,8 @@
 
       $(".garment-name").html(currentGarment.name)
 
-      if(currentGarment.name == "necktie"){
-        $("#prep-and-quantity").slideDown('slow');
-        $("#prep-details-div").hide();
-      } else {
-        $("#prep-and-quantity").slideDown('slow');
-      }
-
+      $("#prep-and-quantity").slideDown('slow');
     }
-
   });
 
 
