@@ -304,6 +304,9 @@
         $(".quantity-name").html(currentGarment.name + "s")
         quantity = quantity - 1
         $("#quantity-input input").val(quantity)
+      } else if (quantity == 2 && currentGarment.name == "pants"){
+        quantity = quantity - 1
+        $("#quantity-input input").val(quantity)
       }
     })
   //
