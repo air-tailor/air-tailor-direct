@@ -265,9 +265,11 @@
     $('.prep-button').find('p').css('color', '#000033');
 
     currentAltType = "";
-    currentAlterations.pop();
+    currentAlteration = "";
+    currentAlterations = [];
     currentAltPrice = "";
     currentGarment.name = "";
+    itemPrice = 0;
     quantity = 1;
     $("#quantity-input input").val(1);
     $("#prep-and-quantity").hide();
