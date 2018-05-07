@@ -254,13 +254,10 @@
     $(".alteration-name-price").css('background-color', 'white');
     $("#prep-and-quantity").hide();
 
-    if(currentAlteration != ""){
-      $("[data-alt-type*=" + currentAltType + "]").not($(this)).parent().css({
-        pointerEvents: 'auto',
-        opacity: '1'
-      });
-    }
-
+    $(".alteration-card").css({
+      pointerEvents: 'auto',
+      opacity: '1'
+    })
 
     $('.prep-button').find('p').css('color', '#000033');
 
