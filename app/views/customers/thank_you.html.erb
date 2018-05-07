@@ -5,26 +5,64 @@
     <h3>Your shipping label has been emailed to you at <%= @customer.email %></h3>
     <p>Need more alterations? <a href="/new_order">Place a new order!</a></p>
   </div>
+  <div id="thank-you-state" class="hidden"><%= @customer.state_province %></div>
+
+  <div id="thank-you-zip" class="hidden"><%= @customer.zip_code %></div>
 </header><!-- /header -->
 
 
 <script>
 
   $("#thank-you-header").ready(function() {
+    var key;
+
+    var data = localStorage.getItem("data");
+    data = JSON.parse(data)
+
+    var san_francisco = ["Alaska", "Washington", "Oregon", "Idaho", "Montana", "Wyoming", "Hawaii"]
+
+    var los_angeles = ["Nevada", "Utah", "Arizona", "New Mexico", "Colorado", "Texas"]
+
+    var new_york = ["Maine", "New Hampshire", "Vermont", "Massachusetts", "New York", "Pennsylvania", "Rhode Island", "Connecticut", "New Jersey", "Delaware", "Maryland", "West Virginia", "Virginia", "North Carolina", "South Carolina", "Georgia", "Florida"]
+
+    var chicago = ["Michigan", "Ohio", "Kentucky", "Indiana", "Tennessee", "Alabama", "Mississippi", "Louisiana", "Arkansas", "Missouri", "Illinois", "Wisconsin", "Minnesota", "Iowa", "Oklahoma", "Kansas", "Nebraska", "South Dakota", "North Dakota"]
+
+    var state = $("#thank-you-state").html()
+    var zip = parseInt($("#thank-you-zip").html())
+
+    var data_val = data.order.items
+
+    $.grep( data_val, function(item) {
+        if (item.garment == "necktie"){
+          key = "O7iq7W0Kcg8MynMp3aaHzgtt"
+        } else if (state == "California") {
+          if (zip < 93750){
+            key = "cdX5Bh9PQ60lmUfXzzO2CQtt"
+          } else {
+            key = "14LhglNvyCCrA3rVHnxOFAtt"
+          }
+        } else if (jQuery.inArray(state, los_angeles) !== -1) {
+          key = "cdX5Bh9PQ60lmUfXzzO2CQtt"
+        } else if (jQuery.inArray(state, san_francisco) !== -1) {
+          key = "14LhglNvyCCrA3rVHnxOFAtt"
+        } else if (jQuery.inArray(state, chicago) !== -1) {
+          key = "jdwWgnmvS8Wy6WCxwROLHAtt"
+        } else {
+          key = "O7iq7W0Kcg8MynMp3aaHzgtt"
+        }
+      });
+
+
     var request = localStorage.getItem("request");
     console.log(request)
 
     if (request == "false"){
-
       console.log("placing order")
-      var data = localStorage.getItem("data");
-      data = JSON.parse(data)
-      console.log(data)
       $.ajax({
         url: 'https://prod-airtailor-portal-api.herokuapp.com/api/v1/orders',
         method: 'POST',
         headers: {
-          'X-Api-Key': "O7iq7W0Kcg8MynMp3aaHzgtt",
+          'X-Api-Key': key,
           'Content-Type': 'application/json',
         },
         dataType: 'json',
