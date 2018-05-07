@@ -19,7 +19,7 @@ require "stripe"
     charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
-      :description => 'Rails Stripe customer',
+      :description => 'Air Tailor alterations',
       :currency    => 'usd'
     )
 
