@@ -317,6 +317,7 @@ button {
 
 #how-to-popup {
   width: 90%;
+  max-height: 100%;
   background-color: white;
   position: fixed;
   top: 100px;
@@ -329,6 +330,7 @@ button {
   padding-left: 15px;
   padding-right: 15px;
   box-sizing: border-box;
+  overflow-y: scroll;
 }
 
 #how-to-logo {

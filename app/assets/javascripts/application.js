@@ -92,6 +92,8 @@
   $(document).ready(function(){
     if(location.pathname == '/customers/new' || location.pathname == '/login'){
       $("#how-it-works").css('text-decoration', 'underline');
+    } else if (location.pathname == '/thank_you'){
+      $("#how-it-works").hide();
     }
   })
 
