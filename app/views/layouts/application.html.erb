@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AirTailorDirect</title>
+
+    <title>Air Tailor Direct</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -22,8 +23,10 @@
         window.location.protocol = "https";
       }
     </script>
+
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alegreya:400,700" rel="stylesheet">
 
@@ -58,17 +61,31 @@
         <div id="top-nav">
           <% if current_customer %>
             <% if action_name == "edit" %>
-                <a id="account-button" class="order-link" href="/new_order">Order</a>
-              <% elsif action_name == "terms" %>
-                <a id="account-button" class="order-link" href="/new_order">Order</a>
-              <% else %>
-                <a id="account-button" class="edit-account-link"  href="/customers/<%= current_customer.id %>/edit">Account</a>
-              <% end %>
+              <a id="account-button" class="order-link" href="/new_order">Order</a>
+            <% elsif action_name == "terms" %>
+              <a id="account-button" class="order-link" href="/new_order">Order</a>
+            <% else %>
+              <a id="account-button" class="edit-account-link"  href="/customers/<%= current_customer.id %>/edit">Account</a>
+            <% end %>
 
             <a id="logout-button" href="/logout">Log Out</a>
-           <% end %>
+
+          <% end %>
+          <span id="how-it-works">How It Works</span>
         </div>
 
+        <div id="how-to-popup" class="hidden">
+          <span id="how-to-exit">X</span>
+          <img id="how-to-logo" src="/assets/balloon.png" alt="balloon logo">
+          <h2>How it works</h2>
+          <h3>Step One</h3>
+          <p>Select the garment / service needed.</p>
+          <h3>Step Two</h3>
+          <p>Prepare your clothes for alteration with safety pins (see <i>How To Prep</i>) or select to send us a sample garment for us to replicate the fit.</p>
+          <h3>Step Three</h3>
+          <p>After you pay, we'll email you a pre-paid shipping label to ship your clothes to us. Find a box and ship it in :) Expect your finished order back in a week.</p>
+          <h4>It's that easy!</h4>
+        </div>
 
 
 

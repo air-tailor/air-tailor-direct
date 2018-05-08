@@ -79,6 +79,22 @@
   //
   // END EDIT ACCOUNT WHEN YOU HAVE A BASKET
 
+  $(document).on("click", "#how-it-works", function(){
+    if ($("#how-to-popup").hasClass('hidden')){
+      $("#overlay, #how-to-popup").fadeToggle();
+    }
+  });
+
+  $(document).on("click", "#how-to-exit", function(){
+    $("#overlay, #how-to-popup").fadeToggle();
+  })
+
+  $(document).ready(function(){
+    if(location.pathname == '/customers/new' || location.pathname == '/login'){
+      $("#how-it-works").css('text-decoration', 'underline');
+    }
+  })
+
 
 
   // GARMENT SELECTION PAGE
@@ -186,6 +202,8 @@
       $("#prep-and-quantity").slideDown('slow');
     }
   });
+
+
 
 
 
