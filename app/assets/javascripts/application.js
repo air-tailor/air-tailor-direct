@@ -167,7 +167,11 @@
         $("#prep-and-quantity").slideUp('slow');
         quantity = 1;
         $("#quantity-input input").val(1);
+
+
       }
+
+
 
     } else {
       $(this).parent().find('.prep-button').find('p').css('color', '#de0421');
@@ -187,19 +191,24 @@
       var integerPrice = parseFloat(currentAltPrice)
       itemPrice = itemPrice + integerPrice
 
-      if (currentGarment.name == "pants"){
-        $("#sample-name").html("pair of " + currentGarment.name)
+      if(currentGarment.name == "necktie"){
+        $("#prep-options").html("<span>No prep necessary for necktie slimming. For necktie shortening, see '<i>How to Prep</i>' instructions above.</span>")
       } else {
-      $("#sample-name").html(currentGarment.name)
-      }
+          $("#prep-options").html("<div id='prep-option-one' class='prep-option'><input id='prep-pins' type='checkbox' name='sample item checkbox' checked><span class='prep-text'>I will mark my desired fit with <b>safety pins</b> for the <span class='garment-name'></span> being altered. (see <i>'How to Prep'</i> above)</span></div><div id='prep-option-two' class='prep-option'><input id='prep-sample' type='checkbox' name='sample item checkbox'><span class='prep-text'>I will send a <b>sample <span id='sample-name'></span></b>. Please use sample to get correct fit for the <span class='garment-name'></span> being altered.</span></div>"
+          )
+          if (currentGarment.name == "pants"){
+            $("#sample-name").html("pair of " + currentGarment.name)
+          } else {
+            $("#sample-name").html(currentGarment.name)
+          }
 
-      if (currentGarment.name != "pants"){
-        $(".quantity-name").html(currentGarment.name + "s")
-      } else {
-        $(".quantity-name").html(currentGarment.name)
-      }
-
-      $(".garment-name").html(currentGarment.name)
+          if (currentGarment.name != "pants"){
+            $(".quantity-name").html(currentGarment.name + "s")
+          } else {
+            $(".quantity-name").html(currentGarment.name)
+          }
+          $(".garment-name").html(currentGarment.name)
+        }
 
       $("#prep-and-quantity").slideDown('slow');
     }
