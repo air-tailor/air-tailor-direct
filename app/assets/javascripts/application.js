@@ -157,7 +157,8 @@
       $("[data-alt-type*=" + currentAltType + "]").not($(this)).parent().css({
         pointerEvents: 'auto',
         opacity: '1'
-      });
+        });
+
       currentAlterations.pop()
       itemPrice = 0
       $(this).css('background-color', 'white');
@@ -167,13 +168,10 @@
         $("#prep-and-quantity").slideUp('slow');
         quantity = 1;
         $("#quantity-input input").val(1);
-
-
       }
 
-
-
     } else {
+
       $(this).parent().find('.prep-button').find('p').css('color', '#de0421');
       currentAltType = $(this).attr('data-alt-type');
       $("[data-alt-type*=" + currentAltType + "]").not($(this)).parent().css({
@@ -202,15 +200,18 @@
             $("#sample-name").html(currentGarment.name)
           }
 
-          if (currentGarment.name != "pants"){
-            $(".quantity-name").html(currentGarment.name + "s")
-          } else {
+          if (currentGarment.name == "dress" ){
+            $(".quantity-name").html(currentGarment.name + "es")
+          } else if(currentGarment.name == "pants"){
             $(".quantity-name").html(currentGarment.name)
+          } else {
+          $(".quantity-name").html(currentGarment.name + "s")
           }
-          $(".garment-name").html(currentGarment.name)
-        }
 
-      $("#prep-and-quantity").slideDown('slow');
+          $(".garment-name").html(currentGarment.name)
+
+        $("#prep-and-quantity").slideDown('slow');
+      }
     }
   });
 
@@ -318,10 +319,15 @@
     $(document).on("click", "#plus", function(){
       quantity = quantity + 1
       $("#quantity-input input").val(quantity)
-      if(quantity > 1 && currentGarment.name != "pants"){
-        $(".garment-name").html(currentGarment.name + "s")
+      if(quantity > 1 && currentGarment.name == "dress"){
+        $(".garment-name").html(currentGarment.name + "es")
+      } else if (quantity > 1 && currentGarment.name == "pants") {
+        $(".garment-name").html(currentGarment.name)
+      } else if (quantity > 1){
         $(".quantity-name").html(currentGarment.name + "s")
       }
+
+
     })
 
     $(document).on("click", "#minus", function(){
