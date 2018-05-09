@@ -105,10 +105,12 @@
         <% if current_customer %>
 
         <script>
+
           window.intercomSettings = {
             app_id: "j5szofcq",
+            user_id: "<%= current_customer.id %>",
             name: "<%= current_customer.first_name %> <%= current_customer.last_name %>",
-            email: "<%=  current_customer.email.first %>", // Email address
+            email: "<%= current_customer.email %>", // Email address
             created_at: Date.now() // Signup date as a Unix timestamp
           };
         </script>
