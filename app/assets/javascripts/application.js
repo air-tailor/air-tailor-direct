@@ -334,12 +334,16 @@
       if(quantity > 2){
         quantity = quantity - 1
         $("#quantity-input input").val(quantity)
+      } else if (quantity == 2 && currentGarment.name == "dress"){
+        quantity = quantity - 1
+        $("#quantity-input input").val(quantity)
+        $(".garment-name").html(currentGarment.name)
+      } else if (quantity == 2 && currentGarment.name == "pants"){
+        quantity = quantity - 1
+        $("#quantity-input input").val(quantity)
       } else if (quantity == 2 && currentGarment.name != "pants"){
         $(".garment-name").html(currentGarment.name)
         $(".quantity-name").html(currentGarment.name + "s")
-        quantity = quantity - 1
-        $("#quantity-input input").val(quantity)
-      } else if (quantity == 2 && currentGarment.name == "pants"){
         quantity = quantity - 1
         $("#quantity-input input").val(quantity)
       }
