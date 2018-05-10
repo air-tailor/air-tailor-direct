@@ -25,10 +25,27 @@
   });
 
   $(document).on("click", "#new-customer-next", function(){
-    $("#new-customer-part-1").css('display', 'none');
-    $("#new-customer-header h2").html("Create Account &mdash; Part 2")
-    $("#new-customer-header").append("<p id='new-customer-back'>&lt;&mdash; Back</p>")
-    $("#new-customer-part-2").css('display', 'block');
+    // this function will return 'false' if any input fields with this class are empty
+    var someEmpty = $('.new-customer-required').filter(function(){
+      return $.trim(this.value).length === 0;
+    }).length > 0;
+
+    $('.new-customer-required').each(function(){
+      if($(this).val() ==  ""){
+        $(this).css('border', '1px solid red');
+      }
+    })
+
+    if ($("select#customer_state_province :selected").text() == "State"){
+      $("select#customer_state_province").css('border', '1px solid red');
+    } else if (someEmpty == false){
+      $(".new-customer-required").css('border', 'none');
+      $("select#customer_state_province").css('border', 'none');
+      $("#new-customer-part-1").css('display', 'none');
+      $("#new-customer-header h2").html("Create Account &mdash; Part 2")
+      $("#new-customer-header").append("<p id='new-customer-back'>&lt;&mdash; Back</p>")
+      $("#new-customer-part-2").css('display', 'block');
+    }
   });
 
   $(document).on("click", "#new-customer-back", function(){

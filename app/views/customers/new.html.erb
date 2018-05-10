@@ -12,23 +12,23 @@
   <%= form_for @customer, url: {action: "create"}, :autocomplete => "on" do |f| %>
 
     <div id="new-customer-part-1">
-      <%= f.text_field :first_name, :placeholder => "First Name", :autocomplete => "given-name" %>
+      <%= f.text_field :first_name, :placeholder => "First Name", :autocomplete => "given-name", :class=> "new-customer-required" %>
 
-      <%= f.text_field :last_name, :placeholder => "Last Name", :autocomplete => "family-name" %>
+      <%= f.text_field :last_name, :placeholder => "Last Name", :autocomplete => "family-name", :class=> "new-customer-required" %>
 
-      <%= f.text_field :email, :placeholder => "Email", :autocomplete => "email-name" %>
+      <%= f.text_field :email, :placeholder => "Email", :autocomplete => "email-name", :class=> "new-customer-required" %>
 
-      <%= f.telephone_field :phone, :placeholder => "Phone", :autocomplete => "tel" %>
+      <%= f.telephone_field :phone, :placeholder => "Phone", :autocomplete => "tel", :class=> "new-customer-required" %>
 
-      <%= f.text_field :street, :placeholder => "Street Address", :autocomplete => "address-line1" %>
+      <%= f.text_field :street, :placeholder => "Street Address", :autocomplete => "address-line1", :class=> "new-customer-required" %>
 
       <%= f.text_field :street_two, :placeholder => "Unit / Apt. / Floor", :autocomplete => "address-line2" %>
 
-      <%= f.text_field :city, :placeholder => "City", :autocomplete => "address-level2" %>
+      <%= f.text_field :city, :placeholder => "City", :autocomplete => "address-level2", :class=> "new-customer-required" %>
 
-      <%= f.select :state_province, options_for_select(us_states), :prompt => "State", :autocomplete => "address-level1" %>
+      <%= f.select :state_province, options_for_select(us_states), :prompt => "State", :autocomplete => "address-level1", :class=> "new-customer-required" %>
 
-      <%= f.text_field :zip_code, :placeholder => "Zip", :autocomplete => "postal-code", :pattern => "\d*" %>
+      <%= f.text_field :zip_code, :placeholder => "Zip", :autocomplete => "postal-code", :class=> "new-customer-required" %>
       <div id="new-customer-next">Next</div>
     </div>
 
