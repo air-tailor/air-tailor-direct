@@ -28,7 +28,7 @@
 
       <%= f.select :state_province, options_for_select(us_states), :prompt => "State", :autocomplete => "address-level1" %>
 
-      <%= f.text_field :zip_code, :placeholder => "Zip", :autocomplete => "postal-code" %>
+      <%= f.text_field :zip_code, :placeholder => "Zip", :autocomplete => "postal-code", :pattern => "\d*" %>
       <div id="new-customer-next">Next</div>
     </div>
 
