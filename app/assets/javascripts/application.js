@@ -39,9 +39,9 @@
 
     // this conditional checks whether the customer has added a state
     if ($("select#customer_state_province :selected").text() == "State"){
-      $("select#customer_state_province").css('border', '1px solid red');
+      $("select#customer_state_province").css('border', '1px solid red')
     // this next conditional checks if any of the other required fields are empty. if no required fields are empty, the app moves to part 2 of the form
-    else if (someEmpty == false){
+    } else if (someEmpty == false){
       // these 2 lines remove any highlights of fields that were empty
       $(".new-customer-required").css('border', 'none');
       $("select#customer_state_province").css('border', 'none');
