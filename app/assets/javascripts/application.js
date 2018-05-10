@@ -30,17 +30,23 @@
       return $.trim(this.value).length === 0;
     }).length > 0;
 
+    // This function goes through each field and highlights only the ones that are empty
     $('.new-customer-required').each(function(){
       if($(this).val() ==  ""){
         $(this).css('border', '1px solid red');
       }
     })
 
+    // this conditional checks whether the customer has added a state
     if ($("select#customer_state_province :selected").text() == "State"){
       $("select#customer_state_province").css('border', '1px solid red');
-    } else if (someEmpty == false){
+    // this next conditional checks if any of the other required fields are empty. if no required fields are empty, the app moves to part 2 of the form
+    else if (someEmpty == false){
+      // these 2 lines remove any highlights of fields that were empty
       $(".new-customer-required").css('border', 'none');
       $("select#customer_state_province").css('border', 'none');
+
+      // these lines switch the form from part 1 to part 2
       $("#new-customer-part-1").css('display', 'none');
       $("#new-customer-header h2").html("Create Account &mdash; Part 2")
       $("#new-customer-header").append("<p id='new-customer-back'>&lt;&mdash; Back</p>")
@@ -48,6 +54,8 @@
     }
   });
 
+
+  // this returns a customer from part 2 of the form back to part 1
   $(document).on("click", "#new-customer-back", function(){
     $("#new-customer-part-2").css('display', 'none');
     $("#new-customer-header h2").html("Create Account &mdash; Part 1")
