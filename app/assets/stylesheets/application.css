@@ -197,6 +197,8 @@ input#new-customer-create, input#login-button, input#edit-customer-button {
   text-transform: uppercase;
   width: 90%;
   font-size: 12px;
+  -webkit-appearance: none;
+
 }
 
 

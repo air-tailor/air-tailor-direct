@@ -79,6 +79,7 @@
   //
   // END EDIT ACCOUNT WHEN YOU HAVE A BASKET
 
+
   $(document).on("click", "#how-it-works", function(){
     if ($("#how-to-popup").hasClass('hidden')){
       $("#overlay, #how-to-popup").fadeToggle();
