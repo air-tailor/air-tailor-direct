@@ -8,9 +8,13 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-
+    <!-- adjusts app to look correct on most devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- code snippet for Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66293380-1"></script>
+
+    <!-- code snippet for Google Analytics -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -24,12 +28,20 @@
       }
     </script>
 
+    <!-- puts favicon image on tab -->
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
 
+    <!-- ensures users can see Raleway and Alegreya fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alegreya:400,700" rel="stylesheet">
 
+    <!-- Social media sharing stuff -->
+    <meta property="og:title" content="Air Tailor — Convenient Alterations & Repairs">
+    <meta property="og:description" content="Save a trip to the tailor and order clothing alterations and repairs from home! Air Tailor has been featured in Esquire, InStyle, and Cosmopolitan Magazines. Great prices, quick turnaround!">
+    <meta property="og:image" content="https://s3.us-east-2.amazonaws.com/airtailor-images/social_images/fb_image.png">
+    <meta property="og:url" content="https://direct.airtailor.com">
+    <meta name="twitter:card" content="https://s3.us-east-2.amazonaws.com/airtailor-images/social_images/twitter_image.png">
   </head>
 
   <body>
