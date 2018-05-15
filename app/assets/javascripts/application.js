@@ -700,7 +700,7 @@
     var currentDate = parseInt(new Date().getDate())
 
     // promo button actions
-    if(promocode == "EARLYACCESS" && currentDate < 21){
+    if(promocode == "EARLYACCESS" && currentDate < 31){
 
       // adjust price
       totalPrice = totalPrice - 30
