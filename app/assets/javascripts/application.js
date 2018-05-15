@@ -476,7 +476,7 @@
       //
 
       // return alterations cards section to original styles
-      $("[data-alt-type*=" + currentAltType + "]").not($(this)).parent().css({
+      $(".alteration-card").css({
         pointerEvents: 'auto',
         opacity: '1'
       });
