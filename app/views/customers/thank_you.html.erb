@@ -78,6 +78,9 @@
         error: function(res) {
           alert("Error with order placement. Email us at hello@airtailor.com or click the speech bubble below to connect with customer service immediately.")
           $("#thank-you-header h3").html("<span class='red'>Error with order placement. Email us at hello@airtailor.com or click the speech bubble below to connect with customer service immediately.</span>")
+          localStorage.setItem("request", JSON.stringify(true));
+          items = [];
+          localStorage.setItem("items", JSON.stringify(items));
 
           console.log('error', res);
         },
