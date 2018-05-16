@@ -5,7 +5,7 @@ class ErrorMailer < ApplicationMailer
     @res = res
 
 
-    mail(to: "brian@airtailor.com", subject: "D2C Error — customer " + customer.id)
+    mail(to: "brian@airtailor.com", subject: "D2C Error — customer " + customer.id.to_s)
   end
 
 end

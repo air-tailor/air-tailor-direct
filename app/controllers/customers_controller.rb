@@ -8,7 +8,6 @@ before_action :authorize, :except => [:new, :create, :terms]
 
   def thank_you
     @customer = current_customer
-
   end
 
   def show

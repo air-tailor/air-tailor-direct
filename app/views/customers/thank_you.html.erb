@@ -57,6 +57,8 @@
     console.log(request)
 
     if (request == "false"){
+
+      <% ErrorMailer.error_email(@customer, @data).deliver %>
       console.log("placing order")
       $.ajax({
         url: 'https://prod-airtailor-portal-api.herokuapp.com/api/v1/orders',
