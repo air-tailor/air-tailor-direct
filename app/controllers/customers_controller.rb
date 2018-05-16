@@ -36,7 +36,7 @@ before_action :authorize, :except => [:new, :create, :terms]
       redirect_to "/new_order"
    else
     # If user fails model validation - probably a bad password or duplicate email:
-      flash[:fail] = "Oops! Couldn't create account. Please make sure you are using a valid email and password and try again."
+      flash[:fail] = "Unable to create account. Please ensure all required fields are filled correctly."
 
       redirect_to new_customer_path
    end
@@ -52,9 +52,10 @@ before_action :authorize, :except => [:new, :create, :terms]
     @customer.assign_attributes(customer_params)
 
    if @customer.update_attributes(customer_params)
+      flash[:success] = "Account updated successfully."
      redirect_to "/new_order"
    else
-      flash[:fail] = "Unable to update. Check to ensure all required fields are filled correctly."
+      flash[:fail] = "Unable to update. Please ensure all required fields are filled correctly."
      redirect_to edit_customer_path
    end
   end

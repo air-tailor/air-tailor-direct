@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       redirect_to "/new_order"
     else
     # If user's login doesn't work, send them back to the login form.
-      flash[:fail] = "Oops! Couldn't log in. Please make sure you are using a valid email and password and try again."
+      flash[:fail] = "Please make sure you are using a valid email and password and try again."
       redirect_to '/login'
     end
   end
