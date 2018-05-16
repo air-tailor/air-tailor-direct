@@ -8,6 +8,7 @@ before_action :authorize, :except => [:new, :create, :terms]
 
   def thank_you
     @customer = current_customer
+
   end
 
   def show
@@ -53,6 +54,7 @@ before_action :authorize, :except => [:new, :create, :terms]
    if @customer.update_attributes(customer_params)
      redirect_to "/new_order"
    else
+      flash[:fail] = "Unable to update. Check to ensure all required fields are filled correctly."
      redirect_to edit_customer_path
    end
   end
