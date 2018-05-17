@@ -19,8 +19,8 @@ before_action :authorize, :except => [:new, :create, :terms]
 
   def order_error
     @customer = current_customer
-    @data = params[:data]
-    @res = params[:res]
+    @data = params[:data].to_unsafe_h
+    @res = params[:res].to_unsafe_h
     AirtailorMailer.error_email(@customer, @data, @res).deliver!
   end
 

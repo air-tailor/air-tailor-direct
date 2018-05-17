@@ -4,8 +4,6 @@ class AirtailorMailer < ApplicationMailer
     @customer = customer
     @data = data
     @res = res
-
-
     mail(to: "team@airtailor.com", subject: "D2C ERROR — Customer: " + @customer.first_name + " " + @customer.last_name)
   end
 
@@ -13,8 +11,6 @@ class AirtailorMailer < ApplicationMailer
     @customer = customer
     @data = data
     @res = res
-
-
     mail(to: "team@airtailor.com", subject: "New D2C Order — Customer: " + @customer.first_name + " " + @customer.last_name)
   end
 
