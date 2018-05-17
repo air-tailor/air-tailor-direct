@@ -1,11 +1,9 @@
 <span><%= @customer.first_name %> <%= @customer.last_name %></span><br>
 <span><%= @customer.email %></span><br>
 <span><%= @customer.phone %></span><br><br>
-<span><%= @customer.street %>,</span><br>
+<span><%= @customer.street %></span><br>
 <span><%= @customer.street_two %></span><br>
-<span><%= @customer.city %></span><br>
-<span><%= @customer.state_province %></span><br>
-<span><%= @customer.zip_code %></span><br>
+<span><%= @customer.city %>, <%= @customer.state_province %> <%= @customer.zip_code %></span><br>
 <hr>
 <p>Order Data</p>
 <p><%= @data[:order][:items] %></p>
