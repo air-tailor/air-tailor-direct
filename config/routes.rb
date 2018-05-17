@@ -15,7 +15,8 @@ Rails.application.routes.draw do
 
   get '/new_order', to: 'customers#new_order'
   get '/thank_you', to: 'customers#thank_you'
-  post '/order_details', to: 'customers#order_details'
+  post '/order_error', to: 'customers#order_error'
+  post '/order_success', to: 'customers#order_success'
   get '/terms', to: 'customers#terms'
 
 
