@@ -10,6 +10,14 @@ before_action :authorize, :except => [:new, :create, :terms]
     @customer = current_customer
   end
 
+  def order_details
+    @customer = current_customer
+    @data = params[:data]
+    @res = params[:res]
+    ErrorMailer.error_email(@customer, @data, @res).deliver!
+
+  end
+
   def show
 
   end

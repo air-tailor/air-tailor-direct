@@ -1,7 +1,8 @@
 class ErrorMailer < ApplicationMailer
 
-  def error_email(customer, res)
+  def error_email(customer, data, res)
     @customer = customer
+    @data = data
     @res = res
 
 

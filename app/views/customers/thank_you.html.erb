@@ -58,7 +58,6 @@
 
     if (request == "false"){
 
-      <% ErrorMailer.error_email(@customer, @data).deliver %>
       console.log("placing order")
       $.ajax({
         url: 'https://prod-airtailor-portal-api.herokuapp.com/api/v1/orders',
@@ -71,9 +70,24 @@
         data: JSON.stringify(data),
         success: function(res) {
           console.log('success', res);
+
           localStorage.setItem("request", JSON.stringify(true));
           items = [];
           localStorage.setItem("items", JSON.stringify(items));
+
+          // new
+          $.ajax({
+            url: '/order_details',
+            method: 'POST',
+            dataType: 'json',
+            data: {
+              'data': data,
+              'res':res,
+            },
+          });
+          // end new
+
+
         },
         error: function(res) {
           alert("Error with order placement. Email us at hello@airtailor.com or click the speech bubble below to connect with customer service immediately.")
@@ -81,6 +95,17 @@
           localStorage.setItem("request", JSON.stringify(true));
           items = [];
           localStorage.setItem("items", JSON.stringify(items));
+          // new
+          $.ajax({
+            url: '/order_details',
+            method: 'POST',
+            dataType: 'json',
+            data: {
+              'data': data,
+              'res':res,
+            },
+          });
+          // end new
 
           console.log('error', res);
         },
