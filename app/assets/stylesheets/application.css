@@ -374,11 +374,15 @@ button {
 
 #prep-exit, #how-to-exit {
   font-size: 18px;
-  right: 1px;
-  position: absolute;
+  top: 105px;
+  right: 7%;
+  position: fixed;
   font-weight: bold;
   padding: 10px 13px;
   box-sizing: border-box;
+  background-color: white;
+  z-index: 11;
+  border-radius: 100%;
 }
 
 #prep-header {
