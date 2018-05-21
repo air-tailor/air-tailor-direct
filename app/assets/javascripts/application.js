@@ -49,7 +49,7 @@
       // these lines switch the form from part 1 to part 2
       $("#new-customer-part-1").css('display', 'none');
       $("#new-customer-header h2").html("Create Account &mdash; Part 2")
-      $("#new-customer-header").append("<p id='new-customer-back'>&lt;&mdash; Back</p>")
+      $("#new-customer-part-2").append("<p id='new-customer-back'>&lt; Go back</p>")
       $("#new-customer-part-2").css('display', 'block');
     }
   });
@@ -717,7 +717,7 @@
       $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
       $("#promo-input").animate({width: 328}, {duration: 1000});
 
-    } else if(promocode == "AIRTAILOR10" && currentDate < 21) {
+    } else if(promocode == "AIRTAILOR10" && currentDate < 31) {
 
       // adjust price
       totalPrice = totalPrice - 10

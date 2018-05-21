@@ -134,7 +134,7 @@ header h2 {
 }
 
 #new-customer-header p {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 #new-customer-header a {
@@ -145,7 +145,8 @@ header h2 {
 }
 
 #new-customer-back {
-  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: underline;
   margin-top: 15px;
 }
 
