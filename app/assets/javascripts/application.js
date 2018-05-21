@@ -563,6 +563,9 @@
     // delete current div, subtract price from total, and remove current item from items array
     currentDiv.remove()
     totalPrice = totalPrice - currentItem.total
+    if(totalPrice < 0){
+      totalPrice = 0
+    };
     $("#total-price").html(totalPrice.toFixed(2))
     items.splice(currentIndex,1)
     localStorage.setItem("items", JSON.stringify(items));
@@ -661,6 +664,9 @@
 
     // subtract price from total and update total in basket
     totalPrice = totalPrice - currentItem.total
+    if(totalPrice < 0){
+      totalPrice = 0
+    };
     $("#total-price").html(totalPrice)
 
     // remove current item from items array
@@ -684,13 +690,14 @@
     }
   });
 
+
   // add notes button
   $(document).on('click', "#review-notes", function(){
     $("#review-notes-textarea").toggleClass('hidden');
   });
 
-  // promo code section
 
+  // promo code section
    $(document).on('click', "#promo-button", function(){
 
     // read what's been entered in promo input
