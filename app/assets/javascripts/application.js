@@ -733,8 +733,25 @@
       $("#promo-button").toggleClass('hidden');
       $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
       $("#promo-input").animate({width: 328}, {duration: 1000});
-    }
-    else {
+
+    } else if(promocode == "THXCLOTHINGLINE" && currentDate < 31) {
+
+      // adjust price
+      totalPrice = totalPrice - 30
+      if(totalPrice < 1){
+        totalPrice = 0;
+      }
+
+      $("#review-total-price").html("$" + (totalPrice+6).toFixed(2))
+      $("#form-amount").val(totalPrice+6)
+
+      // style
+      // alert("Success! 10% promo applied to your order")
+      $("#promo-button").toggleClass('hidden');
+      $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
+      $("#promo-input").animate({width: 328}, {duration: 1000});
+
+    } else {
       alert("Promo code not recognized. Please check and try again.")
     }
    })
