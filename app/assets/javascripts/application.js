@@ -96,10 +96,17 @@
   //
   //
   $(document).on("click", ".edit-account-link", function(event){
+    event.preventDefault();
     if (items.length > 0){
       localStorage.setItem("items", JSON.stringify(items));
     }
-  })
+    quantity = 1;
+    $("#header2").hide();
+    $("#header3").hide();
+
+    window.location = $(".edit-account-link")[0].href
+
+  });
   //
   //
   // END EDIT ACCOUNT WHEN YOU HAVE A BASKET
