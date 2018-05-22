@@ -708,13 +708,14 @@
    $(document).on('click', "#promo-button", function(){
 
     // read what's been entered in promo input
-    var promocode = $("#promo-input").val()
+    var promocode = $("#promo-input").val().toLowerCase()
+
 
     // check current date
     var currentDate = parseInt(new Date().getDate())
 
     // promo button actions
-    if(promocode == "EARLYACCESS" && currentDate < 31){
+    if(promocode == "earlyaccess" && currentDate < 31){
 
       // adjust price
       totalPrice = totalPrice - 30
@@ -731,7 +732,7 @@
       $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
       $("#promo-input").animate({width: 328}, {duration: 1000});
 
-    } else if(promocode == "AIRTAILOR10" && currentDate < 31) {
+    } else if(promocode == "airtailor10" && currentDate < 31) {
 
       // adjust price
       totalPrice = totalPrice - 10
@@ -748,7 +749,7 @@
       $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
       $("#promo-input").animate({width: 328}, {duration: 1000});
 
-    } else if(promocode == "THXCLOTHINGLINE" && currentDate < 31) {
+    } else if(promocode == "thxclothingline" && currentDate < 31) {
 
       // adjust price
       totalPrice = totalPrice - 30
