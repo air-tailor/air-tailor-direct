@@ -1,0 +1,19 @@
+<header>
+  <div id="new-customer-header">
+    <img src="/assets/logo.png" alt="">
+    <h2>Reset Password</h2>
+  </div>
+</header><!-- /header -->
+
+<div id="new-customer-form">
+  <%= form_tag password_resets_path, :method => :post do %>
+    <div class='field'>
+      <%= text_field_tag :email, params[:email], placeholder: 'Enter your email' %>
+    </div>
+    <div class='actions'>
+      <%= submit_tag "Reset Password", :class => "button", :id => "reset-button" %>
+    </div>
+  <% end %>
+  <a href="/login">&lt; GO BACK</a>
+</div>
+

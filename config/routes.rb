@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'customers#new_order'
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
     get '/login', to: 'sessions#new'
     post '/login' => 'sessions#create'
 
-
+  resources :password_resets
 
   resources :customers
   resources :charges

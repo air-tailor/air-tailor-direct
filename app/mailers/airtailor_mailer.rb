@@ -14,4 +14,11 @@ class AirtailorMailer < ApplicationMailer
     mail(to: "brian@airtailor.com, joshua@airtailor.com, morgan@airtailor.com", subject: "New D2C Order — Customer: " + @customer.first_name + " " + @customer.last_name)
   end
 
+  def forgot_password(customer)
+    @customer = customer
+    @greeting = "Hi"
+
+    mail to: customer.email, :subject => 'Air Tailor password reset instructions'
+  end
+
 end

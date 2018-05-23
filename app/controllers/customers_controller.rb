@@ -33,7 +33,11 @@ before_action :authorize, :except => [:new, :create, :terms]
   end
 
   def new
-    @customer = Customer.new
+    if session[:user_id]
+      redirect_to "/new_order"
+    else
+      @customer = Customer.new
+    end
   end
 
   def create

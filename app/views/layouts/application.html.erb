@@ -45,6 +45,8 @@
     <meta property="keywords" content="tailoring, alterations, repairs, adjustments, hemming, shortening, taper, slim, pants, shirts, dress, skirts, order, home, startup, clothing, fit, measurements, safety pin, closet, ecommerce">
   </head>
 
+
+
   <body>
     <script src="https://checkout.stripe.com/checkout.js"></script>
     <div id="overlay"></div>
@@ -84,7 +86,12 @@
             <a id="logout-button" href="/logout">Log Out</a>
 
           <% end %>
-          <span id="how-it-works">How It Works</span>
+
+          <% if params[:controller] == "password_resets" %>
+          <% else %>
+            <span id="how-it-works">How It Works</span>
+          <% end %>
+
         </div>
 
         <div id="how-to-popup" class="hidden">

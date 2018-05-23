@@ -1,0 +1,31 @@
+<header>
+  <div id="new-customer-header">
+    <img src="/assets/logo.png" alt="">
+    <h2>Reset Password</h2>
+  </div>
+</header><!-- /header -->
+
+<div id="new-customer-form">
+  <%= form_for @customer, :url => password_reset_path(params[:id]) do |f| %>
+    <% if @customer.errors.any? %>
+      <div class='error_messages'>
+        <h2>Form is invalid</h2>
+        <ul>
+          <% for message in @customer.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class='field'>
+      <%= f.password_field :password, :placeholder => "New Password (must be 5 characters)" %>
+    </div>
+    <div class='field'>
+      <%= f.password_field :password_confirmation, :placeholder => "Confirm New Password" %>
+    </div>
+    <div class='actions'>
+      <%= f.submit 'Update password', :id => "reset-button", :class => "button"  %>
+    </div>
+  <% end %>
+</div>
