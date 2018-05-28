@@ -8,6 +8,8 @@ class Customer < ApplicationRecord
 
   validates :password, presence: true, length: { minimum: 5 }, :allow_blank => true
 
+  before_save { |customer| customer.email = email.downcase }
+
   def send_password_reset
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now
