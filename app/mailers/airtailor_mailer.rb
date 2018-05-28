@@ -16,7 +16,6 @@ class AirtailorMailer < ApplicationMailer
 
   def forgot_password(customer)
     @customer = customer
-    @greeting = "Hi"
 
     mail to: customer.email, :subject => 'Air Tailor password reset instructions'
   end
