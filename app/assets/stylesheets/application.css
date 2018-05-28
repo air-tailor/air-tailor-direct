@@ -308,7 +308,7 @@ button {
 
 #prep-popup {
   width: 90%;
-  max-width: 500px;
+  /* max-width: 500px; */
   max-height: 100%;
   background-color: white;
   position: fixed;
@@ -381,7 +381,7 @@ button {
   font-size: 18px;
   top: 105px;
   right: 7%;
-  position: absolute;
+  position: fixed;
   font-weight: bold;
   padding: 10px 13px;
   box-sizing: border-box;
