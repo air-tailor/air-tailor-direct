@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
 
     def create
-    email = params[:email].downcase!
+    email = params[:email].downcase
     customer = Customer.find_by_email(email)
     # If the user exists AND the password entered is correct.
     if customer && customer.authenticate(params[:password])

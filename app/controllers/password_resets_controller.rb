@@ -6,7 +6,7 @@ class PasswordResetsController < ApplicationController
   end
 
   def create
-    email = params[:email].downcase!
+    email = params[:email].downcase
     customer = Customer.find_by_email(email)
     customer.send_password_reset if customer
     flash[:success] = 'E-mail sent with password reset instructions.'
