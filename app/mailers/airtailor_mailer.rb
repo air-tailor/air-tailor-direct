@@ -18,7 +18,7 @@ class AirtailorMailer < ApplicationMailer
     attachments.inline['logo.png'] = File.read(Rails.root.join("app/assets/images/logo.png"))
     @customer = customer
 
-    mail to: customer.email, :subject => 'Air Tailor password reset instructions'
+    mail to: customer.email, :subject => 'Reset Password'
   end
 
 end
