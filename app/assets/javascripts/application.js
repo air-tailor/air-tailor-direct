@@ -749,7 +749,7 @@
       $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
       $("#promo-input").animate({width: 328}, {duration: 1000});
 
-    } else if(promocode == "StevenAlan15") {
+    } else if(promocode == "stevenalan15") {
 
       // adjust price
       totalPrice = totalPrice - 15
