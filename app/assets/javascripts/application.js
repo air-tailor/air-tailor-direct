@@ -715,7 +715,7 @@
     var currentDate = parseInt(new Date().getDate())
 
     // promo button actions
-    if(promocode == "earlyaccess" && currentDate < 31){
+    if(promocode == "earlyaccess" || promocode == "thxclothingline"){
 
       // adjust price
       totalPrice = totalPrice - 30
@@ -732,7 +732,7 @@
       $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
       $("#promo-input").animate({width: 328}, {duration: 1000});
 
-    } else if(promocode == "airtailor10" && currentDate < 31) {
+    } else if(promocode == "airtailor10" || promocode == "atpartner") {
 
       // adjust price
       totalPrice = totalPrice - 10
@@ -749,10 +749,10 @@
       $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
       $("#promo-input").animate({width: 328}, {duration: 1000});
 
-    } else if(promocode == "thxclothingline" && currentDate < 31) {
+    } else if(promocode == "StevenAlan15") {
 
       // adjust price
-      totalPrice = totalPrice - 30
+      totalPrice = totalPrice - 15
       if(totalPrice < 1){
         totalPrice = 0;
       }
