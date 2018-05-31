@@ -898,8 +898,8 @@
   var jpg42 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/42.jpg"
   var jpg43 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/43.jpg"
   var jpg44 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/44.jpg"
-  var jpg45 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/45.jpg"
-  var jpg46 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/46.jpg"
+  var jpg45 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/45.png"
+  var jpg46 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/46.png"
   var jpg47 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/47.jpg"
   var jpg48 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/48.jpg"
   var jpg49 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/49.jpg"
@@ -1006,7 +1006,7 @@
         break;
         case 'Take In Shirt Shoulders':currentPrep = {name:currentPrep.name, instructions:instructions11, gif:gif15, jpg:jpg13};
         break;
-        case 'Slim Shirt Sleeves (Taper)':currentPrep = {name:currentPrep.name, instructions:instructions17, gif:gif19, jpg:pgj9};
+        case 'Slim Shirt Sleeves (Taper)':currentPrep = {name:currentPrep.name, instructions:instructions17, gif:gif19, jpg:jpg9};
         break;
         case 'Slim Shirt Sides':currentPrep = {name:currentPrep.name, instructions:instructions18, gif:gif21, jpg:jpg10};
         break;
