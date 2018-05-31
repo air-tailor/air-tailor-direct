@@ -73,6 +73,7 @@ body {
   position: relative;
   height: 30px;
   text-align: center;
+  font-size: 14px;
 }
 
 #top-nav a {
@@ -85,9 +86,7 @@ body {
 }
 
 #how-it-works {
-  display: inline-block;
-  margin-top: 20px;
-  font-weight: bold;
+  right: 80px;
 }
 
 #logout-button {
@@ -95,8 +94,20 @@ body {
 }
 
 #account-button {
-  left: 5px;
+  left: 67px;
 }
+
+a#top-nav-basket {
+  display: inline-block;
+  padding-top: 8px;
+  left: 0px;
+}
+
+#top-nav-basket img {
+  width: 30px;
+}
+
+
 
 /* HEADER SECTION */
 

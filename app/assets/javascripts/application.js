@@ -111,8 +111,17 @@
   //
   // END EDIT ACCOUNT WHEN YOU HAVE A BASKET
 
+  $(document).on("click", "#top-nav-basket", function(e){
+    if(items.length == 0){
+      setTimeout(function(){
+        $('.flash-notice').slideDown(500);
+      }, 4000);
+    }
+  });
 
-  $(document).on("click", "#how-it-works", function(){
+
+  $(document).on("click", "#how-it-works", function(e){
+    e.preventDefault
     if ($("#how-to-popup").hasClass('hidden')){
       $("#overlay, #how-to-popup").fadeToggle();
     }
@@ -518,6 +527,7 @@
       // switch headers
       $("#header1").toggleClass('hidden');
       $("#header2").toggleClass('hidden');
+      $("#top-nav-basket-total").html(items.length)
     //
     };
   });
@@ -581,6 +591,11 @@
     localStorage.setItem("items", JSON.stringify(items));
     if (items.length == 0){
       $("#basket").toggleClass('hidden');
+    }
+    if(items.length < 1){
+      $("#top-nav-basket-total").html("")
+    } else {
+      $("#top-nav-basket-total").html(items.length)
     }
   });
 
@@ -697,6 +712,11 @@
         $("#header2").toggleClass('hidden');
       };
       $("#header3").toggleClass('hidden');
+    }
+    if(items.length < 1){
+      $("#top-nav-basket-total").html("")
+    } else {
+      $("#top-nav-basket-total").html(items.length)
     }
   });
 
