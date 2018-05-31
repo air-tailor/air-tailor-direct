@@ -848,6 +848,16 @@
   var gif14 = "https://s3.us-east-2.amazonaws.com/airtailor-images/pin-gifs/14.gif"
   var gif15 = "https://s3.us-east-2.amazonaws.com/airtailor-images/pin-gifs/15.gif"
   var gif16 = "https://s3.us-east-2.amazonaws.com/airtailor-images/pin-gifs/16.gif"
+  var gif17 = "https://s3.us-east-2.amazonaws.com/airtailor-images/pin-gifs/17.gif"
+  var gif18 = "https://s3.us-east-2.amazonaws.com/airtailor-images/pin-gifs/18.gif"
+  var gif19 = "https://s3.us-east-2.amazonaws.com/airtailor-images/pin-gifs/19.gif"
+  var gif20 = "https://s3.us-east-2.amazonaws.com/airtailor-images/pin-gifs/20.gif"
+  var gif21 = "https://s3.us-east-2.amazonaws.com/airtailor-images/pin-gifs/21.gif"
+  var gif22 = "https://s3.us-east-2.amazonaws.com/airtailor-images/pin-gifs/22.gif"
+  var gif24 = "https://s3.us-east-2.amazonaws.com/airtailor-images/pin-gifs/24.gif"
+  var gif25 = "https://s3.us-east-2.amazonaws.com/airtailor-images/pin-gifs/25.gif"
+  var gif26 = "https://s3.us-east-2.amazonaws.com/airtailor-images/pin-gifs/26.gif"
+
 
   var jpg1 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/1.jpg"
   var jpg3 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/3.jpg"
@@ -869,7 +879,8 @@
   var jpg22 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/22.jpg"
   var jpg26 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/26.jpg"
   var jpg27 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/27.jpg"
-  var jpg29 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/28.jpg"
+  var jpg28 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/28.jpg"
+  var jpg29 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/29.jpg"
   var jpg30 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/30.jpg"
   var jpg31 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/31.jpg"
   var jpg32 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/32.jpg"
@@ -884,6 +895,16 @@
   var jpg42 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/42.jpg"
   var jpg43 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/43.jpg"
   var jpg44 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/44.jpg"
+  var jpg45 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/45.jpg"
+  var jpg46 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/46.jpg"
+  var jpg47 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/47.jpg"
+  var jpg48 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/48.jpg"
+  var jpg49 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/49.jpg"
+  var jpg50 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/50.jpg"
+  var jpg51 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/51.jpg"
+  var jpg52 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/52.jpg"
+  var jpg53 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/53.jpg"
+  var jpg54 = "https://s3.us-east-2.amazonaws.com/airtailor-images/new_how_to_pin/54.png"
 
   // Shorten Dress
   var instructions1 = "Place safety pin at desired dress length. Use multiple pins to outline a new shape, or one pin to maintain the current shape. If multiple layers, just mark outer layer."
@@ -927,6 +948,23 @@
   // Shorten Jacket Length
   var instructions14 = "Place safety pin at desired jacket length. Use multiple pins to outline a new shape, or one pin to maintain the current shape."
 
+  // Take In Pants Seat / Waistband
+  var instructions15 = "Pinch the excess material to the center back and safety pin together to desired fit."
+
+  // Rips
+  var instructions16 = "No need to do anything :) Just send your hole-y garment in and we'll fix it!"
+
+  // Slim shirt sleeves (taper)
+  var instructions17 = "On one sleeve, safety pin the fabric together in a line along the sleeve to desired fit."
+
+  // Slim shirt sides
+  var instructions18 = "Pinch the excess material to the center back. Safety pin the fabric together down a vertical line to desired fit."
+
+  // Take in dress waist
+  var instructions19 = "Pinch the excess material to the center back. Safety pin the fabric together down a vertical line to desired fit. Make sure bust still fits comfortably. If there is a zipper down the center back, pin both sides instead."
+
+
+
   var popup = function() {
     if (currentGarment.name === "pants"){
 
@@ -940,6 +978,14 @@
         case 'Slim Pants Legs (Taper) - Full Leg':currentPrep = {name:currentPrep.name, instructions:instructions9, gif:gif9, jpg:jpg44};
         break;
         case 'Slim Pants Legs (Taper) - Half Leg':currentPrep = {name:currentPrep.name, instructions:instructions9, gif:gif10, jpg:jpg4};
+        break;
+        case 'Take In Trousers Seat / Waistband':currentPrep = {name:currentPrep.name, instructions:instructions15, gif:gif26, jpg:jpg5};
+        break;
+        case 'Take In Jeans Seat / Waistband':currentPrep = {name:currentPrep.name, instructions:instructions15, gif:gif26, jpg:jpg6};
+        break;
+        case 'Pants Into Shorts':currentPrep = {name:currentPrep.name, instructions:instructions8, gif:gif25, jpg:jpg45};
+        break;
+        case 'Repair Hole':currentPrep = {name:currentPrep.name, instructions:instructions16, gif:"", jpg:""};
         break;
       }
     } else if (currentGarment.name === "shirt"){
@@ -957,6 +1003,14 @@
         break;
         case 'Take In Shirt Shoulders':currentPrep = {name:currentPrep.name, instructions:instructions11, gif:gif15, jpg:jpg13};
         break;
+        case 'Slim Shirt Sleeves (Taper)':currentPrep = {name:currentPrep.name, instructions:instructions17, gif:gif19, jpg:pgj9};
+        break;
+        case 'Slim Shirt Sides':currentPrep = {name:currentPrep.name, instructions:instructions18, gif:gif21, jpg:jpg10};
+        break;
+        case 'Long Sleeve Into Short Sleeve':currentPrep = {name:currentPrep.name, instructions:instructions2, gif:gif20, jpg:jpg46};
+        break;
+        case 'Repair Hole':currentPrep = {name:currentPrep.name, instructions:instructions16, gif:"", jpg:""};
+        break;
       }
     } else if (currentGarment.name === "skirt"){
 
@@ -967,6 +1021,10 @@
         break;
         case 'Shorten Skirt (Hem) — 3 Layers':currentPrep = {name:currentPrep.name, instructions:instructions13, gif:gif3, jpg:jpg14};
         break;
+        case 'Take In Skirt Waist':currentPrep = {name:currentPrep.name, instructions:instructions18, gif:gif22, jpg:jpg15};
+        break;
+        case 'Repair Hole':currentPrep = {name:currentPrep.name, instructions:instructions16, gif:"", jpg:""};
+        break;
       }
     } else if (currentGarment.name === "suit jacket"){
 
@@ -976,6 +1034,12 @@
         case 'Shorten Jacket Sleeves':currentPrep = {name:currentPrep.name, instructions:instructions2, gif:gif5, jpg:jpg27};
         break;
         case 'Take In Jacket Shoulders':currentPrep = {name:currentPrep.name, instructions:instructions11, gif:gif6, jpg:jpg31};
+        break;
+        case 'Slim Jacket Sides':currentPrep = {name:currentPrep.name, instructions:instructions18, gif:gif17, jpg:jpg29};
+        break;
+        case 'Slim Jacket Sleeves (Taper)':currentPrep = {name:currentPrep.name, instructions:instructions17, gif:gif18, jpg:jpg30};
+        break;
+        case 'Repair Hole':currentPrep = {name:currentPrep.name, instructions:instructions16, gif:"", jpg:""};
         break;
       }
     } else if (currentGarment.name === "dress"){
@@ -992,6 +1056,13 @@
         case 'Shorten Dress (Hem) — 2 Layers':currentPrep = {name:currentPrep.name, instructions:instructions1, gif:gif3, jpg:jpg19};
         break;
         case 'Shorten Dress (Hem) — 3 Layers':currentPrep = {name:currentPrep.name, instructions:instructions1, gif:gif3, jpg:jpg19};
+        break;
+        // THIS NEEDS TO BE FIXED. Supposed to have 2gifs and 2jpgs
+        case 'Take In Dress Waist':currentPrep = {name:currentPrep.name, instructions:instructions19, gif:gif24, jpg:jpg20};
+        break;
+        case 'Slim Dress Sleeves (Taper)':currentPrep = {name:currentPrep.name, instructions:instructions17, gif:gif19, jpg:jpg38};
+        break;
+        case 'Repair Hole':currentPrep = {name:currentPrep.name, instructions:instructions16, gif:"", jpg:""};
         break;
       }
     } else if (currentGarment.name === "necktie"){
