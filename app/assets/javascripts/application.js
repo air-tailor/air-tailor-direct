@@ -769,7 +769,7 @@
       $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
       $("#promo-input").animate({width: 328}, {duration: 1000});
 
-    } else if(promocode == "rrothman") {
+    } else if(promocode == "rrothman" || promocode == "akanai") {
 
       // adjust price
       totalPrice = totalPrice - 100
