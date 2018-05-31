@@ -251,7 +251,6 @@
 
 
 
-
   $(document).on("click", ".prep-button", function(){
     if ($("#prep-popup").hasClass('hidden')){
       currentPrep.name = $(this).prev().find("p").html()
@@ -259,7 +258,8 @@
       $("#prep-alt-name").html(currentPrep.name);
       $("#prep-instructions").html(currentPrep.instructions);
       if(currentGarment.name == "necktie" && currentPrep.name != "Shorten Necktie"){
-          $("#prep-jpg").attr('src', currentPrep.jpg);
+          // $("#prep-jpg").attr('src', currentPrep.jpg);
+          $("#prep-jpg").html("");
           $("#prep-gif").html("");
         } else if(currentPrep.name == "Repair Hole"){
           $("#prep-jpg").html("");
