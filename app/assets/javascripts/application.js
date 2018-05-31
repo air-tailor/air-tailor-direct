@@ -259,8 +259,11 @@
       $("#prep-alt-name").html(currentPrep.name);
       $("#prep-instructions").html(currentPrep.instructions);
       if(currentGarment.name == "necktie" && currentPrep.name != "Shorten Necktie"){
+          $("#prep-jpg").attr('src', currentPrep.jpg);
           $("#prep-gif").html("");
+        } else if(currentPrep.name == "Repair Hole"){
           $("#prep-jpg").html("");
+          $("#prep-gif").html("");
         } else {
           $("#prep-gif").attr({
             src: currentPrep.gif,
@@ -1070,19 +1073,19 @@
       switch (currentPrep.name) {
         case 'Shorten Necktie':currentPrep = {name:currentPrep.name, instructions:instructions4, gif:gif7, jpg:jpg39};
         break;
-        case 'Slim Necktie — 2 Inches':currentPrep = {name:currentPrep.name, instructions:instructions5, gif:"", jpg:""};
+        case 'Slim Necktie — 2 Inches':currentPrep = {name:currentPrep.name, instructions:instructions5, gif:"", jpg:jpg47};
         break;
-        case 'Slim Necktie — 2.25 Inches':currentPrep = {name:currentPrep.name, instructions:instructions5, gif:"", jpg:""};
+        case 'Slim Necktie — 2.25 Inches':currentPrep = {name:currentPrep.name, instructions:instructions5, gif:"", jpg:jpg48};
         break;
-        case 'Slim Necktie — 2.5 Inches':currentPrep = {name:currentPrep.name, instructions:instructions5, gif:"", jpg:""};
+        case 'Slim Necktie — 2.5 Inches':currentPrep = {name:currentPrep.name, instructions:instructions5, gif:"", jpg:jpg49};
         break;
-        case 'Slim Necktie — 2.75 Inches':currentPrep = {name:currentPrep.name, instructions:instructions5, gif:"", jpg:""};
+        case 'Slim Necktie — 2.75 Inches':currentPrep = {name:currentPrep.name, instructions:instructions5, gif:"", jpg:jpg50};
         break;
-        case 'Slim Necktie — 3 Inches':currentPrep = {name:currentPrep.name, instructions:instructions5, gif:"", jpg:""};
+        case 'Slim Necktie — 3 Inches':currentPrep = {name:currentPrep.name, instructions:instructions5, gif:"", jpg:jpg51};
         break;
-        case 'Slim Necktie — 3.25 Inches':currentPrep = {name:currentPrep.name, instructions:instructions5, gif:"", jpg:""};
+        case 'Slim Necktie — 3.25 Inches':currentPrep = {name:currentPrep.name, instructions:instructions5, gif:"", jpg:jpg52};
         break;
-        case 'Slim Necktie — 3.5 Inches':currentPrep = {name:currentPrep.name, instructions:instructions5, gif:"", jpg:""};
+        case 'Slim Necktie — 3.5 Inches':currentPrep = {name:currentPrep.name, instructions:instructions5, gif:"", jpg:jpg53};
         break;
       }
     }
