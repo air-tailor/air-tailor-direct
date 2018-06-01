@@ -755,7 +755,7 @@
       $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
       $("#promo-input").animate({width: 328}, {duration: 1000});
 
-    } else if(promocode == "airtailor10" || promocode == "atpartner") {
+    } else if(promocode == "airtailor10" || promocode == "atpartner" || "techcrunch10") {
 
       // adjust price
       totalPrice = totalPrice - 10
