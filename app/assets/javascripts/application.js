@@ -112,11 +112,7 @@
   // END EDIT ACCOUNT WHEN YOU HAVE A BASKET
 
   $(document).on("click", "#top-nav-basket", function(e){
-    if(items.length == 0){
-      setTimeout(function(){
-        $('.flash-notice').slideDown(500);
-      }, 4000);
-    }
+
   });
 
 
@@ -132,9 +128,9 @@
   })
 
   $(document).ready(function(){
-    if(location.pathname == '/customers/new' || location.pathname == '/login'){
-      $("#how-it-works").css('text-decoration', 'underline');
-    } else if (location.pathname == '/thank_you'){
+    if(location.pathname == '/thank_you'){
+      $("#top-nav-basket").hide();
+      $("#account-button").hide();
       $("#how-it-works").hide();
     }
   })
@@ -755,7 +751,7 @@
       $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
       $("#promo-input").animate({width: 328}, {duration: 1000});
 
-    } else if(promocode == "airtailor10" || promocode == "atpartner" || "techcrunch10") {
+    } else if(promocode == "airtailor10" || promocode == "atpartner" || promocode == "techcrunch10") {
 
       // adjust price
       totalPrice = totalPrice - 10
