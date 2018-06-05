@@ -193,8 +193,9 @@ header h2 {
   padding-left: 10px;
 }
 
-#new-customer-form input::placeholder, #edit-customer-form input::placeholder, select::placeholder {
+#new-customer-form input::placeholder, #edit-customer-form input::placeholder {
   color: #000033;
+  opacity: .5;
 }
 
 #new-customer-next {
