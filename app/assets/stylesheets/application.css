@@ -193,6 +193,10 @@ header h2 {
   padding-left: 10px;
 }
 
+#new-customer-form input::placeholder, #edit-customer-form input::placeholder, select::placeholder {
+  color: #000033;
+}
+
 #new-customer-next {
   height: 50px;
   width: 100%;
