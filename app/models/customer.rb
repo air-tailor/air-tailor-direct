@@ -6,6 +6,9 @@ class Customer < ApplicationRecord
 
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
+  validates :phone, presence: true, length: { minimum: 10, maximum: 15 }
+
+  validates_format_of :phone, :with => /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/
 
   validates :password, presence: true, length: { minimum: 5 }, :allow_blank => true
 

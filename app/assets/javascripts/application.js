@@ -21,7 +21,7 @@
   $(function() {
     setTimeout(function(){
       $('.flash-notice').slideUp(500);
-    }, 4000);
+    }, 5000);
   });
 
   $(document).on("click", "#new-customer-next", function(){
@@ -65,6 +65,7 @@
 // END OF LOGIN STUFF
 
   $(document).on("click", "input#customer_phone", function(e){
+    console.log("click")
     $(this).keydown(function(e)
         {
             var key = e.charCode || e.keyCode || 0;

@@ -53,7 +53,9 @@ before_action :authorize, :except => [:new, :create, :terms]
       redirect_to "/new_order"
    else
     # If user fails model validation - probably a bad password or duplicate email:
-      flash[:fail] = "Unable to create account. Please ensure all required fields are filled correctly."
+      @customer.errors.full_messages.each do |message|
+        flash[:fail] = "Error: " + message
+      end
 
       redirect_to new_customer_path
    end
