@@ -1,13 +1,28 @@
-<span><%= @customer.first_name %> <%= @customer.last_name %></span><br>
-<span><%= @customer.email %></span><br>
-<span><%= @customer.phone %></span><br><br>
+<h3><b><%= @customer.first_name %> <%= @customer.last_name %></b></h3>
 <span><%= @customer.street %></span><br>
+<% if @customer.street_two.blank? %>
+<% else %>
 <span><%= @customer.street_two %></span><br>
+<% end %>
 <span><%= @customer.city %>, <%= @customer.state_province %> <%= @customer.zip_code %></span><br>
+<span><%= @customer.email %></span><br>
+<span><%= @customer.phone %></span><br>
 <hr>
-<p>Order Data</p>
-<p><%= @data[:order][:items] %></p>
+<h3>Order Details</h3>
+<% @data.each do |item|%>
+<p><%= item[:garment] %></p>
+<ul>
+    <% item[:alterations].values.each do |alteration| %>
+    <li><%= alteration[:name] %></li>
+    <li>Alteration price: $<%= alteration[:price] %></li>
+    <% end %>
+</ul>
+<p>Item total: $<%= item[:total] %></p>
 <hr>
+<% end %>
+
+<hr>
+
 <p>Error Message:</p>
 <i><%= @res %></i>
 

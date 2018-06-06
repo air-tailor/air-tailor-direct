@@ -13,6 +13,7 @@ before_action :authorize, :except => [:new, :create, :terms]
   def order_success
     @customer = current_customer
     @data = params[:data].to_unsafe_h
+    @data = @data[:order][:items].values
     @res = params[:res].to_unsafe_h
     AirtailorMailer.success_email(@customer, @data, @res).deliver!
   end
@@ -20,6 +21,7 @@ before_action :authorize, :except => [:new, :create, :terms]
   def order_error
     @customer = current_customer
     @data = params[:data].to_unsafe_h
+    @data = @data[:order][:items].values
     @res = params[:res]
     AirtailorMailer.error_email(@customer, @data, @res).deliver!
   end

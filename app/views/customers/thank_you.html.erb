@@ -4,6 +4,7 @@
     <h2>Thanks for your order, <%= @customer.first_name %>!</h2>
     <h3>Your shipping label has been emailed to you at <%= @customer.email %></h3>
     <p>Need more alterations? <a href="/new_order">Place a new order!</a></p>
+    <p id="res"></p>
   </div>
   <div id="thank-you-state" class="hidden"><%= @customer.state_province %></div>
 
@@ -61,11 +62,12 @@
     var request = localStorage.getItem("request");
     console.log(request)
 
-    if (request == "false"){
+    if (request == "true"){
 
       console.log("placing order")
+
       $.ajax({
-        url: 'https://prod-airtailor-portal-api.herokuapp.com/api/v1/orders',
+        url: 'https://rod-airtailor-portal-api.herokuapp.com/api/v1/orders',
         method: 'POST',
         headers: {
           'X-Api-Key': key,
