@@ -62,12 +62,12 @@
     var request = localStorage.getItem("request");
     console.log(request)
 
-    if (request == "true"){
+    if (request == "false"){
 
       console.log("placing order")
 
       $.ajax({
-        url: 'https://rod-airtailor-portal-api.herokuapp.com/api/v1/orders',
+        url: 'https://prod-airtailor-portal-api.herokuapp.com/api/v1/orders',
         method: 'POST',
         headers: {
           'X-Api-Key': key,
