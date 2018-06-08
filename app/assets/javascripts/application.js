@@ -110,6 +110,8 @@
   var sampleCounter = 1;
   var orderNotes = "";
   var data;
+  var shipping = 6;
+  var discount = null;
 
   //
   //
@@ -700,16 +702,16 @@
     if(totalPrice < 0){
       totalPrice = 0
     };
-    $("#total-price").html(totalPrice)
 
     // remove current item from items array
-    $("#review-total-price").html(totalPrice.toFixed(2))
+    $("#subtotal").html("$" + totalPrice.toFixed(2))
+    $("#review-total-price").html("$" + (totalPrice - discount + shipping).toFixed(2))
     items.splice(currentIndex,1)
     localStorage.setItem("items", JSON.stringify(items));
 
     // hide review page and basket, return to garments page
     if (items.length === 0){
-      window.location = $("#add-garment")[0].href
+      window.location = "/new_order"
     }
 
     if(items.length < 1){
