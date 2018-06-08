@@ -1,4 +1,21 @@
 class PromosController < ApplicationController
+
+  def index
+    if current_customer.is_admin?
+      @promos = Promo.all
+    else
+      redirect_to new_order_path
+    end
+  end
+
+  def show
+    if current_customer.is_admin?
+      @promo = Promo.find(params[:id])
+    else
+      redirect_to new_order_path
+    end
+  end
+
   def new
     if current_customer.is_admin?
       @promo = Promo.new
@@ -24,12 +41,27 @@ class PromosController < ApplicationController
     end
   end
 
-  def index
-    if current_customer.is_admin?
-      @promos = Promo.all
-    else
-      redirect_to new_order_path
-    end
+  def edit
+    @promo = Promo.find_by(id: params[:id])
+  end
+
+  def update
+    @promo = Promo.find_by(id: params[:id])
+    @promo.assign_attributes(promo_params)
+
+    if @promo.update_attributes(promo_params)
+      flash[:success] = "Promo updated successfully."
+     redirect_to "/promos"
+   else
+      flash[:fail] = "Error updating promo. Please try again."
+     redirect_to edit_promo_path
+   end
+  end
+
+  def destroy
+    @promo = Promo.find_by(id: params[:id])
+    @promo.destroy
+    redirect_to '/promos'
   end
 
 private

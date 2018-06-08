@@ -8,15 +8,15 @@
 
 
 <% @promos.each do |promo| %>
-  <b>Name:</b><br> <%= promo.promo_name %><br><br>
-  <b>Created:</b><br> <%= promo.created_at.to_date %><br><br>
-  <b>Type:</b><br> <%= promo.promo_type %><br><br>
+  <p><b>Name:</b><br> <%= link_to promo.promo_name, promo_path(promo) %><br></p>
+  <p><b>Created:</b><br> <%= promo.created_at.to_date %><br></p>
+  <p><b>Type:</b><br> <%= promo.promo_type %><br></p>
   <% if promo.promo_type == "Amount Discount" %>
-    <b>Amount:</b><br> $<%= '%.2f' % promo.amount %><br><br>
+    <p><b>Amount:</b><br> $<%= '%.2f' % promo.amount %><br></p>
   <% else %>
-    <b>Amount:</b><br> <%= '%.0f' % promo.amount %>&percnt;<br><br>
+    <p><b>Amount:</b><br> <%= '%.0f' % promo.amount %>&percnt;<br></p>
   <% end %>
-  <b>Expires:</b><br> <%= promo.expiration %><br><br>
+  <p><b>Expires:</b><br> <%= promo.expiration %><br></p>
   <br>
   <hr>
   <br>

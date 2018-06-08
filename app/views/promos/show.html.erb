@@ -1,0 +1,23 @@
+<header>
+  <div id="new-customer-header">
+    <img src="/assets/logo.png" alt="">
+    <h2><%= @promo.promo_name %></h2>
+    <p><%= link_to "< Back to Promos", promos_path %></p>
+  </div>
+
+</header><!-- /header -->
+
+
+<p><b>Name:</b><br> <%= @promo.promo_name %><br></p>
+<p><b>Created:</b><br> <%= @promo.created_at.to_date %><br></p>
+<p><b>Type:</b><br> <%= @promo.promo_type %><br></p>
+<% if @promo.promo_type == "Amount Discount" %>
+  <p><b>Amount:</b><br> $<%= '%.2f' % @promo.amount %><br></p>
+<% else %>
+  <p><b>Amount:</b><br> <%= '%.0f' % @promo.amount %>&percnt;<br></p>
+<% end %>
+<p><b>Expires:</b><br> <%= @promo.expiration %><br></p>
+
+<button id="edit-promo"><%= link_to "Edit Promo", edit_promo_path(@promo) %></button>
+
+<button id="delete-promo"><%= link_to "Delete Promo", @promo, method: :delete, data: { confirm: "Are you sure?" } %></button>
