@@ -1,3 +1,18 @@
+<script>
+  $( document ).ready(function() {
+      items = localStorage.getItem("items");
+      items = JSON.parse(items)
+      console.log(items)
+
+
+      if(items == null){
+        items = [];
+      } else {
+        $("#top-nav-basket-total").html(items.length)
+      }
+    });
+</script>
+
 <header>
   <div id="edit-customer-header">
     <a href="/"><img src="/assets/logo.png" alt="Air Tailor Logo"></a>

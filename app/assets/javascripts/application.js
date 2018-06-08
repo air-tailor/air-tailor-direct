@@ -124,18 +124,31 @@
       localStorage.setItem("items", JSON.stringify(items));
     }
     quantity = 1;
-    $("#header2").hide();
-    $("#header3").hide();
-
     window.location = $(".edit-account-link")[0].href
+  });
 
+  $(document).on("click", ".order-link", function(event){
+    event.preventDefault();
+    if (items.length > 0){
+      localStorage.setItem("items", JSON.stringify(items));
+    }
+    quantity = 1;
+    window.location = $(".order-link")[0].href
   });
   //
   //
   // END EDIT ACCOUNT WHEN YOU HAVE A BASKET
 
   $(document).on("click", "#top-nav-basket", function(e){
+    event.preventDefault();
+    if (items.length > 0){
+        localStorage.setItem("items", JSON.stringify(items));
 
+      quantity = 1;
+      window.location = "/review"
+    } else {
+      alert("Basket is currently empty.")
+    }
   });
 
 
@@ -146,9 +159,11 @@
     }
   });
 
+
   $(document).on("click", "#how-to-exit", function(){
     $("#overlay, #how-to-popup").fadeToggle();
   })
+
 
   $(document).ready(function(){
     if(location.pathname == '/thank_you'){
@@ -252,6 +267,7 @@
 
       if(currentGarment.name == "necktie"){
         $("#prep-options").html("<span>No prep necessary for necktie slimming. For necktie shortening, see '<i>How to Prep</i>' instructions above.</span>")
+        $("#prep-and-quantity").slideDown('slow');
       } else {
           $("#prep-options").html("<div id='prep-option-one' class='prep-option'><input id='prep-pins' type='checkbox' name='sample item checkbox' checked><span class='prep-text'>I will mark my desired fit with <b>safety pins</b> for the <span class='garment-name'></span> being altered. (see <i>'How to Prep'</i> above)</span></div><div id='prep-option-two' class='prep-option'><input id='prep-sample' type='checkbox' name='sample item checkbox'><span class='prep-text'>I will send a <b>sample <span id='sample-name'></span></b>. Please use sample to get correct fit for the <span class='garment-name'></span> being altered.</span></div>"
           )
@@ -621,32 +637,12 @@
 
   // checkout button
     $(document).on('click', "#checkout-button", function(){
-      $(window).scrollTop(0);
-      // hide garment and alteration divs, show review page
-      $("main").toggleClass('hidden');
-      $("#basket").toggleClass('hidden');
-      $("#review-order").toggleClass('hidden');
-
-      // show proper header for review page
-      if(currentGarment.name == ""){
-        $("#header1").toggleClass('hidden');
-      } else {
-        $("#header2").toggleClass('hidden');
-      };
-      $("#header3").toggleClass('hidden');
-
-      // display items in basket
-      $.each(items, function(i, item){
-        $("#review-order-items").append("<div id=" + item.id + " class='review-item'><p class='review-garment'><span class='float-left'>" + item.garment + "</span><span class='float-right'><span id='review-delete'>delete</span></span></p></div>")
-
-        $.each(item.alterations, function(i, alteration){
-          $(".review-item:last").append("<p class='review-alteration clear-float'><span class='float-left'>" + alteration.name + "</span><span class='float-right'>$" + alteration.price + "</span></p>")
-        });
-      });
-
-      // add total price
-      $("#review-total-price").html("$" + (totalPrice + 6).toFixed(2))
-      $("#form-amount").val(totalPrice + 6)
+      event.preventDefault();
+      if (items.length > 0){
+        localStorage.setItem("items", JSON.stringify(items));
+      }
+      quantity = 1;
+      window.location = $("#checkout-button-link")[0].href
 
     });
   // end of checkout button
@@ -662,20 +658,13 @@
 
   // Not done? Add another garment button
   $(document).on('click', "#add-garment", function(){
-    $("#review-order").toggleClass('hidden');
-    $("#basket").toggleClass("hidden");
-    $("main").toggleClass('hidden');
+    event.preventDefault();
+      if (items.length > 0){
+        localStorage.setItem("items", JSON.stringify(items));
+      }
+      quantity = 1;
 
-    $("#review-order-items").html("");
-
-    // show proper header for garment page
-    if(currentGarment.name == ""){
-      $("#header1").toggleClass('hidden');
-    } else {
-      $("#header2").toggleClass('hidden');
-    };
-
-    $("#header3").toggleClass('hidden');
+      window.location = $("#add-garment")[0].href
   });
 
 
@@ -720,18 +709,9 @@
 
     // hide review page and basket, return to garments page
     if (items.length === 0){
-      $("main").toggleClass('hidden');
-      $("#review-order").toggleClass('hidden');
-      // $("#basket").toggleClass('hidden');
-
-      // show proper header for garment page
-      if(currentGarment.name == ""){
-        $("#header1").toggleClass('hidden');
-      } else {
-        $("#header2").toggleClass('hidden');
-      };
-      $("#header3").toggleClass('hidden');
+      window.location = $("#add-garment")[0].href
     }
+
     if(items.length < 1){
       $("#top-nav-basket-total").html("")
     } else {
@@ -774,7 +754,7 @@
       $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
       $("#promo-input").animate({width: 328}, {duration: 1000});
 
-    } else if(promocode == "airtailor10" || promocode == "atpartner" || promocode == "techcrunch10") {
+    } else if(promocode == "" || promocode == "atpartner" || promocode == "techcrunch10") {
 
       // adjust price
       totalPrice = totalPrice - 10
@@ -843,7 +823,7 @@
       $("#promo-input").animate({width: 328}, {duration: 1000});
 
     } else {
-      alert("Promo code not recognized. Please check and try again.")
+
     }
    })
 

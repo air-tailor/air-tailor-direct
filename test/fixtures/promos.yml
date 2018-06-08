@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  amount: 1.5
+  type: 
+  expiration: 2018-06-06
+
+two:
+  name: MyString
+  amount: 1.5
+  type: 
+  expiration: 2018-06-06

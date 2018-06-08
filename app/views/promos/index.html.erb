@@ -1,0 +1,19 @@
+<header>
+  <div id="new-customer-header">
+    <img src="/assets/logo.png" alt="">
+    <h2>Promo Codes</h2>
+    <p><a href="/promos/new">Create New Promo Code</a></p>
+  </div>
+</header><!-- /header -->
+
+
+<% @promos.each do |promo| %>
+  <b>Name:</b><br> <%= promo.promo_name %><br><br>
+  <b>Created:</b><br> <%= promo.created_at.to_date %><br><br>
+  <b>Type:</b><br> <%= promo.promo_type %><br><br>
+  <b>Amount:</b><br> <%= promo.amount %><br><br>
+  <b>Expires:</b><br> <%= promo.expiration %><br><br>
+  <br>
+  <hr>
+  <br>
+<% end %>

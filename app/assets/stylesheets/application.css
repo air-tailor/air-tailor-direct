@@ -211,7 +211,7 @@ header h2 {
   font-size: 12px;
 }
 
-input#new-customer-create, input#login-button, input#edit-customer-button, input#reset-button {
+input#new-customer-create, input#login-button, input#edit-customer-button, input#reset-button, input#new-promo-create {
   height: 50px;
   width: 100%;
   color: white;
@@ -566,6 +566,10 @@ button {
   width: 290px;
 }
 
+#checkout-button-link {
+  text-decoration: none;
+}
+
 /*  */
 /* END BASKET STYLES
 
@@ -589,6 +593,10 @@ button {
 }
 
 .review-alteration {
+}
+
+#subtotal-section {
+
 }
 
 #review-total {

@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     post '/login' => 'sessions#create'
 
   resources :password_resets
-
+  resources :promos
+  resources :customer_promos
   resources :customers
   resources :charges
 
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   post '/order_error', to: 'customers#order_error'
   post '/order_success', to: 'customers#order_success'
   get '/terms', to: 'customers#terms'
+  get '/review', to: 'customers#review'
 
 
   # Let’s encrypt

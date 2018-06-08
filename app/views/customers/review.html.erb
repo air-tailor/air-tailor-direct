@@ -1,0 +1,192 @@
+  <script>
+    $( document ).ready(function() {
+
+      if(location.pathname == '/review'){
+
+        items = localStorage.getItem("items");
+        items = JSON.parse(items)
+
+        discount = localStorage.getItem("discount")
+        discount = JSON.parse(discount)
+
+        discountName = localStorage.getItem("discountName")
+        discountName = JSON.parse(discountName)
+
+        if (discount == null){
+          discount = 0
+        } else {
+          $("#promo-section-two").toggleClass('hidden');
+          $("#review-promo-name-two").append(discountName)
+          $("#review-promo-amount-two").append(discount)
+        }
+
+        if($("#review-promo-amount").html() != undefined){
+          discount = $("#review-promo-amount").html()
+          discount = parseFloat(discount.substring(3))
+          localStorage.setItem("discount", JSON.stringify(discount));
+          discountName = $("#review-promo-name").html()
+          localStorage.setItem("discountName", JSON.stringify(discountName));
+        }
+
+        if(items == null){
+          items = [];
+        }
+        else if(items.length > 0){
+
+          $.each(items, function(i, item){
+          $("#review-order-items").append("<div id=" + item.id + " class='review-item'><p class='review-garment'><span class='float-left'>" + item.garment + "</span><span class='float-right'><span id='review-delete'>delete</span></span></p></div>")
+
+          $.each(item.alterations, function(i, alteration){
+            $(".review-item:last").append("<p class='review-alteration clear-float'><span class='float-left'>" + alteration.name + "</span><span class='float-right'>$" + alteration.price + "</span></p>")
+            totalPrice = totalPrice + parseFloat(alteration.price)
+          });
+        });
+
+      // add total price
+      $("#subtotal").html("$" + (totalPrice).toFixed(2))
+      $("#review-total-price").html("$" + (totalPrice + 6 - discount).toFixed(2))
+      $("#form-amount").val(totalPrice + 6 - discount)
+      $("#top-nav-basket-total").html(items.length)
+        }
+      }
+    });
+  </script>
+
+  <header>
+    <div id="header-container">
+      <img src="/assets/logo.png" alt="">
+      <div id="header3">
+        <h2>Review Order</h2>
+        <p>Not done? <a id="add-garment" href="/new_order">Add another garment.</a></p>
+      </div>
+    </div>
+  </header>
+
+ <!-- review order page -->
+  <div id="review-order">
+    <!-- displays order items below -->
+    <div id="review-order-items">
+
+    </div>
+    <!-- subtotal -->
+    <hr class="clear-float">
+    <p id="subtotal-section" class="review-garment">
+      <span class="float-left">Subtotal</span>
+      <span id="subtotal" class="float-right">$</span>
+    </p>
+
+    <!-- shipping -->
+    <hr class="clear-float">
+    <p class="review-garment"><span class='float-left'>Shipping</span></p>
+    <p class="review-alteration clear-float">
+      <span class='float-left'>USPS Priority Shipping ($3 Each Way)</span>
+      <span id="shipping-price" class="float-right">$6.00</span>
+    </p>
+
+<% if @promo_name %>
+    <hr class="clear-float">
+    <p class="review-garment">
+      <span class='float-left'>Discount</span>
+    </p>
+    <p class="review-alteration">
+      <span id="review-promo-name" class='float-left'><%= @promo_name %></span>
+      <span id="review-promo-amount" class="float-right">- $<%= '%.2f' % @promo_amount %></span>
+    </p>
+<% else %>
+    <div id="promo-section-two" class="hidden">
+      <hr class="clear-float">
+      <p class="review-garment">
+        <span class='float-left'>Discount</span>
+      </p>
+      <p class="review-alteration">
+        <span id="review-promo-name-two" class='float-left'></span>
+        <span id="review-promo-amount-two" class="float-right">- $</span>
+      </p>
+    </div>
+<% end %>
+
+    <hr class="clear-float">
+    <p id="review-total" >
+      <span class='float-left'>Total</span>
+      <span id="review-total-price" class="float-right"></span>
+    </p>
+    <hr class="clear-float">
+    <p id="review-notes"><img src="/assets/notes.png" alt="notes">Any notes for your order? (optional)</p>
+    <textarea id="review-notes-textarea" class="hidden" placeholder="Special garments or alterations? Enter any important notes about the overall order here to help us serve you best!"></textarea>
+
+
+<!-- ENTER PROMO CODE -->
+    <hr>
+    <div id="promo-div">
+      <%= form_tag customer_promos_path do %>
+        <%= text_field_tag :promo_name, params[:promo_name], :id => "promo-input", :placeholder => "Enter Promo Code" %>
+        <button id="promo-button">Apply</button>
+      <% end %>
+    </div>
+    <hr>
+<!--  -->
+
+
+
+
+<!-- REVIEW SHIPPING AND CONTACT INFO -->
+    <div id="review-shipping">
+      <p class="review-garment">Shipping <a href="customers/<%= @customer.id %>/edit" class="review-edit-account edit-account-link">edit</a></p>
+      <p class="review-alteration"><%= @customer.first_name %> <%= @customer.last_name %></p>
+      <p id="customer-last-name" class="review-alteration"><%= @customer.street %></p>
+      <p id="" class="review-alteration"><%= @customer.street_two %></p>
+      <p id="" class="review-alteration"><%= @customer.city %>, <%= @customer.state_province %> <%= @customer.zip_code %></p>
+    </div>
+
+    <div id="review-contact">
+      <p id="" class="review-garment">Contact <a href="customers/<%= @customer.id %>/edit" class="review-edit-account edit-account-link">edit</a></p>
+      <p id="" class="review-alteration"><%= @customer.phone %></p>
+      <p id="" class="review-alteration"><%= @customer.email %></p>
+    </div>
+<!--  -->
+
+
+
+<!-- STRIPE STUFF  -->
+    <%= form_tag charges_path, :id => "myform" do %>
+
+        <%= text_field_tag :amount, params[:amount], :id => "form-amount", :class => "hidden" %>
+
+        <button id="proceed-to-pay">Proceed to Payment</button>
+
+        <script>
+          var handler = StripeCheckout.configure({
+          key: "<%= Rails.configuration.stripe[:publishable_key] %>",
+          locale: 'auto',
+          token: function (token) {
+              // Use the token to create the charge with a server-side script.
+              // You can access the token ID with `token.id`
+              var tokenInput = $("<input type=hidden name=stripeToken />").val(token.id);
+              var emailInput = $("<input type=hidden name=stripeEmail />").val(token.email);
+              $("#myform").append(tokenInput).append(emailInput).submit();
+            }
+          });
+
+          $('#proceed-to-pay').on('click', function (e) {
+
+
+              var price = $("#review-total-price").html().substring(1);
+              // Open Checkout with further options
+              handler.open({
+                  name: 'Air Tailor',
+                  image: '/assets/balloon.png',
+                  description: 'Clothing Alterations',
+                  email: '<%= @customer.email %>',
+                  amount: price * 100,
+              });
+              e.preventDefault();
+          });
+
+          // Close Checkout on page navigation
+          $(window).on('popstate', function () {
+
+              handler.close();
+          });
+        </script>
+    <% end %>
+  </div>

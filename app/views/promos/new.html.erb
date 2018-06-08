@@ -1,0 +1,21 @@
+<header>
+  <div id="new-customer-header">
+    <img src="/assets/logo.png" alt="">
+    <h2>New Promo Generator</h2>
+    <p><a href="/promos">&lt; Back</a></p>
+  </div>
+</header><!-- /header -->
+
+<div id="new-customer-form">
+  <%= form_for @promo, url: {action: "create"} do |f| %>
+
+    <%= f.text_field :promo_name, :placeholder => "Promo Code Name" %>
+    <%= f.select :promo_type, options_for_select(["Amount Discount", "Percent Discount"]), :prompt => "Type" %>
+    <%= f.number_field :amount, :step => 0.01, :placeholder => "Amount" %>
+    <%= f.date_field :expiration, :value => "Expiration Date" %>
+
+
+  <%= f.submit "Create", :id => "new-promo-create" %>
+
+   <% end %>
+</div>

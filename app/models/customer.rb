@@ -1,4 +1,7 @@
 class Customer < ApplicationRecord
+  has_many :customer_promos
+  has_many :promos, :through => :customer_promos
+
   has_secure_password
 
   validates :email, uniqueness: true, presence: true
@@ -13,6 +16,11 @@ class Customer < ApplicationRecord
   validates :password, presence: true, length: { minimum: 5 }, :allow_blank => true
 
   before_save { |customer| customer.email = email.downcase }
+
+  def is_admin?
+    # @TODO Make this better.
+    self.email == "brian@airtailor.com" || self.email == "joshua@airtailor.com" || self.email == "morgan@airtailor.com"
+  end
 
   def send_password_reset
     generate_token(:password_reset_token)

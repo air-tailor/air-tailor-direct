@@ -6,8 +6,23 @@ before_action :authorize, :except => [:new, :create, :terms]
     @customer = current_customer
   end
 
+  def review
+    @customer = current_customer
+    @customer_promo = CustomerPromo.new
+
+    @promo_name = params[:promo_name]
+    @promo_type = params[:promo_type]
+    @promo_amount = params[:promo_amount]
+
+  end
+
   def thank_you
     @customer = current_customer
+    @promo_join = CustomerPromo.where(customer_id: current_customer.id).where(used: false).last
+    if @promo_join
+      @promo = Promo.where(id: @promo_join.promo_id).first
+      @promo_join.update_attributes(used: true)
+    end
   end
 
   def order_success

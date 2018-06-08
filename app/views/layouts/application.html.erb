@@ -79,13 +79,15 @@
               <a id="account-button" class="order-link" href="/new_order">Order</a>
             <% elsif action_name == "terms" %>
               <a id="account-button" class="order-link" href="/new_order">Order</a>
+            <% elsif action_name == "review" %>
+              <a id="account-button" class="order-link" href="/new_order">Order</a>
             <% else %>
               <a id="account-button" class="edit-account-link"  href="/customers/<%= current_customer.id %>/edit">Account</a>
             <% end %>
 
             <a id="how-it-works">How It Works</a>
             <a id="logout-button" href="/logout">Log Out</a>
-            <a id="top-nav-basket" href="#basket"><img src="/assets/basket.png"><span id="top-nav-basket-total"></span></a>
+            <a id="top-nav-basket" href="/review"><img src="/assets/basket.png"><span id="top-nav-basket-total"></span></a>
           <% end %>
         </div>
 

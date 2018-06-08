@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180523162800) do
+ActiveRecord::Schema.define(version: 20180608015746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "customer_promos", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "promo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "used"
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "first_name"
@@ -30,6 +38,15 @@ ActiveRecord::Schema.define(version: 20180523162800) do
     t.datetime "updated_at", null: false
     t.string "password_reset_token"
     t.datetime "password_reset_sent_at"
+  end
+
+  create_table "promos", force: :cascade do |t|
+    t.string "promo_name"
+    t.float "amount"
+    t.string "promo_type"
+    t.date "expiration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

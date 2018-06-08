@@ -15,6 +15,12 @@
 <script>
 
   $("#thank-you-header").ready(function() {
+
+    discount = null
+    localStorage.setItem("discount", JSON.stringify(discount));
+    discountName = null
+    localStorage.setItem("discountName", JSON.stringify(discountName));
+
     var key;
 
     var data = localStorage.getItem("data");
