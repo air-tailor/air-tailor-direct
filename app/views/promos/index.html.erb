@@ -11,7 +11,11 @@
   <b>Name:</b><br> <%= promo.promo_name %><br><br>
   <b>Created:</b><br> <%= promo.created_at.to_date %><br><br>
   <b>Type:</b><br> <%= promo.promo_type %><br><br>
-  <b>Amount:</b><br> <%= promo.amount %><br><br>
+  <% if promo.promo_type == "Amount Discount" %>
+    <b>Amount:</b><br> $<%= '%.2f' % promo.amount %><br><br>
+  <% else %>
+    <b>Amount:</b><br> <%= '%.0f' % promo.amount %>&percnt;<br><br>
+  <% end %>
   <b>Expires:</b><br> <%= promo.expiration %><br><br>
   <br>
   <hr>
