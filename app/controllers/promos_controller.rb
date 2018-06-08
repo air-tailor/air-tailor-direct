@@ -42,26 +42,38 @@ class PromosController < ApplicationController
   end
 
   def edit
-    @promo = Promo.find_by(id: params[:id])
+    if current_customer.is_admin?
+      @promo = Promo.find_by(id: params[:id])
+    else
+      redirect_to new_order_path
+    end
   end
 
   def update
-    @promo = Promo.find_by(id: params[:id])
-    @promo.assign_attributes(promo_params)
+    if current_customer.is_admin?
+      @promo = Promo.find_by(id: params[:id])
+      @promo.assign_attributes(promo_params)
 
-    if @promo.update_attributes(promo_params)
-      flash[:success] = "Promo updated successfully."
-     redirect_to "/promos"
-   else
-      flash[:fail] = "Error updating promo. Please try again."
-     redirect_to edit_promo_path
-   end
+      if @promo.update_attributes(promo_params)
+        flash[:success] = "Promo updated successfully."
+       redirect_to "/promos"
+      else
+        flash[:fail] = "Error updating promo. Please try again."
+       redirect_to edit_promo_path
+      end
+    else
+      redirect_to new_order_path
+    end
   end
 
   def destroy
-    @promo = Promo.find_by(id: params[:id])
-    @promo.destroy
-    redirect_to '/promos'
+    if current_customer.is_admin?
+      @promo = Promo.find_by(id: params[:id])
+      @promo.destroy
+      redirect_to '/promos'
+    else
+      redirect_to new_order_path
+    end
   end
 
 private
