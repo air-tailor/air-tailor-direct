@@ -642,7 +642,7 @@
         localStorage.setItem("items", JSON.stringify(items));
       }
       quantity = 1;
-      window.location = $("#checkout-button-link")[0].href
+      window.location = "/review"
 
     });
   // end of checkout button
@@ -664,7 +664,7 @@
       }
       quantity = 1;
 
-      window.location = $("#add-garment")[0].href
+      window.location = "/new_order"
   });
 
 
@@ -727,106 +727,7 @@
 
 
   // promo code section
-   $(document).on('click', "#promo-button", function(){
-
-    // read what's been entered in promo input
-    var promocode = $("#promo-input").val().toLowerCase()
-
-
-    // check current date
-    var currentDate = parseInt(new Date().getDate())
-
-    // promo button actions
-    if(promocode == "earlyaccess" || promocode == "thxclothingline"){
-
-      // adjust price
-      totalPrice = totalPrice - 30
-      if(totalPrice < 1){
-        totalPrice = 0;
-      }
-
-      $("#review-total-price").html("$" + (totalPrice+6).toFixed(2))
-      $("#form-amount").val(totalPrice+6)
-
-      // style
-      // alert("Success! 10% promo applied to your order")
-      $("#promo-button").toggleClass('hidden');
-      $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
-      $("#promo-input").animate({width: 328}, {duration: 1000});
-
-    } else if(promocode == "" || promocode == "atpartner" || promocode == "techcrunch10") {
-
-      // adjust price
-      totalPrice = totalPrice - 10
-      if(totalPrice < 1){
-        totalPrice = 0;
-      }
-
-      $("#review-total-price").html("$" + (totalPrice+6).toFixed(2))
-      $("#form-amount").val(totalPrice+6)
-
-      // style
-      // alert("Success! 10% promo applied to your order")
-      $("#promo-button").toggleClass('hidden');
-      $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
-      $("#promo-input").animate({width: 328}, {duration: 1000});
-
-    } else if(promocode == "stevenalan15") {
-
-      // adjust price
-      totalPrice = totalPrice - 15
-      if(totalPrice < 1){
-        totalPrice = 0;
-      }
-
-      $("#review-total-price").html("$" + (totalPrice+6).toFixed(2))
-      $("#form-amount").val(totalPrice+6)
-
-      // style
-      // alert("Success! 10% promo applied to your order")
-      $("#promo-button").toggleClass('hidden');
-      $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
-      $("#promo-input").animate({width: 328}, {duration: 1000});
-
-    } else if(promocode == "rrothman" || promocode == "akanai" || promocode == "sperez") {
-
-      // adjust price
-      totalPrice = totalPrice - 100
-      if(totalPrice < 1){
-        totalPrice = 0;
-      }
-
-      $("#review-total-price").html("$" + (totalPrice+6).toFixed(2))
-      $("#form-amount").val(totalPrice+6)
-
-      // style
-      // alert("Success! 10% promo applied to your order")
-      $("#promo-button").toggleClass('hidden');
-      $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
-      $("#promo-input").animate({width: 328}, {duration: 1000});
-
-    } else if(promocode == "thanks5" || promocode == "anothershot") {
-
-      // adjust price
-      totalPrice = totalPrice - 5
-      if(totalPrice < 1){
-        totalPrice = 0;
-      }
-
-      $("#review-total-price").html("$" + (totalPrice+6).toFixed(2))
-      $("#form-amount").val(totalPrice+6)
-
-      // style
-      // alert("Success! 10% promo applied to your order")
-      $("#promo-button").toggleClass('hidden');
-      $("#promo-input").val("SUCCESS! PROMO APPLIED :)")
-      $("#promo-input").animate({width: 328}, {duration: 1000});
-
-    } else {
-
-    }
-   })
-
+   // $("#promo-input").animate({width: 328}, {duration: 1000});
   // end promo code section
 
 

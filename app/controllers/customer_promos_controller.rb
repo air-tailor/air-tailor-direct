@@ -2,7 +2,7 @@ class CustomerPromosController < ApplicationController
 
   def create
     @customer = current_customer
-    @promo_name = params[:promo_name]
+    @promo_name = params[:promo_name].downcase
     @promo = Promo.where(promo_name: @promo_name).first
 
     if @promo

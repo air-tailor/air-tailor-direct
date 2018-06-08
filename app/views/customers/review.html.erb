@@ -2,6 +2,7 @@
     $( document ).ready(function() {
 
       if(location.pathname == '/review'){
+        var shipping = 6
 
         items = localStorage.getItem("items");
         items = JSON.parse(items)
@@ -44,8 +45,8 @@
 
       // add total price
       $("#subtotal").html("$" + (totalPrice).toFixed(2))
-      $("#review-total-price").html("$" + (totalPrice + 6 - discount).toFixed(2))
-      $("#form-amount").val(totalPrice + 6 - discount)
+      $("#review-total-price").html("$" + (totalPrice + shipping - discount).toFixed(2))
+      $("#form-amount").val(totalPrice + shipping - discount)
       $("#top-nav-basket-total").html(items.length)
         }
       }
