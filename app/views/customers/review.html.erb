@@ -28,6 +28,11 @@
           localStorage.setItem("discountName", JSON.stringify(discountName));
         }
 
+        if (discountName == "wwfriends"){
+          shipping = 0
+          $("#shipping-price").html("$0.00")
+        }
+
         if(items == null){
           items = [];
         }
