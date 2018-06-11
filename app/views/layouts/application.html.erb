@@ -79,7 +79,7 @@
               <a id="account-button" class="order-link" href="/new_order">Order</a>
             <% elsif action_name == "terms" %>
               <a id="account-button" class="order-link" href="/new_order">Order</a>
-            <% elsif action_name == "review" %>
+            <% elsif action_name == "review" || controller_name == "promos" %>
               <a id="account-button" class="order-link" href="/new_order">Order</a>
             <% else %>
               <a id="account-button" class="edit-account-link"  href="/customers/<%= current_customer.id %>/edit">Account</a>
