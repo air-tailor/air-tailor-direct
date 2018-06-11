@@ -26,6 +26,12 @@ body {
   font-size: 14px;
 }
 
+a, .clickable {
+  cursor: pointer;
+}
+
+
+
 .red {
   color: #de0421
 }
@@ -282,6 +288,7 @@ button a {
   float: left;
   border-radius: 5px;
   text-align: center;
+  cursor:pointer;
 }
 
 #alteration-cards-section {
@@ -293,6 +300,7 @@ button a {
   overflow: auto;
   font-size: 12px;
   margin: 10px 10px;
+  cursor:pointer;
 }
 
 .alteration-name-price {
@@ -329,6 +337,10 @@ button a {
 .prep-button p {
   line-height: 50px;
   margin: 0;
+}
+
+.prep-button p:hover {
+  text-decoration: underline;
 }
 
 #prep-popup {
@@ -748,6 +760,7 @@ border-radius: 5px;
   float: left;
   display: inline-block;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .prep-text {

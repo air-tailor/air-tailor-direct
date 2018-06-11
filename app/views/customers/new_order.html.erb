@@ -15,7 +15,7 @@
         else if(items.length > 0){
           $("#basket").toggleClass('hidden');
           $.each(items, function(i, item){
-            $("#basket-items").append("<div id=" + item.id + " class='basket-item'><p class='basket-garment'><span class='float-left'>" + item.garment + "</span><span class='float-right'><span id='basket-delete'>delete</span></span></p></div>")
+            $("#basket-items").append("<div id=" + item.id + " class='basket-item'><p class='basket-garment'><span class='float-left'>" + item.garment + "</span><span class='float-right'><span id='basket-delete' class='clickable'>delete</span></span></p></div>")
 
             $.each(item.alterations, function(i, alteration){
               $(".basket-item:last").append("<p class='basket-alteration clear-float'><span class='float-left'>" + alteration.name + "</span><span class='float-right'>$" + alteration.price + "</span></p>")
@@ -44,7 +44,7 @@
         <div id="header2" class="hidden">
 
         <h2>What alteration service(s) would you like?</h2>
-        <center id="alteration-back-button">&lt; Go Back</center>
+        <center id="alteration-back-button" class="clickable">&lt; Go Back</center>
 
         </div>
         <h2 id="header4" class="hidden">Thank you for your order!</h2>
@@ -660,7 +660,7 @@
             <input type="text" value="1">
           </div>
           <div id="quantity-button">
-            <span id="minus">-</span><span id="plus">+</span>
+            <span id="minus" class="clickable">-</span><span id="plus" class="clickable">+</span>
           </div>
         </div>
         <!-- end quantity section -->
