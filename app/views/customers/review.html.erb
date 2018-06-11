@@ -125,7 +125,7 @@
     <div id="promo-div">
       <%= form_tag customer_promos_path do %>
         <%= text_field_tag :promo_name, params[:promo_name], :id => "promo-input", :placeholder => "Enter Promo Code" %>
-        <button id="promo-button">Apply</button>
+        <button id="promo-button" class="button">Apply</button>
       <% end %>
     </div>
     <hr>
@@ -157,7 +157,7 @@
 
         <%= text_field_tag :amount, params[:amount], :id => "form-amount", :class => "hidden" %>
 
-        <button id="proceed-to-pay">Proceed to Payment</button>
+        <button id="proceed-to-pay" class="button">Proceed to Payment</button>
 
         <script>
           var handler = StripeCheckout.configure({

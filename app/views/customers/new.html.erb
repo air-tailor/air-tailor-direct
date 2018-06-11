@@ -29,7 +29,7 @@
       <%= f.select :state_province, options_for_select(us_states), :prompt => "State", :autocomplete => "address-level1", :class=> "new-customer-required" %>
 
       <%= f.text_field :zip_code, :placeholder => "Zip", :autocomplete => "postal-code", :class=> "new-customer-required" %>
-      <div id="new-customer-next">Next</div>
+      <div id="new-customer-next" class="button">Next</div>
     </div>
 
     <div id="new-customer-part-2" class="hidden">

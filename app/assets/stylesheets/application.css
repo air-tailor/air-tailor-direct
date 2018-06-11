@@ -24,7 +24,6 @@ body {
   font-family: raleway;
   color: #000033;
   font-size: 14px;
-  cursor:pointer;
 }
 
 .red {
@@ -224,7 +223,9 @@ input#new-customer-create, input#login-button, input#edit-customer-button, input
 
 }
 
-
+.button {
+  cursor:pointer;
+}
 
 
 /* All the old shit */
