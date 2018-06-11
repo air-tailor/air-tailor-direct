@@ -697,49 +697,52 @@
     items = localStorage.getItem("items");
     items = JSON.parse(items)
 
-    // save current div to local variable
-    var currentDiv = $(this).parent().parent().parent()
 
-    // find id of current div
-    var basketIndex = currentDiv.attr('id')
+    if (confirm("Are you sure?")){
+      // save current div to local variable
+      var currentDiv = $(this).parent().parent().parent()
 
-    // // use id of current div to find id of item
-    $.each(items, function(i, item){
-      if(item.id == basketIndex){
-        currentItem = item
+      // find id of current div
+      var basketIndex = currentDiv.attr('id')
+
+      // // use id of current div to find id of item
+      $.each(items, function(i, item){
+        if(item.id == basketIndex){
+          currentItem = item
+        }
+      });
+
+      // // use id of item to find index of item
+      var currentIndex = items.indexOf(currentItem)
+
+      // // delete current div
+      currentDiv.remove()
+
+      // remove same item from basket
+      $("#basket #" + basketIndex).remove()
+
+      // subtract price from total and update total in basket
+      totalPrice = totalPrice - currentItem.total
+      if(totalPrice < 0){
+        totalPrice = 0
+      };
+
+      // remove current item from items array
+      $("#subtotal").html("$" + totalPrice.toFixed(2))
+      $("#review-total-price").html("$" + (totalPrice - discount + shipping).toFixed(2))
+      items.splice(currentIndex,1)
+      localStorage.setItem("items", JSON.stringify(items));
+
+      // hide review page and basket, return to garments page
+      if (items.length === 0){
+        window.location = "/new_order"
       }
-    });
 
-    // // use id of item to find index of item
-    var currentIndex = items.indexOf(currentItem)
-
-    // // delete current div
-    currentDiv.remove()
-
-    // remove same item from basket
-    $("#basket #" + basketIndex).remove()
-
-    // subtract price from total and update total in basket
-    totalPrice = totalPrice - currentItem.total
-    if(totalPrice < 0){
-      totalPrice = 0
-    };
-
-    // remove current item from items array
-    $("#subtotal").html("$" + totalPrice.toFixed(2))
-    $("#review-total-price").html("$" + (totalPrice - discount + shipping).toFixed(2))
-    items.splice(currentIndex,1)
-    localStorage.setItem("items", JSON.stringify(items));
-
-    // hide review page and basket, return to garments page
-    if (items.length === 0){
-      window.location = "/new_order"
-    }
-
-    if(items.length < 1){
-      $("#top-nav-basket-total").html("")
-    } else {
-      $("#top-nav-basket-total").html(items.length)
+      if(items.length < 1){
+        $("#top-nav-basket-total").html("")
+      } else {
+        $("#top-nav-basket-total").html(items.length)
+      }
     }
   });
 
