@@ -41,8 +41,12 @@
           <h2>Welcome, <%= @customer.first_name %>!</h2>
           <h2>What type of garment would you like to have altered?</h2>
         </div>
-        <h2 id="header2" class="hidden">What alteration service(s) would you like?</h2>
+        <div id="header2" class="hidden">
 
+        <h2>What alteration service(s) would you like?</h2>
+        <center id="alteration-back-button">&lt; Go Back</center>
+
+        </div>
         <h2 id="header4" class="hidden">Thank you for your order!</h2>
       </div>
   </header><!-- /header -->
@@ -685,7 +689,7 @@
       <!-- alteration buttons -->
       <div id="alteration-buttons">
         <button id="add-alt-to-basket">Add to Basket</button>
-        <p id="alteration-back-button">&lt; Go Back</p>
+
       </div>
       <!-- end alteration buttons -->
     </div>
