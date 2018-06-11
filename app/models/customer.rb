@@ -1,4 +1,5 @@
 class Customer < ApplicationRecord
+  after_save :add_to_list
   has_many :customer_promos
   has_many :promos, :through => :customer_promos
 
@@ -20,6 +21,16 @@ class Customer < ApplicationRecord
   def is_admin?
     # @TODO Make this better.
     self.email == "brian@airtailor.com" || self.email == "joshua@airtailor.com" || self.email == "morgan@airtailor.com"
+  end
+
+  def add_to_list
+    begin
+      list_id = ENV['MAILCHIMP_LIST_ID']
+      @gb = Gibbon::Request.new
+      subscribe = @gb.lists(list_id).members.create(body: { email_address: self.email, status: "subscribed", merge_fields: {:FNAME => self.first_name, :LNAME => self.last_name}, double_optin: false })
+    rescue Gibbon::MailChimpError => e
+      return puts e.message
+    end
   end
 
   def send_password_reset

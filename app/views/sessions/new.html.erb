@@ -1,6 +1,8 @@
 <header>
   <div id="new-customer-header">
-    <img src="/assets/logo.png" alt="">
+    <!-- <a href="https://www.airtailor.com"> -->
+      <img src="/assets/logo.png" alt="">
+    <!-- </a> -->
     <h2>Sign In</h2>
     <p>New to Air Tailor? <a href="/customers/new">Create Account.</a></p>
   </div>
@@ -13,7 +15,9 @@
     <%= password_field_tag :password, nil, placeholder: 'Password', :class => "login_form_field" %>
     <%= submit_tag "Log In", :class => "button", :id => "login-button" %>
   <% end %>
-  <%= link_to 'Forgot password?', new_password_reset_path %>
+  <%= link_to 'Forgot password?', new_password_reset_path %><br><br><br>
+  <p>Looking for our business app? <br><a href="https://portal.airtailor.com">Click here</a>.</p>
 </div>
+
 
 
