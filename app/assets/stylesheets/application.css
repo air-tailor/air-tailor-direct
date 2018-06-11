@@ -587,6 +587,17 @@ button a {
   text-decoration: none;
 }
 
+#empty-basket {
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+#empty-basket span {
+  color: #de0421;
+}
+
 /*  */
 /* END BASKET STYLES
 

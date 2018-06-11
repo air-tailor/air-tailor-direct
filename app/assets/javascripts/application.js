@@ -601,38 +601,41 @@
     items = localStorage.getItem("items");
     items = JSON.parse(items)
 
-    // save current div to local variable
-    var currentDiv = $(this).parent().parent().parent()
+    if (confirm("Are you sure?")){
 
-    // find id of current div
-    var basketIndex = currentDiv.attr('id')
+      // save current div to local variable
+      var currentDiv = $(this).parent().parent().parent()
 
-    // use id of current div to find id of item
-    $.each(items, function(i, item){
-      if(item.id == basketIndex){
-        currentItem = item
+      // find id of current div
+      var basketIndex = currentDiv.attr('id')
+
+      // use id of current div to find id of item
+      $.each(items, function(i, item){
+        if(item.id == basketIndex){
+          currentItem = item
+        }
+      });
+
+      // use id of item to find index of item
+      var currentIndex = items.indexOf(currentItem)
+
+      // delete current div, subtract price from total, and remove current item from items array
+      currentDiv.remove()
+      totalPrice = totalPrice - currentItem.total
+      if(totalPrice < 0){
+        totalPrice = 0
+      };
+      $("#total-price").html(totalPrice.toFixed(2))
+      items.splice(currentIndex,1)
+      localStorage.setItem("items", JSON.stringify(items));
+      if (items.length == 0){
+        $("#basket").toggleClass('hidden');
       }
-    });
-
-    // use id of item to find index of item
-    var currentIndex = items.indexOf(currentItem)
-
-    // delete current div, subtract price from total, and remove current item from items array
-    currentDiv.remove()
-    totalPrice = totalPrice - currentItem.total
-    if(totalPrice < 0){
-      totalPrice = 0
-    };
-    $("#total-price").html(totalPrice.toFixed(2))
-    items.splice(currentIndex,1)
-    localStorage.setItem("items", JSON.stringify(items));
-    if (items.length == 0){
-      $("#basket").toggleClass('hidden');
-    }
-    if(items.length < 1){
-      $("#top-nav-basket-total").html("")
-    } else {
-      $("#top-nav-basket-total").html(items.length)
+      if(items.length < 1){
+        $("#top-nav-basket-total").html("")
+      } else {
+        $("#top-nav-basket-total").html(items.length)
+      }
     }
   });
 
@@ -648,6 +651,25 @@
 
     });
   // end of checkout button
+
+
+  // clear basket button
+    $(document).on('click', "#empty-basket", function(){
+      if (confirm("Are you sure?")){
+        items = localStorage.getItem("items");
+        items = JSON.parse(items)
+        items = []
+        $("#basket-items").html("")
+        totalPrice = 0
+        $("#total-price").html(totalPrice.toFixed(2))
+        localStorage.setItem("items", JSON.stringify(items));
+        $("#basket").toggleClass('hidden');
+        $("#top-nav-basket-total").html("")
+      }
+    });
+  // end of clear basket button
+
+
 
   //
   //
