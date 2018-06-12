@@ -6,38 +6,10 @@
         items = localStorage.getItem("items");
         items = JSON.parse(items)
 
-        discount = localStorage.getItem("discount")
-        discount = JSON.parse(discount)
-
-        discountName = localStorage.getItem("discountName")
-        discountName = JSON.parse(discountName)
-
-        if (discount == null){
-          discount = 0
-        } else {
-          $("#promo-section-two").toggleClass('hidden');
-          $("#review-promo-name-two").append(discountName)
-          $("#review-promo-amount-two").append(discount)
-        }
-
-        if($("#review-promo-amount").html() != undefined){
-          discount = $("#review-promo-amount").html()
-          discount = parseFloat(discount.substring(3))
-          localStorage.setItem("discount", JSON.stringify(discount));
-          discountName = $("#review-promo-name").html()
-          localStorage.setItem("discountName", JSON.stringify(discountName));
-        }
-
-        if (discountName == "wwfriends"){
-          shipping = 0
-          $("#shipping-price").html("$0.00")
-        }
-
         if(items == null){
           items = [];
         }
         else if(items.length > 0){
-
           $.each(items, function(i, item){
           $("#review-order-items").append("<div id=" + item.id + " class='review-item'><p class='review-garment'><span class='float-left'>" + item.garment + "</span><span class='float-right'><span id='review-delete' class='clickable'>delete</span></span></p></div>")
 
@@ -47,10 +19,60 @@
           });
         });
 
+        discount = localStorage.getItem("discount")
+        discount = JSON.parse(discount)
+
+        discountName = localStorage.getItem("discountName")
+        discountName = JSON.parse(discountName)
+
+        discountType = localStorage.getItem("discountType")
+        discountType = JSON.parse(discountType)
+
+
+        if($("#review-promo-amount").html() != undefined){
+          discount = $("#review-promo-amount").html()
+          discount = parseFloat(discount.substring(3))
+          localStorage.setItem("discount", JSON.stringify(discount));
+          discountName = $("#review-promo-name").html()
+          localStorage.setItem("discountName", JSON.stringify(discountName));
+          discountType = $("#review-promo-type").html()
+          localStorage.setItem("discountType", JSON.stringify(discountType));
+          if (discountType == "Percent Discount"){
+            $("#review-promo-amount").html("- $" + (totalPrice * (discount*.01)).toFixed(2))
+          }
+        }
+
+        if (discount == null){
+          discount = 0
+        } else {
+          $("#promo-section-two").toggleClass('hidden');
+          $("#review-promo-name-two").append(discountName)
+          if(discountType == "Amount Discount"){
+            console.log(discountType)
+            $("#review-promo-amount-two").append(discount)
+          } else {
+            $("#review-promo-amount-two").html("- $" + (totalPrice * (discount*.01)).toFixed(2))
+          }
+
+        }
+
+        if (discountName == "wwfriends"){
+          shipping = 0
+          $("#shipping-price").html("$0.00")
+        }
+
+
       // add total price
       $("#subtotal").html("$" + (totalPrice).toFixed(2))
-      $("#review-total-price").html("$" + (totalPrice + shipping - discount).toFixed(2))
-      $("#form-amount").val(totalPrice + shipping - discount)
+      if (discountType == "Amount Discount"){
+        $("#review-total-price").html("$" + (totalPrice + shipping - discount).toFixed(2))
+        $("#form-amount").val(totalPrice + shipping - discount)
+      } else {
+        discount = discount *.01
+        $("#review-total-price").html("$" + (totalPrice*(1-discount) + shipping).toFixed(2))
+         $("#form-amount").val(totalPrice*(1-discount) + shipping)
+      }
+
       $("#top-nav-basket-total").html(items.length)
         }
       }
@@ -96,6 +118,7 @@
     <p class="review-alteration">
       <span id="review-promo-name" class='float-left'><%= @promo_name %></span>
       <span id="review-promo-amount" class="float-right">- $<%= '%.2f' % @promo_amount %></span>
+      <span id="review-promo-type" class="hidden"><%= @promo_type %></span>
     </p>
 <% else %>
     <div id="promo-section-two" class="hidden">
@@ -106,6 +129,7 @@
       <p class="review-alteration">
         <span id="review-promo-name-two" class='float-left'></span>
         <span id="review-promo-amount-two" class="float-right">- $</span>
+        <span id="review-promo-type-two" class="hidden"></span>
       </p>
     </div>
 <% end %>

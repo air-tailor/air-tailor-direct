@@ -112,6 +112,8 @@
   var data;
   var shipping = 6;
   var discount = null;
+  var discountType = null;
+  var discountName = null;
 
   //
   //
@@ -697,6 +699,11 @@
     items = localStorage.getItem("items");
     items = JSON.parse(items)
 
+    discount = localStorage.getItem("discount")
+    discount = JSON.parse(discount)
+
+    discountType = localStorage.getItem("discountType")
+    discountType = JSON.parse(discountType)
 
     if (confirm("Are you sure?")){
       // save current div to local variable
@@ -728,10 +735,24 @@
       };
 
       // remove current item from items array
-      $("#subtotal").html("$" + totalPrice.toFixed(2))
-      $("#review-total-price").html("$" + (totalPrice - discount + shipping).toFixed(2))
       items.splice(currentIndex,1)
       localStorage.setItem("items", JSON.stringify(items));
+
+      if (discountType == "Percent Discount"){
+
+            $("#review-promo-amount").html("- $" + (totalPrice * (discount*.01)).toFixed(2))
+            $("#review-promo-amount-two").html("- $" + (totalPrice * (discount*.01)).toFixed(2))
+          }
+
+      $("#subtotal").html("$" + totalPrice.toFixed(2))
+      if (discountType == "Amount Discount"){
+        $("#review-total-price").html("$" + (totalPrice + shipping - discount).toFixed(2))
+        $("#form-amount").val(totalPrice + shipping - discount)
+      } else {
+        discount = discount *.01
+        $("#review-total-price").html("$" + (totalPrice*(1-discount) + shipping).toFixed(2))
+         $("#form-amount").val(totalPrice*(1-discount) + shipping)
+      }
 
       // hide review page and basket, return to garments page
       if (items.length === 0){
