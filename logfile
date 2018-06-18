@@ -52,3 +52,8 @@
 2018-05-21 16:11:44.118 EDT [3084] LOG:  invalid record length at 0/2BCA0B0: wanted 24, got 0
 2018-05-21 16:11:44.118 EDT [3084] LOG:  redo done at 0/2BCA078
 2018-05-21 16:11:44.134 EDT [3083] LOG:  database system is ready to accept connections
+2018-06-13 22:44:36.378 EDT [41660] FATAL:  database "photo-fit_development" does not exist
+2018-06-13 22:44:42.826 EDT [41665] FATAL:  database "photo-fit_development" does not exist
+2018-06-13 22:44:48.740 EDT [41668] FATAL:  database "photo-fit_development" does not exist
+2018-06-13 22:46:15.183 EDT [41702] FATAL:  database "photo-fit_development" does not exist
+2018-06-13 22:48:21.793 EDT [42684] FATAL:  database "photo-fit_development" does not exist

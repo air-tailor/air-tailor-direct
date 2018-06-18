@@ -33,10 +33,13 @@
           discount = $("#review-promo-amount").html()
           discount = parseFloat(discount.substring(3))
           localStorage.setItem("discount", JSON.stringify(discount));
+
           discountName = $("#review-promo-name").html()
           localStorage.setItem("discountName", JSON.stringify(discountName));
+
           discountType = $("#review-promo-type").html()
           localStorage.setItem("discountType", JSON.stringify(discountType));
+
           if (discountType == "Percent Discount"){
             $("#review-promo-amount").html("- $" + (totalPrice * (discount*.01)).toFixed(2))
           }
@@ -48,8 +51,7 @@
           $("#promo-section-two").toggleClass('hidden');
           $("#review-promo-name-two").append(discountName)
           if(discountType == "Amount Discount"){
-            console.log(discountType)
-            $("#review-promo-amount-two").append(discount)
+            $("#review-promo-amount-two").append(discount.toFixed(2))
           } else {
             $("#review-promo-amount-two").html("- $" + (totalPrice * (discount*.01)).toFixed(2))
           }
@@ -65,8 +67,13 @@
       // add total price
       $("#subtotal").html("$" + (totalPrice).toFixed(2))
       if (discountType == "Amount Discount"){
-        $("#review-total-price").html("$" + (totalPrice + shipping - discount).toFixed(2))
-        $("#form-amount").val(totalPrice + shipping - discount)
+        if(totalPrice-discount < 0){
+           $("#review-total-price").html(shipping.toFixed(2))
+           $("#form-amount").val(shipping)
+        } else {
+          $("#review-total-price").html("$" + (totalPrice + shipping - discount).toFixed(2))
+          $("#form-amount").val(totalPrice + shipping - discount)
+        }
       } else {
         discount = discount *.01
         $("#review-total-price").html("$" + (totalPrice*(1-discount) + shipping).toFixed(2))

@@ -746,8 +746,13 @@
 
       $("#subtotal").html("$" + totalPrice.toFixed(2))
       if (discountType == "Amount Discount"){
-        $("#review-total-price").html("$" + (totalPrice + shipping - discount).toFixed(2))
-        $("#form-amount").val(totalPrice + shipping - discount)
+        if(totalPrice-discount < 0){
+           $("#review-total-price").html(shipping.toFixed(2))
+           $("#form-amount").val(shipping)
+        } else {
+          $("#review-total-price").html("$" + (totalPrice + shipping - discount).toFixed(2))
+          $("#form-amount").val(totalPrice + shipping - discount)
+        }
       } else {
         discount = discount *.01
         $("#review-total-price").html("$" + (totalPrice*(1-discount) + shipping).toFixed(2))
