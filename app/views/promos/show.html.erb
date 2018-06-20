@@ -18,6 +18,8 @@
 <% end %>
 <p><b>Expires:</b><br> <%= @promo.expiration %><br></p>
 
-<button id="edit-promo" class="button"><%= link_to "Edit Promo", edit_promo_path(@promo) %></button>
+<%= link_to "Edit Promo", edit_promo_path(@promo) do %>
+<button id="edit-promo" class="button"></button>
+<% end %>
 
 <button id="delete-promo" class="button"><%= link_to "Delete Promo", @promo, method: :delete, data: { confirm: "Are you sure?" } %></button>
