@@ -262,7 +262,7 @@
       currentAltPrice = $(this).find("span").html();
       currentAltId = parseInt($(this).attr('data-id'));
       $(this).toggleClass('selected');
-      $(this).css('background-color', 'lightgray');
+      $(this).css('background-color', 'rgba(216, 237, 252, 0.5)');
       currentAlteration = {alteration_id:currentAltId, name:currentAltName, price:currentAltPrice}
       currentAlterations.push(currentAlteration)
       $("#add-alt-to-basket").css('background-color', 'rgb(0,0,53)');

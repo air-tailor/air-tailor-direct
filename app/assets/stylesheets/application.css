@@ -291,6 +291,10 @@ button a {
   cursor:pointer;
 }
 
+.garment-card:hover {
+  background-color: rgba(216, 237, 252, 0.5);
+}
+
 #alteration-cards-section {
   overflow: auto;
 }
@@ -301,6 +305,10 @@ button a {
   font-size: 12px;
   margin: 10px 10px;
   cursor:pointer;
+}
+
+.alteration-name-price:hover{
+  background-color: rgba(216, 237, 252, 0.5);
 }
 
 .alteration-name-price {
