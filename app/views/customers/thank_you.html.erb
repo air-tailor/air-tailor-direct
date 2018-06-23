@@ -27,7 +27,7 @@
     data = JSON.parse(data)
     console.log(data)
 
-    // var san_francisco = ["Alaska", "Washington", "Oregon", "Idaho", "Montana", "Wyoming", "Hawaii"]
+    var san_francisco = ["Alaska", "Washington", "Oregon", "Idaho", "Montana", "Wyoming", "Hawaii"]
 
     var los_angeles = ["Nevada", "Utah", "Arizona", "New Mexico", "Colorado", "Texas", "Alaska", "Washington", "Oregon", "Idaho", "Montana", "Wyoming", "Hawaii", "California"]
 
@@ -44,19 +44,19 @@
         if (item.garment == "necktie"){
           key = "O7iq7W0Kcg8MynMp3aaHzgtt"
         }
-        // else if (state == "California") {
-        //   if (zip < 93750){
-        //     key = "cdX5Bh9PQ60lmUfXzzO2CQtt"
-        //   } else {
-        //     key = "14LhglNvyCCrA3rVHnxOFAtt"
-        //   }
-        // }
+        else if (state == "California") {
+          if (zip < 93750){
+            key = "cdX5Bh9PQ60lmUfXzzO2CQtt"
+          } else {
+            key = "14LhglNvyCCrA3rVHnxOFAtt"
+          }
+        }
         else if (jQuery.inArray(state, los_angeles) !== -1) {
           key = "cdX5Bh9PQ60lmUfXzzO2CQtt"
         }
-        // else if (jQuery.inArray(state, san_francisco) !== -1) {
-        //   key = "14LhglNvyCCrA3rVHnxOFAtt"
-        // }
+        else if (jQuery.inArray(state, san_francisco) !== -1) {
+          key = "14LhglNvyCCrA3rVHnxOFAtt"
+        }
         else if (jQuery.inArray(state, chicago) !== -1) {
           key = "jdwWgnmvS8Wy6WCxwROLHAtt"
         } else {
