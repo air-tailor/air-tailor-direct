@@ -57,3 +57,5 @@
 2018-06-13 22:44:48.740 EDT [41668] FATAL:  database "photo-fit_development" does not exist
 2018-06-13 22:46:15.183 EDT [41702] FATAL:  database "photo-fit_development" does not exist
 2018-06-13 22:48:21.793 EDT [42684] FATAL:  database "photo-fit_development" does not exist
+2018-06-29 19:53:27.877 EDT [12944] ERROR:  relation "measurements" does not exist
+2018-06-29 19:53:27.877 EDT [12944] STATEMENT:  ALTER TABLE "measurements" ADD "hem_width" float
