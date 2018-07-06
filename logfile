@@ -59,3 +59,12 @@
 2018-06-13 22:48:21.793 EDT [42684] FATAL:  database "photo-fit_development" does not exist
 2018-06-29 19:53:27.877 EDT [12944] ERROR:  relation "measurements" does not exist
 2018-06-29 19:53:27.877 EDT [12944] STATEMENT:  ALTER TABLE "measurements" ADD "hem_width" float
+2018-07-06 02:30:06.685 EDT [3083] LOG:  received smart shutdown request
+2018-07-06 02:30:06.687 EDT [3083] LOG:  worker process: logical replication launcher (PID 3090) exited with exit code 1
+2018-07-06 02:30:06.687 EDT [3085] LOG:  shutting down
+2018-07-06 02:30:06.706 EDT [3083] LOG:  database system is shut down
+2018-07-06 12:20:45.119 EDT [6273] LOG:  listening on IPv6 address "::1", port 5432
+2018-07-06 12:20:45.120 EDT [6273] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-07-06 12:20:45.120 EDT [6273] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-07-06 12:20:45.154 EDT [6274] LOG:  database system was shut down at 2018-07-06 02:30:06 EDT
+2018-07-06 12:20:45.161 EDT [6273] LOG:  database system is ready to accept connections
