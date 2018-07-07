@@ -1,0 +1,13 @@
+The following customer has requested an order kit:
+
+<h3><b><%= @customer.first_name %> <%= @customer.last_name %></b></h3>
+<span><%= @customer.street %></span><br>
+<% if @customer.street_two.blank? %>
+<% else %>
+<span><%= @customer.street_two %></span><br>
+<% end %>
+<span><%= @customer.city %>, <%= @customer.state_province %> <%= @customer.zip_code %></span><br>
+<span><%= @customer.email %></span><br>
+<span><%= @customer.phone %></span><br>
+
+

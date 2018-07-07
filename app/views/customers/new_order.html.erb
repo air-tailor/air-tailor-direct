@@ -710,9 +710,23 @@
     <p id="empty-basket" class="clickable"><span>X</span> Empty Basket</p>
   </div>
 
-  <center><p>Need prep and packaging supplies? <br><a href="#">Click here for a free welcome kit!</a></p></center>
+  <div id="kit-request-section">
+    <% if @customer.kit_requested == false %>
+      <center><p>Need prep and packaging supplies? <br><span id="kit-request-link" class="clickable">Click here for a free Order Kit!</span></p></center>
+    <% else %>
+      <center><p>Order kit requested! Need extra supplies or assistance? Just click on the speech bubble below.</p></center>
+    <% end %>
+  </div>
 
-
+  <div id="kit-request-popup" class="hidden">
+    <span id="kit-request-exit" class="clickable">X</span>
+    <img id="kit-request-logo" src="/assets/balloon.png" alt="balloon logo">
+    <h2>Get a free Order Kit</h2>
+    <p>Need safety pins or a package to send in your order? No problem, we've got you covered!</p>
+    <img id="kit-image" src="/assets/kit_inside.png" alt="">
+    <p>Click below, and your free order kit will arrive in 5-7 days with everything you need to get started.</p>
+    <button id="kit-request-button" class="clickable" onclick="<% @customer.update_attributes(kit_requested: true) %>">Request Kit</button>
+  </div>
 
 
 

@@ -14,6 +14,11 @@ class AirtailorMailer < ApplicationMailer
     mail(to: "brian@airtailor.com, joshua@airtailor.com", subject: "New D2C Order — Customer: " + @customer.first_name + " " + @customer.last_name)
   end
 
+  def order_kit_email(customer)
+    @customer = customer
+    mail(to: "brian@airtailor.com", subject: "Order Kit Request — Customer: " + @customer.first_name + " " + @customer.last_name)
+  end
+
   def forgot_password(customer)
     attachments.inline['logo.png'] = File.read(Rails.root.join("app/assets/images/logo.png"))
     @customer = customer

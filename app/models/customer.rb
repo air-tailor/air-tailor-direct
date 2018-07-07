@@ -18,6 +18,7 @@ class Customer < ApplicationRecord
 
   before_save { |customer| customer.email = email.downcase }
 
+
   def is_admin?
     # @TODO Make this better.
     self.email == "brian@airtailor.com" || self.email == "joshua@airtailor.com" || self.email == "morgan@airtailor.com"

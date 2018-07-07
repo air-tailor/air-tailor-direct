@@ -6,6 +6,11 @@ before_action :authorize, :except => [:new, :create, :terms]
     @customer = current_customer
   end
 
+  def order_kit
+    @customer = current_customer
+    AirtailorMailer.order_kit_email(@customer).deliver!
+  end
+
   def review
     @customer = current_customer
     @customer_promo = CustomerPromo.new
@@ -18,6 +23,7 @@ before_action :authorize, :except => [:new, :create, :terms]
 
   def thank_you
     @customer = current_customer
+    @customer.update_attributes(:kit_requested => false)
     @promo_join = CustomerPromo.where(customer_id: current_customer.id).where(used: false).last
     if @promo_join
       @promo = Promo.where(id: @promo_join.promo_id).first
@@ -39,6 +45,7 @@ before_action :authorize, :except => [:new, :create, :terms]
     @data = @data[:order][:items].values
     @res = params[:res]
     AirtailorMailer.error_email(@customer, @data, @res).deliver!
+    \
   end
 
   def show

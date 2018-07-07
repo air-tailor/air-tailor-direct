@@ -68,3 +68,5 @@
 2018-07-06 12:20:45.120 EDT [6273] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
 2018-07-06 12:20:45.154 EDT [6274] LOG:  database system was shut down at 2018-07-06 02:30:06 EDT
 2018-07-06 12:20:45.161 EDT [6273] LOG:  database system is ready to accept connections
+2018-07-06 14:55:54.289 EDT [6363] ERROR:  cached plan must not change result type
+2018-07-06 14:55:54.289 EDT [6363] STATEMENT:  SELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2

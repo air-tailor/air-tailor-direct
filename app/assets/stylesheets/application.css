@@ -369,14 +369,14 @@ button a {
   z-index: 1;
 }
 
-#how-to-popup {
-  width: 90%;
-  max-height: 100%;
+#how-to-popup, #kit-request-popup {
+  width: 360px;
+  height: 580px;
   background-color: white;
   position: fixed;
-  top: 100px;
-  bottom: 100px;
-  left: 5%;
+  top: 80px;
+  left: 50%;
+  margin-left: -180px;
   border-radius: 5px;
   box-shadow: 0 0 10px #000;
   z-index: 1;
@@ -387,19 +387,23 @@ button a {
   overflow-y: scroll;
 }
 
-#how-to-logo {
+#how-to-logo, #kit-request-logo {
   width: 90px;
 }
 
-#how-to-popup h2, #how-to-popup h3 {
+#how-to-popup h2, #how-to-popup h3, #kit-request-popup h2 {
   text-transform: uppercase;
 }
 
-#how-to-popup h2 {
+#how-to-popup h2, #kit-request-popup h2 {
   font-size: 14px;
   font-weight: normal;
   margin-top: -10px;
   color: gray;
+}
+
+#kit-image {
+  width: 90%;
 }
 
 #how-to-popup h3 {
@@ -422,7 +426,7 @@ button a {
 }
 
 
-#prep-exit, #how-to-exit {
+#prep-exit, #how-to-exit, #kit-request-exit {
   font-size: 18px;
   top: 105px;
   right: 7%;
@@ -607,7 +611,17 @@ button a {
 }
 
 /*  */
-/* END BASKET STYLES
+/* END BASKET STYLES */
+
+
+
+/* ORDER KIT */
+ #kit-request-link {
+  color: blue;
+  text-decoration: underline;
+ }
+/* END ORDER KIT */
+
 
 
 /* ORDER REVIEW PAGE */

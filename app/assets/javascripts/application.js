@@ -169,6 +169,32 @@
   })
 
 
+
+  $(document).on("click", "#kit-request-link", function(e){
+    if ($("#kit-request-popup").hasClass('hidden')){
+      $("#overlay, #kit-request-popup").fadeToggle();
+    }
+  });
+
+
+  $(document).on("click", "#kit-request-exit", function(){
+    $("#overlay, #kit-request-popup").fadeToggle();
+  })
+
+  $(document).on("click", "#kit-request-button", function(){
+    $("#overlay, #kit-request-popup").fadeToggle();
+    alert("Great! An order kit will be shipped to you right away!")
+    $("#kit-request-section p").html("Order kit requested! Need extra supplies or assistance? Just click on the speech bubble below.")
+     // new
+      $.ajax({
+        url: '/order_kit',
+        method: 'POST',
+        dataType: 'json',
+      });
+      // end new
+  })
+
+
   $(document).ready(function(){
     if(location.pathname == '/thank_you'){
       $("#top-nav-basket").hide();
@@ -223,6 +249,20 @@
   //
   // END OF GARMENT SELECTION PAGE
 
+
+
+  // KIT SECTION
+  //
+  //
+
+  $(document).on("click", "#kit-request", function(e){
+    e.preventDefault
+    console.log("hellololo")
+  });
+
+  //
+  //
+  // END KIT SECTION
 
 
 
