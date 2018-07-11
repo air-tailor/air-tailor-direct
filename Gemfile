@@ -9,6 +9,8 @@ gem 'stripe'
 
 gem 'gibbon', '~> 2.0.0'
 
+gem 'jquery-migrate-rails'
+
 gem 'awesome_print'
 
 gem 'sprockets', '~> 3.7.2'

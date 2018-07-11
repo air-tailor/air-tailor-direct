@@ -70,3 +70,12 @@
 2018-07-06 12:20:45.161 EDT [6273] LOG:  database system is ready to accept connections
 2018-07-06 14:55:54.289 EDT [6363] ERROR:  cached plan must not change result type
 2018-07-06 14:55:54.289 EDT [6363] STATEMENT:  SELECT  "customers".* FROM "customers" WHERE "customers"."id" = $1 LIMIT $2
+2018-07-09 03:21:57.518 EDT [6273] LOG:  received smart shutdown request
+2018-07-09 03:21:57.520 EDT [6273] LOG:  worker process: logical replication launcher (PID 6280) exited with exit code 1
+2018-07-09 03:21:57.520 EDT [6275] LOG:  shutting down
+2018-07-09 03:21:57.533 EDT [6273] LOG:  database system is shut down
+2018-07-09 10:25:46.858 EDT [3174] LOG:  listening on IPv6 address "::1", port 5432
+2018-07-09 10:25:46.859 EDT [3174] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-07-09 10:25:46.859 EDT [3174] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-07-09 10:25:46.901 EDT [3175] LOG:  database system was shut down at 2018-07-09 03:21:57 EDT
+2018-07-09 10:25:46.909 EDT [3174] LOG:  database system is ready to accept connections
