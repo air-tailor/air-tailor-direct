@@ -16,7 +16,7 @@ class AirtailorMailer < ApplicationMailer
 
   def order_kit_email(customer)
     @customer = customer
-    mail(to: "brian@airtailor.com", subject: "Order Kit Request — Customer: " + @customer.first_name + " " + @customer.last_name)
+    mail(to: "brian@airtailor.com, joshua@airtailor.com", subject: "Order Kit Request — Customer: " + @customer.first_name + " " + @customer.last_name)
   end
 
   def forgot_password(customer)
