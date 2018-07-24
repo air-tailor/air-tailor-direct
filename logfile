@@ -79,3 +79,12 @@
 2018-07-09 10:25:46.859 EDT [3174] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
 2018-07-09 10:25:46.901 EDT [3175] LOG:  database system was shut down at 2018-07-09 03:21:57 EDT
 2018-07-09 10:25:46.909 EDT [3174] LOG:  database system is ready to accept connections
+2018-07-23 23:23:06.287 EDT [9403] LOG:  listening on IPv6 address "::1", port 5432
+2018-07-23 23:23:06.288 EDT [9403] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-07-23 23:23:06.289 EDT [9403] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-07-23 23:23:06.329 EDT [9404] LOG:  database system was interrupted; last known up at 2018-07-15 23:11:37 EDT
+2018-07-23 23:23:06.664 EDT [9404] LOG:  database system was not properly shut down; automatic recovery in progress
+2018-07-23 23:23:06.673 EDT [9404] LOG:  redo starts at 0/2D92FF8
+2018-07-23 23:23:06.673 EDT [9404] LOG:  invalid record length at 0/2D930D8: wanted 24, got 0
+2018-07-23 23:23:06.673 EDT [9404] LOG:  redo done at 0/2D930A0
+2018-07-23 23:23:06.689 EDT [9403] LOG:  database system is ready to accept connections

@@ -1,8 +1,9 @@
 class AirtailorMailer < ApplicationMailer
 
-  def error_email(customer, data, res)
+  def error_email(customer, data, notes, res)
     @customer = customer
     @data = data
+    @notes = notes
     @res = res
     mail(to: "brian@airtailor.com, joshua@airtailor.com", subject: "D2C ERROR — Customer: " + @customer.first_name + " " + @customer.last_name)
   end

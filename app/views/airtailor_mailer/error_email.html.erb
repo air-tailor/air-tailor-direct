@@ -10,17 +10,17 @@
 <hr>
 <h3>Order Details</h3>
 <% @data.each do |item|%>
-<p><%= item[:garment] %></p>
-<ul>
-    <% item[:alterations].values.each do |alteration| %>
-    <li><%= alteration[:name] %></li>
-    <li>Alteration price: $<%= alteration[:price] %></li>
-    <% end %>
-</ul>
-<p>Item total: $<%= item[:total] %></p>
-<hr>
+  <p><%= item[:garment] %></p>
+  <ul>
+      <% item[:alterations].values.each do |alteration| %>
+        <li><%= alteration[:name] %></li>
+        <li>Alteration price: $<%= alteration[:price] %></li>
+      <% end %>
+  </ul>
+  <p>Item total: $<%= item[:total] %></p>
+  <hr>
 <% end %>
-
+  <p>Order Notes: <%= @notes %></p>
 <hr>
 
 <p>Error Message:</p>

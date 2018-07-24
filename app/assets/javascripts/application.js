@@ -837,6 +837,7 @@
     var customerCity = $("#customer-city").html();
     var customerState = $("#customer-state").html();
     var customerZip = $("#customer-zip").html();
+    orderNotes = $("#review-notes-textarea").val();
 
     data = {
       "order": {
