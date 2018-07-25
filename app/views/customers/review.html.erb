@@ -64,18 +64,24 @@
 
         }
 
-        if (discountName == "wwfriends"){
+        if (discountName == "wwfriends" || discountName == "aliceandolivia"){
           shipping = 0
           $("#shipping-price").html("$0.00")
         }
 
 
+
       // add total price
       $("#subtotal").html("$" + (totalPrice).toFixed(2))
       if (discountType == "Amount Discount"){
-        if(totalPrice-discount < 0){
+        if(totalPrice-discount <= 0){
+          if(shipping == 0){
+            $("#review-total-price").html("$0.50")
+            $("#form-amount").val(.5)
+          } else {
            $("#review-total-price").html(shipping.toFixed(2))
            $("#form-amount").val(shipping)
+          }
         } else {
           $("#review-total-price").html("$" + (totalPrice + shipping - discount).toFixed(2))
           $("#form-amount").val(totalPrice + shipping - discount)
