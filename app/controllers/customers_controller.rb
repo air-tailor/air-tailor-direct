@@ -66,6 +66,7 @@ before_action :authorize, :except => [:new, :create, :terms]
 
   def create
     @customer = Customer.new(customer_params)
+    @customer.update_attributes(kit_requested: false)
 
      # store all emails in lowercase to avoid duplicates and case-sensitive login errors:
     @customer.email.downcase!

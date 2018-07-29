@@ -711,7 +711,7 @@
   </div>
 
   <div id="kit-request-section">
-    <% if @customer.kit_requested == false %>
+    <% if @customer.kit_requested == false || @customer.kit_requested == nil %>
       <center><p>Need prep and packaging supplies? <br><span id="kit-request-link" class="clickable">Click here for a free Order Kit!</span></p></center>
     <% else %>
       <center><p>Order kit requested! Need extra supplies or assistance? Just click on the speech bubble below.</p></center>
