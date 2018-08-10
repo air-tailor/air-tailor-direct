@@ -30,7 +30,13 @@ a, .clickable {
   cursor: pointer;
 }
 
+#construction h3 {
+  font-weight: normal;
+}
 
+#construction-image {
+  width: 100%;
+}
 
 .red {
   color: #de0421

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   post '/order_kit', to: 'customers#order_kit'
   get '/terms', to: 'customers#terms'
   get '/review', to: 'customers#review'
+  get '/temp', to: 'customers#construction'
 
 
   # Let’s encrypt

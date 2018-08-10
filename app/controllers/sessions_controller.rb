@@ -1,14 +1,17 @@
 class SessionsController < ApplicationController
 
   def new
-    if session[:user_id]
-      redirect_to "/new_order"
-    end
+    redirect_to "/temp"
+    # if session[:user_id]
+    #   redirect_to "/new_order"
+    # end
   end
 
 
 
-    def create
+
+
+  def create
     email = params[:email].downcase
     customer = Customer.find_by_email(email)
     # If the user exists AND the password entered is correct.

@@ -1,15 +1,20 @@
 class CustomersController < ApplicationController
 
-before_action :authorize, :except => [:new, :create, :terms]
+before_action :authorize, :except => [:new, :create, :terms, :construction]
 
   def new_order
-    @customer = current_customer
+    redirect_to "/temp"
+    # @customer = current_customer
   end
 
   def order_kit
     @customer = current_customer
     AirtailorMailer.order_kit_email(@customer).deliver!
   end
+
+  def construction
+  end
+
 
   def review
     @customer = current_customer
@@ -57,11 +62,12 @@ before_action :authorize, :except => [:new, :create, :terms]
   end
 
   def new
-    if session[:user_id]
-      redirect_to "/new_order"
-    else
-      @customer = Customer.new
-    end
+    redirect_to "/temp"
+    # if session[:user_id]
+    #   redirect_to "/new_order"
+    # else
+    #   @customer = Customer.new
+    # end
   end
 
   def create
