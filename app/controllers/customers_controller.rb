@@ -1,8 +1,10 @@
 class CustomersController < ApplicationController
 
-before_action :authorize, :except => [:new, :create, :terms, :construction]
+before_action :authorize
+
 
   def new_order
+    redirect_to "/logout"
     redirect_to "/temp"
     # @customer = current_customer
   end
