@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_customer
 
   def authorize
-    redirect_to '/temp'
+    redirect_to '/logout'
   end
 
 
