@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
 
-before_action :authorize
+before_action :authorize, :except => [:construction]
 
 
   def new_order
