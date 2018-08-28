@@ -106,3 +106,16 @@
 2018-08-10 16:27:01.735 EDT [7010] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
 2018-08-10 16:27:01.766 EDT [7011] LOG:  database system was shut down at 2018-08-07 15:21:51 EDT
 2018-08-10 16:27:01.772 EDT [7010] LOG:  database system is ready to accept connections
+2018-08-28 14:54:57.088 EDT [10456] LOG:  listening on IPv6 address "::1", port 5432
+2018-08-28 14:54:57.088 EDT [10456] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-08-28 14:54:57.089 EDT [10456] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-08-28 14:54:57.125 EDT [10457] LOG:  database system was interrupted; last known up at 2018-08-10 16:32:01 EDT
+2018-08-28 14:54:57.479 EDT [10457] LOG:  database system was not properly shut down; automatic recovery in progress
+2018-08-28 14:54:57.488 EDT [10457] LOG:  redo starts at 0/2D9FB68
+2018-08-28 14:54:57.488 EDT [10457] LOG:  invalid record length at 0/2D9FC48: wanted 24, got 0
+2018-08-28 14:54:57.488 EDT [10457] LOG:  redo done at 0/2D9FC10
+2018-08-28 14:54:57.504 EDT [10456] LOG:  database system is ready to accept connections
+2018-08-28 15:06:47.197 EDT [10762] ERROR:  column promos.promo_id does not exist at character 40
+2018-08-28 15:06:47.197 EDT [10762] STATEMENT:  SELECT  "promos".* FROM "promos" WHERE "promos"."promo_id" = $1 LIMIT $2
+2018-08-28 15:06:50.065 EDT [10762] ERROR:  column promos.promo_id does not exist at character 40
+2018-08-28 15:06:50.065 EDT [10762] STATEMENT:  SELECT  "promos".* FROM "promos" WHERE "promos"."promo_id" = $1 ORDER BY "promos"."id" ASC LIMIT $2
