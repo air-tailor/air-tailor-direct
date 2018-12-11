@@ -1,10 +1,9 @@
 class SessionsController < ApplicationController
 
   def new
-    redirect_to "/temp"
-    # if session[:user_id]
-    #   redirect_to "/new_order"
-    # end
+    if session[:user_id]
+      redirect_to "/new_order"
+    end
   end
 
 
@@ -29,7 +28,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to '/temp'
+    redirect_to '/login'
   end
 
 end

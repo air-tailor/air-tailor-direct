@@ -4,19 +4,13 @@ before_action :authorize, :except => [:construction]
 
 
   def new_order
-    redirect_to "/logout"
-    redirect_to "/temp"
-    # @customer = current_customer
+    @customer = current_customer
   end
 
   def order_kit
     @customer = current_customer
     AirtailorMailer.order_kit_email(@customer).deliver!
   end
-
-  def construction
-  end
-
 
   def review
     @customer = current_customer
@@ -25,7 +19,6 @@ before_action :authorize, :except => [:construction]
     @promo_name = params[:promo_name]
     @promo_type = params[:promo_type]
     @promo_amount = params[:promo_amount]
-
   end
 
   def thank_you
@@ -64,12 +57,11 @@ before_action :authorize, :except => [:construction]
   end
 
   def new
-    redirect_to "/temp"
-    # if session[:user_id]
-    #   redirect_to "/new_order"
-    # else
-    #   @customer = Customer.new
-    # end
+    if session[:user_id]
+      redirect_to "/new_order"
+    else
+      @customer = Customer.new
+    end
   end
 
   def create

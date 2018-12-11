@@ -119,3 +119,7 @@
 2018-08-28 15:06:47.197 EDT [10762] STATEMENT:  SELECT  "promos".* FROM "promos" WHERE "promos"."promo_id" = $1 LIMIT $2
 2018-08-28 15:06:50.065 EDT [10762] ERROR:  column promos.promo_id does not exist at character 40
 2018-08-28 15:06:50.065 EDT [10762] STATEMENT:  SELECT  "promos".* FROM "promos" WHERE "promos"."promo_id" = $1 ORDER BY "promos"."id" ASC LIMIT $2
+2018-09-04 16:09:06.580 EDT [10456] LOG:  received smart shutdown request
+2018-09-04 16:09:06.584 EDT [10456] LOG:  worker process: logical replication launcher (PID 10463) exited with exit code 1
+2018-09-04 16:09:06.584 EDT [10458] LOG:  shutting down
+2018-09-04 16:09:06.601 EDT [10456] LOG:  database system is shut down
