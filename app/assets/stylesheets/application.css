@@ -357,18 +357,14 @@ button a {
   text-decoration: underline;
 }
 
-#prep-popup {
-  width: 90%;
-  /* max-width: 500px; */
-  max-height: 100%;
+#prep-popup, #how-to-popup, #kit-request-popup  {
+  width: 360px;
   background-color: white;
   position: fixed;
-  top: 100px;
-  bottom: 100px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  top: 80px;
+  bottom: 80px;
+  left: 50%;
+  margin-left: -180px;
   border-radius: 5px;
   box-shadow: 0 0 10px #000;
   overflow-y: scroll;
@@ -376,21 +372,10 @@ button a {
 }
 
 #how-to-popup, #kit-request-popup {
-  width: 360px;
-  height: 580px;
-  background-color: white;
-  position: fixed;
-  top: 80px;
-  left: 50%;
-  margin-left: -180px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px #000;
-  z-index: 1;
   text-align: center;
   padding-left: 15px;
   padding-right: 15px;
   box-sizing: border-box;
-  overflow-y: scroll;
 }
 
 #how-to-logo, #kit-request-logo {
@@ -434,9 +419,9 @@ button a {
 
 #prep-exit, #how-to-exit, #kit-request-exit {
   font-size: 18px;
-  top: 105px;
-  right: 7%;
-  position: fixed;
+  top: 10px;
+  right: 10px;
+  position: absolute;
   font-weight: bold;
   padding: 10px 13px;
   box-sizing: border-box;
